@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { useRef } from "react";
 import { MagneticButton } from "@/components/shared/magnetic-button";
 import { HERO_STATS } from "@/lib/constants";
@@ -10,7 +10,8 @@ import { HERO_STATS } from "@/lib/constants";
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollY } = useScroll();
-  const yBg = useTransform(scrollY, [0, 700], ["0%", "-14%"]);
+  const prefersReducedMotion = useReducedMotion();
+  const yBg = useTransform(scrollY, [0, 700], prefersReducedMotion ? ["0%", "0%"] : ["0%", "-14%"]);
 
   return (
     <section
@@ -21,7 +22,7 @@ export function Hero() {
       <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.div
           style={{ y: yBg }}
-          className="relative w-full h-[115%] top-[-7.5%]"
+          className="relative w-full h-[122%] top-[-3.5%]"
         >
           <motion.div
             initial={{ scale: 1 }}

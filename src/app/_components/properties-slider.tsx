@@ -1,75 +1,91 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform, useSpring, useReducedMotion, type MotionValue } from "motion/react";
 import { PROPERTIES } from "@/lib/constants";
 
 export function PropertiesSlider() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+  const targetRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"],
+  });
+  
+  // Spring-smoothed scroll progress for buttery slider motion
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 400, damping: 40 });
+  
+  // Translate the slider horizontally
+  const x = useTransform(smoothProgress, [0, 1], ["0%", "-55%"]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (!containerRef.current) return;
-      const scrollWidth = containerRef.current.scrollWidth;
-      const clientWidth = containerRef.current.clientWidth;
-      // Calculate how far we can drag left (always negative or zero)
-      setDragConstraints({
-        left: -Math.max(0, scrollWidth - clientWidth - 48), // Add padding margin
-        right: 0,
-      });
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // Unified safe vertical parallax limits for all slider cards
+  const CARD_PARALLAX_RANGE: [string, string][] = [
+    ["-8%", "8%"],
+    ["-8%", "8%"],
+    ["-8%", "8%"],
+    ["-8%", "8%"],
+  ];
 
   return (
     <section
+      ref={targetRef}
       id="residences"
-      className="relative w-full py-24 md:py-32 px-6 md:px-12 bg-canvas z-10 overflow-hidden"
+      className="relative w-full h-[300vh] bg-canvas z-30"
     >
-      <div className="max-w-7xl mx-auto flex flex-col gap-12">
-        {/* Section Header */}
-        <div className="flex flex-col gap-4">
-          <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
-            Selected Estates
-          </span>
-          <div className="flex justify-between items-end">
-            <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05] text-text-primary uppercase">
-              Signature <br />
-              <span className="italic font-light text-accent">Residences</span>
-            </h2>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-text-secondary hidden md:block">
-              Drag to explore portfolio
+      <div className="sticky top-0 h-[100dvh] flex flex-col justify-center px-6 md:px-12 py-24">
+        <div className="max-w-7xl mx-auto w-full flex flex-col gap-12">
+          {/* Section Header */}
+          <div className="flex flex-col gap-4">
+            <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
+              Selected Estates
+            </span>
+            <div className="flex justify-between items-end">
+              <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05] text-text-primary uppercase">
+                Signature <br />
+                <span className="italic font-light text-accent">Residences</span>
+              </h2>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-text-secondary hidden md:block">
+                Scroll to explore portfolio
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Draggable Slider Container */}
-        <div className="overflow-visible cursor-grab active:cursor-grabbing">
-          <motion.div
-            ref={containerRef}
-            drag="x"
-            dragConstraints={dragConstraints}
-            dragElastic={0.15}
-            className="flex gap-8 w-max pr-12"
-          >
-            {PROPERTIES.map((property) => (
-              <PropertyCard key={property.slug} property={property} />
-            ))}
-          </motion.div>
+          {/* Scroll-Linked Slider Container */}
+          <div className="overflow-visible">
+            <motion.div
+              style={{ x }}
+              className="flex gap-8 w-max pr-12 md:pr-32"
+            >
+              {PROPERTIES.map((property, index) => (
+                <PropertyCard 
+                  key={property.slug} 
+                  property={property} 
+                  scrollYProgress={smoothProgress}
+                  parallaxRange={CARD_PARALLAX_RANGE[index % CARD_PARALLAX_RANGE.length]}
+                />
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function PropertyCard({ property }: { property: (typeof PROPERTIES)[0] }) {
+function PropertyCard({ 
+  property, 
+  scrollYProgress,
+  parallaxRange,
+}: { 
+  property: (typeof PROPERTIES)[0],
+  scrollYProgress: MotionValue<number>,
+  parallaxRange: [string, string],
+}) {
   const [isHovered, setIsHovered] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+  const cardImgY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? ["0%", "0%"] : parallaxRange);
 
   return (
     <div
@@ -77,28 +93,25 @@ function PropertyCard({ property }: { property: (typeof PROPERTIES)[0] }) {
       onMouseLeave={() => setIsHovered(false)}
       className="w-[300px] md:w-[440px] select-none shrink-0"
     >
-      {/* Double Bezel (Doppelrand) Enclosure - Dark Mode */}
+      {/* Double Bezel (Doppelrand) Enclosure - Dark Mode style surface */}
       <div className="double-bezel-outer transition-colors duration-500 hover:bg-accent/5 hover:border-accent/20">
-        <div className="double-bezel-inner relative">
+        <div className="double-bezel-inner relative overflow-hidden bg-surface">
           {/* Card Link to Detail Page */}
           <Link
             href={`/projects/${property.slug}`}
             className="block relative aspect-4/3 overflow-hidden"
           >
-            {/* Image with slow-zoom hover effect */}
+            {/* Parallax inner image with safe container dimensions to prevent gaps */}
             <motion.div
-              animate={{
-                scale: isHovered ? 1.05 : 1,
-              }}
-              transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-              className="w-full h-full relative"
+              style={{ y: cardImgY }}
+              className="absolute inset-0 w-full h-[130%] -top-[15%] origin-center overflow-hidden"
             >
               <Image
                 src={property.image}
                 alt={property.name}
                 fill
                 sizes="(max-width: 768px) 300px, 440px"
-                className="object-cover brightness-90 saturate-[0.8]"
+                className={`object-cover brightness-95 saturate-[0.8] transition-transform duration-700 ${isHovered ? 'scale-105' : ''}`}
               />
             </motion.div>
 
@@ -107,7 +120,7 @@ function PropertyCard({ property }: { property: (typeof PROPERTIES)[0] }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
-              className="absolute inset-0 bg-gradient-to-t from-text-primary/80 via-text-primary/20 to-transparent flex flex-col justify-end p-6"
+              className="absolute inset-0 bg-gradient-to-t from-text-primary/80 via-text-primary/20 to-transparent flex flex-col justify-end p-6 z-10"
             >
               <motion.div
                 animate={{ y: isHovered ? 0 : 15, opacity: isHovered ? 1 : 0 }}
@@ -127,7 +140,7 @@ function PropertyCard({ property }: { property: (typeof PROPERTIES)[0] }) {
           </Link>
 
           {/* Card Info Section */}
-          <div className="p-6 flex flex-col gap-5">
+          <div className="p-6 flex flex-col gap-5 bg-canvas">
             {/* Location & Title */}
             <div className="flex flex-col gap-1.5">
               <span className="text-[10px] uppercase tracking-[0.2em] text-text-secondary">

@@ -60,13 +60,14 @@ export default function AboutPage() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-5 double-bezel-outer w-full aspect-[4/5] rounded-[2.5rem] overflow-hidden"
+              className="lg:col-span-5 double-bezel-outer w-full aspect-4/5 rounded-[2.5rem] overflow-hidden"
             >
               <div className="double-bezel-inner w-full h-full relative">
                 <Image
                   src="/images/services/service_architecture.png"
                   alt="Architectural detailing at J&S Atelier"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover brightness-95"
                 />
               </div>
@@ -100,7 +101,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.8 }}
                 className="flex flex-col gap-4 relative"
               >
-                <div className="absolute -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
+                <div className="absolute left-[-41px] md:left-[-57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
                 <span className="font-mono text-lg font-semibold text-accent">
                   2018
                 </span>
@@ -122,7 +123,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="flex flex-col gap-4 relative"
               >
-                <div className="absolute -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
+                <div className="absolute left-[-41px] md:left-[-57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
                 <span className="font-mono text-lg font-semibold text-accent">
                   2020
                 </span>
@@ -144,7 +145,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="flex flex-col gap-4 relative"
               >
-                <div className="absolute -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
+                <div className="absolute left-[-41px] md:left-[-57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
                 <span className="font-mono text-lg font-semibold text-accent">
                   2023
                 </span>
@@ -166,7 +167,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="flex flex-col gap-4 relative"
               >
-                <div className="absolute -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
+                <div className="absolute left-[-41px] md:left-[-57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
                 <span className="font-mono text-lg font-semibold text-accent">
                   2026
                 </span>
@@ -297,7 +298,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.8 }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
               >
-                <div className="lg:col-span-5 double-bezel-outer aspect-square rounded-[2rem] overflow-hidden">
+                <div className="lg:col-span-5 double-bezel-outer aspect-square rounded-4xl overflow-hidden">
                   <div className="double-bezel-inner relative w-full h-full">
                     <Image
                       src={alexander.imageUrl}
@@ -333,7 +334,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.8 }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center lg:flex-row-reverse"
               >
-                <div className="lg:col-span-5 lg:order-2 double-bezel-outer aspect-square rounded-[2rem] overflow-hidden">
+                <div className="lg:col-span-5 lg:order-2 double-bezel-outer aspect-square rounded-4xl overflow-hidden">
                   <div className="double-bezel-inner relative w-full h-full">
                     <Image
                       src={elena.imageUrl}
@@ -369,7 +370,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.8 }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
               >
-                <div className="lg:col-span-5 double-bezel-outer aspect-square rounded-[2rem] overflow-hidden">
+                <div className="lg:col-span-5 double-bezel-outer aspect-square rounded-4xl overflow-hidden">
                   <div className="double-bezel-inner relative w-full h-full">
                     <Image
                       src={marcus.imageUrl}
@@ -430,7 +431,7 @@ export default function AboutPage() {
                     className="group block"
                   >
                     <div className="double-bezel-outer transition-colors duration-400 group-hover:bg-accent/5 group-hover:border-accent/20">
-                      <div className="double-bezel-inner relative aspect-[3/4] overflow-hidden">
+                      <div className="double-bezel-inner relative aspect-3/4 overflow-hidden">
                         <Image
                           src={property.image}
                           alt={property.name}
@@ -438,7 +439,7 @@ export default function AboutPage() {
                           sizes="(max-width: 768px) 50vw, 25vw"
                           className="object-cover brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700 ease-premium-in-out"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-text-primary/80 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-text-primary/80 via-transparent to-transparent" />
                         <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
                           <span className="text-[9px] uppercase tracking-[0.22em] text-white/80 font-mono">
                             {property.location}

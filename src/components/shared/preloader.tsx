@@ -8,7 +8,7 @@ export function Preloader() {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    const duration = 2000; // 2 seconds total loader time
+    const duration = 800; // 800ms total loader time
     const intervalTime = 20; // 20ms steps
     const steps = duration / intervalTime;
     let stepCount = 0;
@@ -26,7 +26,7 @@ export function Preloader() {
         // Let user see 100 for a brief moment before fading
         setTimeout(() => {
           setIsComplete(true);
-        }, 300);
+        }, 150);
       }
     }, intervalTime);
 

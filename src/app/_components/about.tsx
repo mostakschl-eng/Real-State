@@ -1,6 +1,42 @@
 "use client";
 
-import { motion } from "motion/react";
+import Image from "next/image";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion, type MotionValue } from "motion/react";
+
+// Depth-scaled parallax per pillar — matches the z-axis cascade (mt-10, mt-20):
+// the visually "further back" pillar travels further, so motion reinforces layout.
+const PILLAR_PARALLAX_RANGE: [string, string][] = [
+  ["-5%", "5%"],
+  ["-8%", "8%"],
+  ["-10%", "10%"],
+];
+
+function PillarImage({
+  scrollYProgress,
+  index,
+  image,
+  label,
+}: {
+  scrollYProgress: MotionValue<number>;
+  index: number;
+  image: string;
+  label: string;
+}) {
+  const prefersReducedMotion = useReducedMotion();
+  const imgY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? ["0%", "0%"] : PILLAR_PARALLAX_RANGE[index]);
+
+  return (
+    <motion.div style={{ y: imgY }} className="absolute inset-0 w-full h-[130%] -top-[15%]">
+      <Image
+        src={image}
+        alt={label}
+        fill
+        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-105"
+      />
+    </motion.div>
+  );
+}
 
 const PILLARS = [
   {
@@ -8,24 +44,35 @@ const PILLARS = [
     label: "Material Honesty",
     detail:
       "Raw travertine, exposed basalt, and aggregate concrete age into monuments.",
+    image: "/images/properties/prop_luminary.png",
   },
   {
     num: "02",
     label: "Geometric Silence",
     detail:
       "Strict structural grids balance mass, cantilever, and negative void.",
+    image: "/images/properties/prop_obsidian.png",
   },
   {
     num: "03",
     label: "Atmospheric Light",
     detail:
       "Solar paths sculpted into deep overhangs, skylights, and shadow planes.",
+    image: "/images/properties/prop_aria.png",
   },
 ];
 
 export function About() {
+  const containerRef = useRef<HTMLElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
   return (
     <section
+      ref={containerRef}
       id="about"
       className="relative w-full py-28 md:py-40 px-4 sm:px-6 md:px-12 bg-canvas z-10 overflow-hidden"
     >
@@ -77,7 +124,7 @@ export function About() {
         </div>
 
         {/* Three Pillars — Z-Axis Cascade on desktop, stack on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 md:relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 md:relative">
           {PILLARS.map((pillar, index) => (
             <motion.div
               key={pillar.num}
@@ -90,20 +137,33 @@ export function About() {
                 ease: [0.32, 0.72, 0, 1],
               }}
               className={`double-bezel-outer md:relative ${
-                index === 1 ? "md:mt-6" : ""
-              } ${index === 2 ? "md:mt-3" : ""}`}
+                index === 1 ? "md:mt-10" : ""
+              } ${index === 2 ? "md:mt-20" : ""}`}
             >
-              <div className="double-bezel-inner p-7 md:p-8 flex flex-col justify-between min-h-[220px] md:min-h-[280px]">
-                <span className="font-mono text-[10px] text-accent">
-                  [{pillar.num}]
-                </span>
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-serif text-xl uppercase tracking-wider text-text-primary">
-                    {pillar.label}
-                  </h3>
-                  <p className="text-[11px] md:text-xs text-text-secondary leading-relaxed font-light">
-                    {pillar.detail}
-                  </p>
+              <div className="double-bezel-inner flex flex-col min-h-[380px] overflow-hidden group">
+                <div
+                  id={index === 2 ? "about-morph-source" : undefined}
+                  className="relative aspect-4/3 w-full overflow-hidden"
+                >
+                  <PillarImage
+                    scrollYProgress={scrollYProgress}
+                    index={index}
+                    image={pillar.image}
+                    label={pillar.label}
+                  />
+                </div>
+                <div className="p-7 md:p-8 flex flex-col justify-between flex-grow bg-canvas">
+                  <span className="font-mono text-[10px] text-accent">
+                    [{pillar.num}]
+                  </span>
+                  <div className="flex flex-col gap-2 mt-4">
+                    <h3 className="font-serif text-xl md:text-2xl uppercase tracking-wider text-text-primary">
+                      {pillar.label}
+                    </h3>
+                    <p className="text-[11px] md:text-xs text-text-secondary leading-relaxed font-light">
+                      {pillar.detail}
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>

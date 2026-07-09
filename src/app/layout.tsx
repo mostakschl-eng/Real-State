@@ -41,8 +41,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${instrumentSerif.variable} ${plusJakartaSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-canvas text-text-primary">
+      <body className="min-h-full flex flex-col bg-canvas text-text-primary" suppressHydrationWarning>
         {/* Procedural Film Grain Overlay */}
         <div className="noise-overlay fixed inset-0 pointer-events-none z-50 opacity-[0.025]" />
 

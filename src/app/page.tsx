@@ -3,6 +3,7 @@ import { Preloader } from "@/components/shared/preloader";
 import { Navbar } from "@/components/shared/navbar";
 import { Hero } from "./_components/hero";
 import { About } from "./_components/about";
+import { ResidencesTransition } from "./_components/residences-transition";
 import { PropertiesSlider } from "./_components/properties-slider";
 import { Services } from "./_components/services";
 import { Team } from "./_components/team";
@@ -24,6 +25,7 @@ export default function Home() {
         <main className="grow">
           <Hero />
           <About />
+          <ResidencesTransition />
           <PropertiesSlider />
           <Services />
           <Team />
