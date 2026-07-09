@@ -1,12 +1,10 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useSpring, useReducedMotion, type MotionValue } from "motion/react";
+import { motion, useScroll, useTransform, useSpring, useReducedMotion, useMotionValue, type MotionValue } from "motion/react";
 import { PROPERTIES } from "@/lib/constants";
-
-const MotionLink = motion(Link);
 
 export function PropertiesSlider() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -19,8 +17,8 @@ export function PropertiesSlider() {
   // Spring-smoothed scroll progress for buttery slider motion
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 400, damping: 40 });
   
-  // Translate the slider horizontally after the entry morph completes
-  const x = useTransform(smoothProgress, [0, 0.12, 1], ["0%", "0%", "-55%"]);
+  // Translate the slider horizontally
+  const x = useTransform(smoothProgress, [0, 1], ["0%", "-55%"]);
 
   // Unified safe vertical parallax limits for all slider cards
   const CARD_PARALLAX_RANGE: [string, string][] = [
@@ -65,8 +63,7 @@ export function PropertiesSlider() {
                   key={property.slug} 
                   property={property} 
                   isFirst={index === 0}
-                  scrollYProgress={smoothProgress}
-                  parallaxRange={CARD_PARALLAX_RANGE[index % CARD_PARALLAX_RANGE.length]}
+                  containerRef={targetRef}
                 />
               ))}
             </motion.div>
@@ -80,30 +77,125 @@ export function PropertiesSlider() {
 function PropertyCard({ 
   property, 
   isFirst = false,
-  scrollYProgress,
-  parallaxRange,
+  containerRef 
 }: { 
   property: (typeof PROPERTIES)[0],
   isFirst?: boolean,
-  scrollYProgress: MotionValue<number>,
-  parallaxRange: [string, string],
+  containerRef: React.RefObject<HTMLDivElement | null>
 }) {
   const [isHovered, setIsHovered] = useState(false);
-  const prefersReducedMotion = useReducedMotion();
+  const linkRef = useRef<HTMLAnchorElement>(null);
+
+  // MotionValues for real-time visual coordinate bridging
+  const entryDeltaX = useMotionValue(0);
+  const entryDeltaY = useMotionValue(-600);
+  const entryScaleX = useMotionValue(3.5);
+  const entryScaleY = useMotionValue(2.6);
+
+  useEffect(() => {
+    if (!isFirst) return;
+
+    function measure() {
+      const linkEl = linkRef.current;
+      if (!linkEl) return;
+      const targetRect = linkEl.getBoundingClientRect();
+      if (targetRect.width === 0) return;
+
+      const source = document.getElementById("residences-transition-source");
+      if (source) {
+        const s = source.getBoundingClientRect();
+        entryDeltaX.set(s.left + s.width / 2 - (targetRect.left + targetRect.width / 2));
+        entryDeltaY.set(s.top + s.height / 2 - (targetRect.top + targetRect.height / 2));
+        entryScaleX.set(s.width / targetRect.width);
+        entryScaleY.set(s.height / targetRect.height);
+      }
+    }
+
+    measure();
+    window.addEventListener("resize", measure);
+
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        measure();
+        ticking = false;
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [isFirst]);
+
+  // Horizontal parallax for standard cards
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+  const imgX = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+
+  // Entry morph progress (as the slider scrolls into view)
+  const { scrollYProgress: enterProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "start start"], 
+  });
+
+  // Delay the morph start to 40% of the entry scroll so the source image is fully shown first
+  const startProgress = 0.4;
+
+  const morphX = useTransform(enterProgress, (v) => {
+    if (v < startProgress) return entryDeltaX.get();
+    const p = (v - startProgress) / (1 - startProgress);
+    return (1 - p) * entryDeltaX.get();
+  });
+
+  const morphY = useTransform(enterProgress, (v) => {
+    if (v < startProgress) return entryDeltaY.get();
+    const p = (v - startProgress) / (1 - startProgress);
+    return (1 - p) * entryDeltaY.get();
+  });
+
+  const morphScaleX = useTransform(enterProgress, (v) => {
+    if (v < startProgress) return entryScaleX.get();
+    const p = (v - startProgress) / (1 - startProgress);
+    return p + (1 - p) * entryScaleX.get();
+  });
+
+  const morphScaleY = useTransform(enterProgress, (v) => {
+    if (v < startProgress) return entryScaleY.get();
+    const p = (v - startProgress) / (1 - startProgress);
+    return p + (1 - p) * entryScaleY.get();
+  });
+
+  // Fade in the morphing copy just as the morph starts moving (between 0.35 and 0.45)
+  const morphOpacity = useTransform(enterProgress, [0, 0.35, 0.45, 1], [0, 0, 1, 1]);
   
-  // Standard card parallax
-  const cardImgY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? ["0%", "0%"] : parallaxRange);
+  // Calculate border radius dynamically for all four corners:
+  // - Top corners remain visually rounded at 24px
+  // - Bottom corners start rounded at 24px and flatten to 0px as the card lands
+  // Calculate border radius dynamically to keep all four corners visually rounded at 24px
+  const cardRadius = useTransform(enterProgress, (v) => {
+    const clamped = Math.max(0, Math.min(1.0, v));
+    const p = clamped < startProgress ? 0 : (clamped - startProgress) / (1 - startProgress);
+    const currentScale = p + (1 - p) * entryScaleX.get();
+    const r = 24 / (currentScale || 1);
+    return `${r}px`;
+  });
 
-  // First card viewport morph
-  const entryScale = useTransform(scrollYProgress, [0, 0.12], prefersReducedMotion ? [1, 1] : [1.6, 1]);
-  const entryY = useTransform(scrollYProgress, [0, 0.12], prefersReducedMotion ? ["0%", "0%"] : ["-25%", "0%"]);
-  const entryRadius = useTransform(scrollYProgress, [0, 0.12], prefersReducedMotion ? ["24px", "24px"] : ["0px", "24px"]);
-
-  const cardStyle = isFirst && !prefersReducedMotion ? {
-    scale: entryScale,
-    y: entryY,
-    borderRadius: entryRadius,
-  } : {};
+  const styleObj = isFirst 
+    ? { 
+        x: morphX, 
+        y: morphY, 
+        scaleX: morphScaleX, 
+        scaleY: morphScaleY, 
+        opacity: morphOpacity,
+        borderRadius: cardRadius
+      } 
+    : { x: imgX };
 
   return (
     <div
@@ -113,17 +205,19 @@ function PropertyCard({
     >
       {/* Double Bezel (Doppelrand) Enclosure - Dark Mode style surface */}
       <div className="double-bezel-outer transition-colors duration-500 hover:bg-accent/5 hover:border-accent/20">
-        <div className={`double-bezel-inner relative bg-surface ${isFirst ? "" : "overflow-hidden"}`}>
-          {/* Card Link to Detail Page - Wrapped in MotionLink for morph transition */}
-          <MotionLink
+        <div className={`double-bezel-inner relative bg-surface ${isFirst ? '!overflow-visible' : 'overflow-hidden'}`}>
+          {/* Card Link to Detail Page */}
+          <Link
+            ref={linkRef}
             href={`/projects/${property.slug}`}
-            style={isFirst ? cardStyle : {}}
-            className="block relative aspect-4/3 overflow-hidden rounded-t-[calc(2rem-0.375rem)] z-20 bg-zinc-950 origin-center"
+            className={`block relative aspect-4/3 ${isFirst ? 'overflow-visible' : 'overflow-hidden'}`}
           >
-            {/* Parallax inner image with safe container dimensions to prevent gaps */}
+            {/* Image with morph/parallax effect */}
             <motion.div
-              style={{ y: cardImgY }}
-              className="absolute inset-0 w-full h-[130%] -top-[15%] origin-center overflow-hidden"
+              style={isFirst ? styleObj : { x: imgX }}
+              animate={!isFirst ? { scale: isHovered ? 1.05 : 1 } : {}}
+              transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
+              className={`w-full h-full absolute inset-0 origin-center ${isFirst ? 'z-50 overflow-visible' : 'z-0 overflow-hidden rounded-t-[calc(2rem-0.375rem)]'}`}
             >
               <Image
                 src={property.image}
@@ -156,10 +250,10 @@ function PropertyCard({
                 <div className="text-accent text-lg font-light">&rarr;</div>
               </motion.div>
             </motion.div>
-          </MotionLink>
+          </Link>
 
           {/* Card Info Section */}
-          <div className="p-6 flex flex-col gap-5 bg-canvas relative z-10">
+          <div className="p-6 flex flex-col gap-5 bg-canvas">
             {/* Location & Title */}
             <div className="flex flex-col gap-1.5">
               <span className="text-[10px] uppercase tracking-[0.2em] text-text-secondary">
