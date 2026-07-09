@@ -17,7 +17,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },
-  { label: "Contact", href: "/contact" }
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -32,7 +32,10 @@ export function Navbar() {
       {/* Desktop Floating Pill Nav */}
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] max-w-5xl rounded-full px-6 py-3 bg-canvas/80 backdrop-blur-xl border border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.6)] flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="font-serif text-lg tracking-[0.2em] uppercase text-text-primary hover:text-accent transition-colors duration-300">
+        <Link
+          href="/"
+          className="font-serif text-lg tracking-[0.2em] uppercase text-text-primary hover:text-accent transition-colors duration-300"
+        >
           J&S <span className="text-accent">Estate</span>
         </Link>
 
@@ -94,7 +97,11 @@ export function Navbar() {
                   key={link.label}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + index * 0.08, duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                  transition={{
+                    delay: 0.1 + index * 0.08,
+                    duration: 0.5,
+                    ease: [0.32, 0.72, 0, 1],
+                  }}
                 >
                   <Link
                     href={link.href}
@@ -109,7 +116,10 @@ export function Navbar() {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + NAV_LINKS.length * 0.08, duration: 0.5 }}
+                transition={{
+                  delay: 0.1 + NAV_LINKS.length * 0.08,
+                  duration: 0.5,
+                }}
                 className="mt-8"
               >
                 <Link href="/contact" onClick={closeMenu}>

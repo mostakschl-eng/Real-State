@@ -17,7 +17,6 @@ export default function ProjectsPage() {
 
       <main className="min-h-screen bg-canvas pt-32 pb-24 px-6 md:px-12 z-10 relative">
         <div className="max-w-7xl mx-auto flex flex-col gap-16">
-          
           {/* Page Heading */}
           <div className="flex flex-col gap-4 max-w-2xl">
             <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
@@ -25,10 +24,14 @@ export default function ProjectsPage() {
             </span>
             <h1 className="font-serif text-4xl md:text-6xl tracking-tight leading-[1.05] text-text-primary uppercase">
               Selected <br />
-              <span className="italic font-light text-accent">Signature Estates</span>
+              <span className="italic font-light text-accent">
+                Signature Estates
+              </span>
             </h1>
             <p className="text-xs md:text-sm leading-relaxed text-text-secondary mt-2 font-light">
-              Explore our collection of private residential landmarks in Dubai. Each structure is an individual study in light, space, and materials.
+              Explore our collection of private residential landmarks in Dubai.
+              Each structure is an individual study in light, space, and
+              materials.
             </p>
           </div>
 
@@ -46,7 +49,11 @@ export default function ProjectsPage() {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.8, delay: index * 0.1, ease: [0.32, 0.72, 0, 1] }}
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.1,
+                    ease: [0.32, 0.72, 0, 1],
+                  }}
                   className={`flex flex-col gap-6 w-full ${
                     isEven ? "md:translate-y-0" : "md:translate-y-16"
                   }`}
@@ -54,14 +61,19 @@ export default function ProjectsPage() {
                   {/* Double Bezel Enclosure */}
                   <div className="double-bezel-outer transition-colors duration-500 hover:bg-accent/5 hover:border-accent/20">
                     <div className="double-bezel-inner relative">
-
                       {/* Image Frame */}
-                      <Link href={`/projects/${property.slug}`} className="block relative aspect-4/3 overflow-hidden">
+                      <Link
+                        href={`/projects/${property.slug}`}
+                        className="block relative aspect-4/3 overflow-hidden"
+                      >
                         <motion.div
                           animate={{
-                            scale: isHovered ? 1.05 : 1
+                            scale: isHovered ? 1.05 : 1,
                           }}
-                          transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
+                          transition={{
+                            duration: 0.7,
+                            ease: [0.32, 0.72, 0, 1],
+                          }}
                           className="w-full h-full relative"
                         >
                           <Image
@@ -87,7 +99,9 @@ export default function ProjectsPage() {
                             <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-white">
                               View Details
                             </span>
-                            <span className="text-accent text-lg font-light">&rarr;</span>
+                            <span className="text-accent text-lg font-light">
+                              &rarr;
+                            </span>
                           </div>
                         </motion.div>
                       </Link>
@@ -112,7 +126,10 @@ export default function ProjectsPage() {
                         {/* Fine Lined Grid */}
                         <div className="grid grid-cols-3 gap-px bg-black/5 border border-black/5 rounded-lg overflow-hidden">
                           {property.specs.slice(0, 3).map((spec) => (
-                            <div key={spec.label} className="bg-surface p-3 flex flex-col gap-1">
+                            <div
+                              key={spec.label}
+                              className="bg-surface p-3 flex flex-col gap-1"
+                            >
                               <span className="text-[9px] uppercase tracking-[0.22em] text-text-secondary">
                                 {spec.label}
                               </span>
@@ -132,16 +149,13 @@ export default function ProjectsPage() {
                             {property.price}
                           </span>
                         </div>
-
                       </div>
-
                     </div>
                   </div>
                 </motion.div>
               );
             })}
           </div>
-
         </div>
       </main>
 

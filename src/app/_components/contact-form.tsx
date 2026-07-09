@@ -27,9 +27,15 @@ export function ContactForm() {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
     const { name, value } = e.target;
     setFields((prev) => ({ ...prev, [name]: value }));
     // Clear error on change
@@ -74,17 +80,16 @@ export function ContactForm() {
   };
 
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       className="relative w-full min-h-[90dvh] flex flex-col justify-center py-24 md:py-32 px-6 md:px-12 bg-canvas z-10 overflow-hidden"
     >
       {/* Decorative vertical grid line */}
       <div className="absolute right-[10%] top-0 bottom-0 w-px bg-black/5 pointer-events-none hidden lg:block" />
 
       <div className="max-w-4xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
-        
         {/* Left Side: Call to Action Details (col-span-5) */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
@@ -99,7 +104,8 @@ export function ContactForm() {
             <span className="italic font-light text-accent">Journey</span>
           </h2>
           <p className="text-xs md:text-sm leading-relaxed text-text-secondary max-w-[30ch] font-light">
-            Contact our private advisory atelier to coordinate a viewing or private consultation.
+            Contact our private advisory atelier to coordinate a viewing or
+            private consultation.
           </p>
           <div className="text-xs text-text-secondary tracking-wide mt-8 space-y-2">
             <div>Direct Line: +971 4 555 0199</div>
@@ -108,7 +114,7 @@ export function ContactForm() {
         </motion.div>
 
         {/* Right Side: Contact Form (col-span-7) */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
@@ -128,7 +134,8 @@ export function ContactForm() {
                 Inquiry Received
               </h3>
               <p className="text-xs text-text-secondary max-w-[30ch] leading-relaxed mt-3">
-                A private advisor from J&S Estate will contact you shortly to discuss your request.
+                A private advisor from J&S Estate will contact you shortly to
+                discuss your request.
               </p>
               <button
                 onClick={() => setStatus("idle")}
@@ -139,7 +146,6 @@ export function ContactForm() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-              
               {/* Full Name Block */}
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
@@ -191,10 +197,30 @@ export function ContactForm() {
                   onChange={handleChange}
                   className="w-full pb-3 bg-transparent border-b border-black/15 text-sm text-text-primary focus:outline-none focus:border-accent transition-colors cursor-pointer appearance-none rounded-none"
                 >
-                  <option value="The Luminary Oasis" className="bg-surface text-text-primary">The Luminary Oasis</option>
-                  <option value="The Obsidian Crest" className="bg-surface text-text-primary">The Obsidian Crest</option>
-                  <option value="The Aria Penthouse" className="bg-surface text-text-primary">The Aria Penthouse</option>
-                  <option value="The Terraces at Serene" className="bg-surface text-text-primary">The Terraces at Serene</option>
+                  <option
+                    value="The Luminary Oasis"
+                    className="bg-surface text-text-primary"
+                  >
+                    The Luminary Oasis
+                  </option>
+                  <option
+                    value="The Obsidian Crest"
+                    className="bg-surface text-text-primary"
+                  >
+                    The Obsidian Crest
+                  </option>
+                  <option
+                    value="The Aria Penthouse"
+                    className="bg-surface text-text-primary"
+                  >
+                    The Aria Penthouse
+                  </option>
+                  <option
+                    value="The Terraces at Serene"
+                    className="bg-surface text-text-primary"
+                  >
+                    The Terraces at Serene
+                  </option>
                 </select>
               </div>
 
@@ -226,7 +252,9 @@ export function ContactForm() {
                   disabled={status === "submitting"}
                   className="w-full rounded-full bg-accent hover:bg-text-primary text-canvas py-3 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 active:scale-[0.98] disabled:opacity-50"
                 >
-                  {status === "submitting" ? "Submitting Inquiry" : "Submit Inquiry"}
+                  {status === "submitting"
+                    ? "Submitting Inquiry"
+                    : "Submit Inquiry"}
                 </MagneticButton>
               </div>
 
@@ -235,11 +263,9 @@ export function ContactForm() {
                   An error occurred. Please try again.
                 </div>
               )}
-
             </form>
           )}
         </motion.div>
-
       </div>
     </section>
   );

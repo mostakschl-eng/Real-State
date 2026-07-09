@@ -8,12 +8,11 @@ export function Team() {
   const [alexander, elena, marcus] = TEAM_MEMBERS;
 
   return (
-    <section 
-      id="team" 
+    <section
+      id="team"
       className="relative w-full py-24 md:py-32 px-6 md:px-12 bg-surface z-10 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-12">
-        
         {/* Section Header */}
         <div className="flex flex-col gap-4">
           <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
@@ -21,15 +20,16 @@ export function Team() {
           </span>
           <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05] text-text-primary uppercase">
             The Minds Behind <br />
-            <span className="italic font-light text-accent">the Structures</span>
+            <span className="italic font-light text-accent">
+              the Structures
+            </span>
           </h2>
         </div>
 
         {/* Asymmetric Bento Grid (3 items, 3 cells - no empty tiles, no three-in-a-row) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          
           {/* Card 1: Alexander Mercer (col-span-2) - Horizontal Split */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -67,7 +67,7 @@ export function Team() {
           </motion.div>
 
           {/* Card 2: Elena Rostova (col-span-1) - Vertical Layout */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -103,7 +103,7 @@ export function Team() {
           </motion.div>
 
           {/* Card 3: Marcus Thorne (col-span-3) - Horizontal Reverse Split */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -139,9 +139,7 @@ export function Team() {
               </div>
             </div>
           </motion.div>
-
         </div>
-
       </div>
     </section>
   );

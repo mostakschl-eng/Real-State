@@ -17,7 +17,7 @@ export function Preloader() {
       stepCount++;
       const currentProgress = Math.min(
         Math.floor((stepCount / steps) * 100),
-        100
+        100,
       );
       setProgress(currentProgress);
 
@@ -38,10 +38,10 @@ export function Preloader() {
       {!isComplete && (
         <motion.div
           initial={{ opacity: 1, y: 0 }}
-          exit={{ 
-            opacity: 0, 
+          exit={{
+            opacity: 0,
             y: "-100dvh",
-            transition: { duration: 1.0, ease: [0.83, 0, 0.17, 1] } 
+            transition: { duration: 1.0, ease: [0.83, 0, 0.17, 1] },
           }}
           className="fixed inset-0 bg-canvas flex flex-col justify-between p-12 md:p-24 z-45"
         >
@@ -78,7 +78,7 @@ export function Preloader() {
             <div className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary max-w-[20ch] hidden md:block">
               Sculpting residential sanctuaries in Dubai
             </div>
-            
+
             <div className="font-mono text-7xl md:text-9xl tracking-tighter leading-none font-light text-accent">
               {progress.toString().padStart(3, "0")}
             </div>

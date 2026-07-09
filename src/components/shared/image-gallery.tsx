@@ -22,7 +22,7 @@ export function ImageGallery({ images, label }: ImageGalleryProps) {
       setDirection(next > activeIndex ? 1 : -1);
       setActiveIndex(wrapped);
     },
-    [activeIndex, total]
+    [activeIndex, total],
   );
 
   const goPrev = useCallback(() => goTo(activeIndex - 1), [activeIndex, goTo]);
@@ -45,7 +45,10 @@ export function ImageGallery({ images, label }: ImageGalleryProps) {
   };
 
   return (
-    <div className="flex flex-col gap-5" aria-label={label ?? "Project gallery"}>
+    <div
+      className="flex flex-col gap-5"
+      aria-label={label ?? "Project gallery"}
+    >
       {/* Main stage */}
       <div className="double-bezel-outer">
         <div className="double-bezel-inner relative aspect-[16/10] w-full overflow-hidden">
@@ -75,7 +78,8 @@ export function ImageGallery({ images, label }: ImageGalleryProps) {
                   {images[activeIndex].caption}
                 </span>
                 <span className="font-mono text-xs text-white/80 tracking-wider">
-                  {String(activeIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+                  {String(activeIndex + 1).padStart(2, "0")} /{" "}
+                  {String(total).padStart(2, "0")}
                 </span>
               </div>
             </motion.div>
@@ -90,7 +94,9 @@ export function ImageGallery({ images, label }: ImageGalleryProps) {
                 aria-label="Previous image"
                 className="group absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-text-primary transition-all duration-300"
               >
-                <span aria-hidden className="text-lg">&larr;</span>
+                <span aria-hidden className="text-lg">
+                  &larr;
+                </span>
               </button>
               <button
                 type="button"
@@ -98,7 +104,9 @@ export function ImageGallery({ images, label }: ImageGalleryProps) {
                 aria-label="Next image"
                 className="group absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-11 h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-text-primary transition-all duration-300"
               >
-                <span aria-hidden className="text-lg">&rarr;</span>
+                <span aria-hidden className="text-lg">
+                  &rarr;
+                </span>
               </button>
             </>
           )}

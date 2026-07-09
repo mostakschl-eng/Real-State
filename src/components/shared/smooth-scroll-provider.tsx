@@ -7,7 +7,11 @@ const SmoothScrollContext = createContext<Lenis | null>(null);
 
 export const useSmoothScroll = () => useContext(SmoothScrollContext);
 
-export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
+export function SmoothScrollProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useEffect(() => {
@@ -42,4 +46,3 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     </SmoothScrollContext.Provider>
   );
 }
-

@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import {
+  Instrument_Serif,
+  Plus_Jakarta_Sans,
+  Geist_Mono,
+} from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/shared/smooth-scroll-provider";
 
@@ -24,7 +28,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "J&S Estate | Luxury Real Estate & Architectural Heritage",
-  description: "Experience museum-grade architectural design and bespoke residential portfolios in Dubai. Crafted by J&S Atelier.",
+  description:
+    "Experience museum-grade architectural design and bespoke residential portfolios in Dubai. Crafted by J&S Atelier.",
 };
 
 export default function RootLayout({
@@ -40,7 +45,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-canvas text-text-primary">
         {/* Procedural Film Grain Overlay */}
         <div className="noise-overlay fixed inset-0 pointer-events-none z-50 opacity-[0.025]" />
-        
+
         <SmoothScrollProvider>
           <div className="flex flex-col flex-1 relative min-h-dvh">
             {children}

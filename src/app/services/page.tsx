@@ -10,23 +10,27 @@ const PROCESS_STEPS = [
   {
     step: "01",
     title: "Atelier Alignment",
-    description: "We host an introductory consultation at our Dubai flagship to align on the buyer's acquisition timeline, architectural preferences, and programmatic needs."
+    description:
+      "We host an introductory consultation at our Dubai flagship to align on the buyer's acquisition timeline, architectural preferences, and programmatic needs.",
   },
   {
     step: "02",
     title: "Geometric Sketching",
-    description: "Our design partners draft initial massing models and site orientation sketches, ensuring perfect solar paths and geometric void clearances."
+    description:
+      "Our design partners draft initial massing models and site orientation sketches, ensuring perfect solar paths and geometric void clearances.",
   },
   {
     step: "03",
     title: "Material Sourcing",
-    description: "We travel directly to regional quarries in Italy and Greece to hand-select travertine blocks and basalt slabs for the structural aggregate."
+    description:
+      "We travel directly to regional quarries in Italy and Greece to hand-select travertine blocks and basalt slabs for the structural aggregate.",
   },
   {
     step: "04",
     title: "Precision Execution",
-    description: "Our luxury construction atelier coordinates the build phase, maintaining strict tolerances of 1mm on exposed finishes and cast concrete joints."
-  }
+    description:
+      "Our luxury construction atelier coordinates the build phase, maintaining strict tolerances of 1mm on exposed finishes and cast concrete joints.",
+  },
 ];
 
 const SERVICE_SCOPE: Record<string, string> = {
@@ -50,10 +54,9 @@ export default function ServicesPage() {
 
       <main className="min-h-screen bg-canvas pt-32 pb-24 z-10 relative text-text-primary">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-32">
-          
           {/* Header Block */}
           <div className="max-w-3xl flex flex-col gap-6">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -61,24 +64,28 @@ export default function ServicesPage() {
             >
               Atelier Capabilities
             </motion.span>
-            
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
               className="font-serif text-5xl md:text-7xl tracking-tight leading-[0.95] uppercase"
             >
               Bespoke Solutions <br />
-              <span className="italic font-light text-accent">for Collectors</span>
+              <span className="italic font-light text-accent">
+                for Collectors
+              </span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15 }}
               className="text-xs md:text-sm leading-relaxed text-text-secondary max-w-[50ch] font-light"
             >
-              We provide full-lifecycle craft, from the initial geometric sketch to portfolio asset advisory. Each service is structured around precision tolerances and absolute design confidentiality.
+              We provide full-lifecycle craft, from the initial geometric sketch
+              to portfolio asset advisory. Each service is structured around
+              precision tolerances and absolute design confidentiality.
             </motion.p>
           </div>
 
@@ -87,7 +94,7 @@ export default function ServicesPage() {
             {SERVICES.map((service, index) => {
               const isEven = index % 2 === 0;
               return (
-                <motion.div 
+                <motion.div
                   key={service.id}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +103,9 @@ export default function ServicesPage() {
                   className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center`}
                 >
                   {/* Image side - Double Bezel */}
-                  <div className={`lg:col-span-6 w-full aspect-[16/10] rounded-[2rem] overflow-hidden double-bezel-outer ${isEven ? "" : "lg:order-2"}`}>
+                  <div
+                    className={`lg:col-span-6 w-full aspect-[16/10] rounded-[2rem] overflow-hidden double-bezel-outer ${isEven ? "" : "lg:order-2"}`}
+                  >
                     <div className="double-bezel-inner relative w-full h-full">
                       <Image
                         src={service.imageUrl}
@@ -108,25 +117,33 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Text side */}
-                  <div className={`lg:col-span-6 flex flex-col gap-6 ${isEven ? "" : "lg:order-1"}`}>
-                    <span className="font-mono text-xs text-accent">{service.number}</span>
+                  <div
+                    className={`lg:col-span-6 flex flex-col gap-6 ${isEven ? "" : "lg:order-1"}`}
+                  >
+                    <span className="font-mono text-xs text-accent">
+                      {service.number}
+                    </span>
                     <h3 className="font-serif text-3xl uppercase tracking-wider">
                       {service.title}
                     </h3>
                     <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-light">
                       {service.description}
                     </p>
-                    
+
                     {/* Unique details list */}
                     <div className="border-t border-black/5 pt-6 grid grid-cols-2 gap-6">
                       <div>
-                        <h4 className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent mb-2">Scope of Craft</h4>
+                        <h4 className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent mb-2">
+                          Scope of Craft
+                        </h4>
                         <p className="text-[11px] text-text-secondary font-light">
                           {SERVICE_SCOPE[service.id]}
                         </p>
                       </div>
                       <div>
-                        <h4 className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent mb-2">Lead Partner</h4>
+                        <h4 className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent mb-2">
+                          Lead Partner
+                        </h4>
                         <p className="text-[11px] text-text-secondary font-light">
                           {SERVICE_LEAD[service.id]}
                         </p>
@@ -145,7 +162,10 @@ export default function ServicesPage() {
                 The Journey
               </span>
               <h2 className="font-serif text-4xl uppercase tracking-tight leading-[1.05] mt-4">
-                Our Four-Step <span className="italic font-light text-accent">Acquisition Flow</span>
+                Our Four-Step{" "}
+                <span className="italic font-light text-accent">
+                  Acquisition Flow
+                </span>
               </h2>
             </div>
 
@@ -156,13 +176,21 @@ export default function ServicesPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.32, 0.72, 0, 1] }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.08,
+                    ease: [0.32, 0.72, 0, 1],
+                  }}
                   className="double-bezel-outer"
                 >
                   <div className="double-bezel-inner p-6 flex flex-col gap-6 justify-between h-[280px]">
-                    <span className="font-mono text-xs text-accent">{step.step}</span>
+                    <span className="font-mono text-xs text-accent">
+                      {step.step}
+                    </span>
                     <div className="flex flex-col gap-2">
-                      <h3 className="font-serif text-lg uppercase tracking-wider">{step.title}</h3>
+                      <h3 className="font-serif text-lg uppercase tracking-wider">
+                        {step.title}
+                      </h3>
                       <p className="text-[11px] text-text-secondary leading-relaxed font-light">
                         {step.description}
                       </p>
@@ -172,7 +200,6 @@ export default function ServicesPage() {
               ))}
             </div>
           </div>
-
         </div>
       </main>
 

@@ -31,17 +31,16 @@ export function Footer() {
   return (
     <footer className="w-full bg-surface border-t border-black/5 py-16 md:py-24 px-6 md:px-12 z-10">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
-
         {/* Top: brand + columns */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
-
           {/* Brand Column */}
           <div className="md:col-span-4 flex flex-col gap-6">
             <h2 className="font-serif text-3xl uppercase tracking-[0.2em] text-text-primary">
               J&S <span className="text-accent">Estate</span>
             </h2>
             <p className="text-text-secondary text-xs uppercase tracking-[0.2em] max-w-[28ch] leading-relaxed font-light">
-              Sculpting architectural sanctuaries in Dubai since 2018. Every commission is a private study in light, material, and silence.
+              Sculpting architectural sanctuaries in Dubai since 2018. Every
+              commission is a private study in light, material, and silence.
             </p>
             {/* Social links */}
             <div className="flex gap-6 pt-2">
@@ -70,7 +69,10 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               {FOOTER_NAV.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-xs text-text-secondary hover:text-accent transition-colors tracking-wide">
+                  <Link
+                    href={link.href}
+                    className="text-xs text-text-secondary hover:text-accent transition-colors tracking-wide"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -86,7 +88,10 @@ export function Footer() {
             <ul className="flex flex-col gap-3">
               {FOOTER_SERVICES.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-xs text-text-secondary hover:text-accent transition-colors tracking-wide">
+                  <Link
+                    href={link.href}
+                    className="text-xs text-text-secondary hover:text-accent transition-colors tracking-wide"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -105,10 +110,16 @@ export function Footer() {
               <p>Dubai, United Arab Emirates</p>
             </div>
             <div className="flex flex-col gap-2 text-xs text-text-secondary tracking-wide font-light">
-              <a href="mailto:inquire@js-estate.com" className="hover:text-accent transition-colors">
+              <a
+                href="mailto:inquire@js-estate.com"
+                className="hover:text-accent transition-colors"
+              >
                 inquire@js-estate.com
               </a>
-              <a href="tel:+97145550199" className="hover:text-accent transition-colors">
+              <a
+                href="tel:+97145550199"
+                className="hover:text-accent transition-colors"
+              >
                 +971 4 555 0199
               </a>
             </div>
@@ -147,7 +158,6 @@ export function Footer() {
             Dubai, United Arab Emirates
           </span>
         </div>
-
       </div>
     </footer>
   );

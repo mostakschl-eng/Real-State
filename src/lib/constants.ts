@@ -66,10 +66,26 @@ export const PROPERTIES: Property[] = [
     price: "$18,500,000",
     image: "/images/properties/prop_luminary.png",
     gallery: [
-      { src: "/images/properties/prop_luminary.png", alt: "The Luminary Oasis principal elevation at dusk", caption: "Principal elevation at dusk" },
-      { src: "/images/services/service_architecture.png", alt: "Travertine atrium and floating staircase", caption: "Travertine atrium and floating stair" },
-      { src: "/images/services/service_development.png", alt: "Raw concrete detail and shadow plane", caption: "Raw concrete and shadow plane" },
-      { src: "/images/services/service_advisory.png", alt: "Garden terrace overlooking the canopy", caption: "Garden terrace over the canopy" },
+      {
+        src: "/images/properties/prop_luminary.png",
+        alt: "The Luminary Oasis principal elevation at dusk",
+        caption: "Principal elevation at dusk",
+      },
+      {
+        src: "/images/services/service_architecture.png",
+        alt: "Travertine atrium and floating staircase",
+        caption: "Travertine atrium and floating stair",
+      },
+      {
+        src: "/images/services/service_development.png",
+        alt: "Raw concrete detail and shadow plane",
+        caption: "Raw concrete and shadow plane",
+      },
+      {
+        src: "/images/services/service_advisory.png",
+        alt: "Garden terrace overlooking the canopy",
+        caption: "Garden terrace over the canopy",
+      },
     ],
     specs: [
       { label: "Bedrooms", value: "6" },
@@ -123,10 +139,26 @@ export const PROPERTIES: Property[] = [
     price: "$24,200,000",
     image: "/images/properties/prop_obsidian.png",
     gallery: [
-      { src: "/images/properties/prop_obsidian.png", alt: "The Obsidian Crest from the beachfront", caption: "The crest from the beachfront" },
-      { src: "/images/services/service_development.png", alt: "Basalt salon opening to the sea", caption: "Basalt salon opening to the sea" },
-      { src: "/images/services/service_investment.png", alt: "Submerged arrival court detail", caption: "Submerged arrival court" },
-      { src: "/images/services/service_architecture.png", alt: "Lower level spa and lap pool", caption: "Lower level spa and lap pool" },
+      {
+        src: "/images/properties/prop_obsidian.png",
+        alt: "The Obsidian Crest from the beachfront",
+        caption: "The crest from the beachfront",
+      },
+      {
+        src: "/images/services/service_development.png",
+        alt: "Basalt salon opening to the sea",
+        caption: "Basalt salon opening to the sea",
+      },
+      {
+        src: "/images/services/service_investment.png",
+        alt: "Submerged arrival court detail",
+        caption: "Submerged arrival court",
+      },
+      {
+        src: "/images/services/service_architecture.png",
+        alt: "Lower level spa and lap pool",
+        caption: "Lower level spa and lap pool",
+      },
     ],
     specs: [
       { label: "Bedrooms", value: "5" },
@@ -180,10 +212,26 @@ export const PROPERTIES: Property[] = [
     price: "$15,800,000",
     image: "/images/properties/prop_aria.png",
     gallery: [
-      { src: "/images/properties/prop_aria.png", alt: "The Aria Penthouse salon and skyline", caption: "Salon over the skyline" },
-      { src: "/images/services/service_advisory.png", alt: "Floating spiral staircase detail", caption: "Floating spiral stair" },
-      { src: "/images/services/service_architecture.png", alt: "Double-height glazed corner", caption: "Double-height glazed corner" },
-      { src: "/images/services/service_development.png", alt: "Sky terrace at twilight", caption: "Sky terrace at twilight" },
+      {
+        src: "/images/properties/prop_aria.png",
+        alt: "The Aria Penthouse salon and skyline",
+        caption: "Salon over the skyline",
+      },
+      {
+        src: "/images/services/service_advisory.png",
+        alt: "Floating spiral staircase detail",
+        caption: "Floating spiral stair",
+      },
+      {
+        src: "/images/services/service_architecture.png",
+        alt: "Double-height glazed corner",
+        caption: "Double-height glazed corner",
+      },
+      {
+        src: "/images/services/service_development.png",
+        alt: "Sky terrace at twilight",
+        caption: "Sky terrace at twilight",
+      },
     ],
     specs: [
       { label: "Bedrooms", value: "4" },
@@ -237,10 +285,26 @@ export const PROPERTIES: Property[] = [
     price: "$11,400,000",
     image: "/images/properties/prop_terraces.png",
     gallery: [
-      { src: "/images/properties/prop_terraces.png", alt: "The Terraces at Serene cascading down the contour", caption: "Cascading terraces over the fairway" },
-      { src: "/images/services/service_development.png", alt: "Rammed-earth wall and timber screen", caption: "Rammed earth and timber screen" },
-      { src: "/images/services/service_architecture.png", alt: "Wellness terrace and 25 m pool", caption: "Wellness terrace and pool" },
-      { src: "/images/services/service_investment.png", alt: "Sunken fire lounge at dusk", caption: "Sunken fire lounge at dusk" },
+      {
+        src: "/images/properties/prop_terraces.png",
+        alt: "The Terraces at Serene cascading down the contour",
+        caption: "Cascading terraces over the fairway",
+      },
+      {
+        src: "/images/services/service_development.png",
+        alt: "Rammed-earth wall and timber screen",
+        caption: "Rammed earth and timber screen",
+      },
+      {
+        src: "/images/services/service_architecture.png",
+        alt: "Wellness terrace and 25 m pool",
+        caption: "Wellness terrace and pool",
+      },
+      {
+        src: "/images/services/service_investment.png",
+        alt: "Sunken fire lounge at dusk",
+        caption: "Sunken fire lounge at dusk",
+      },
     ],
     specs: [
       { label: "Bedrooms", value: "5" },
@@ -285,30 +349,34 @@ export const SERVICES: Service[] = [
     id: "architecture",
     number: "01",
     title: "Architectural Design",
-    description: "Sculpting minimalist volumes and high-concept structural layouts that respond to sunlight, wind, and landscape conditions.",
-    imageUrl: "/images/services/service_architecture.png"
+    description:
+      "Sculpting minimalist volumes and high-concept structural layouts that respond to sunlight, wind, and landscape conditions.",
+    imageUrl: "/images/services/service_architecture.png",
   },
   {
     id: "development",
     number: "02",
     title: "Luxury Development",
-    description: "Executing premium builds with master-craftsman precision, utilizing rare materials like basalt, travertine, and architectural concrete.",
-    imageUrl: "/images/services/service_development.png"
+    description:
+      "Executing premium builds with master-craftsman precision, utilizing rare materials like basalt, travertine, and architectural concrete.",
+    imageUrl: "/images/services/service_development.png",
   },
   {
     id: "advisory",
     number: "03",
     title: "Property Advisory",
-    description: "Providing discrete acquisition intelligence for high-net-worth individuals seeking signature assets and architectural masterpieces.",
-    imageUrl: "/images/services/service_advisory.png"
+    description:
+      "Providing discrete acquisition intelligence for high-net-worth individuals seeking signature assets and architectural masterpieces.",
+    imageUrl: "/images/services/service_advisory.png",
   },
   {
     id: "investment",
     number: "04",
     title: "Portfolio Management",
-    description: "Optimizing premium real estate assets through custom tenancy strategies, structural restorations, and asset valuations.",
-    imageUrl: "/images/services/service_investment.png"
-  }
+    description:
+      "Optimizing premium real estate assets through custom tenancy strategies, structural restorations, and asset valuations.",
+    imageUrl: "/images/services/service_investment.png",
+  },
 ];
 
 export interface FirmStat {
@@ -335,20 +403,20 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Alexander Mercer",
     role: "Founding Partner & Lead Architect",
     imageUrl: "/images/team/alexander.png",
-    bio: "Formally trained at the AA School of Architecture, Alexander has spent two decades pioneering structural minimalism in Europe and the Middle East."
+    bio: "Formally trained at the AA School of Architecture, Alexander has spent two decades pioneering structural minimalism in Europe and the Middle East.",
   },
   {
     name: "Elena Rostova",
     role: "Managing Director & Advisory Lead",
     imageUrl: "/images/team/elena.png",
-    bio: "Elena oversees signature acquisitions and portfolio growth, orchestrating private asset transactions for institutional collectors and family offices."
+    bio: "Elena oversees signature acquisitions and portfolio growth, orchestrating private asset transactions for institutional collectors and family offices.",
   },
   {
     name: "Marcus Thorne",
     role: "Director of Construction Crafts",
     imageUrl: "/images/team/marcus.png",
-    bio: "Marcus commands our onsite execution teams, ensuring structural concrete pours, stonemasonry details, and interior finishes match museum-grade standards."
-  }
+    bio: "Marcus commands our onsite execution teams, ensuring structural concrete pours, stonemasonry details, and interior finishes match museum-grade standards.",
+  },
 ];
 
 export const Z_INDEX = {
@@ -359,5 +427,5 @@ export const Z_INDEX = {
   overlay: 30,
   dropdown: 25,
   content: 10,
-  background: 0
+  background: 0,
 };

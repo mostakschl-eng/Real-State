@@ -16,11 +16,10 @@ export default function AboutPage() {
 
       <main className="min-h-screen bg-canvas pt-32 pb-24 z-10 relative text-text-primary">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-32">
-          
           {/* Asymmetric Editorial Hero Split */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <div className="lg:col-span-7 flex flex-col gap-8">
-              <motion.span 
+              <motion.span
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -28,30 +27,36 @@ export default function AboutPage() {
               >
                 The Atelier Story
               </motion.span>
-              
-              <motion.h1 
+
+              <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
                 className="font-serif text-5xl md:text-7xl tracking-tight leading-[0.95] uppercase"
               >
                 Architecture is a <br />
-                <span className="italic font-light text-accent">physical extension</span> <br />
+                <span className="italic font-light text-accent">
+                  physical extension
+                </span>{" "}
+                <br />
                 of the soul.
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.15 }}
                 className="text-xs md:text-sm leading-relaxed text-text-secondary max-w-[50ch] font-light"
               >
-                Founded in Dubai in 2018, J&S Estate was born from a desire to escape the generic patterns of commercial real estate. We do not construct buildings; we orchestrate light, aggregate raw materials, and draft silence.
+                Founded in Dubai in 2018, J&S Estate was born from a desire to
+                escape the generic patterns of commercial real estate. We do not
+                construct buildings; we orchestrate light, aggregate raw
+                materials, and draft silence.
               </motion.p>
             </div>
 
             {/* Asymmetric side image */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -76,17 +81,19 @@ export default function AboutPage() {
               </span>
               <h2 className="font-serif text-4xl uppercase tracking-tight leading-[1.05]">
                 Sculpting a <br />
-                <span className="italic font-light text-accent">Design Legacy</span>
+                <span className="italic font-light text-accent">
+                  Design Legacy
+                </span>
               </h2>
               <p className="text-xs text-text-secondary leading-relaxed font-light max-w-[32ch]">
-                Trace the design milestones and commissions that shaped our signature vocabulary.
+                Trace the design milestones and commissions that shaped our
+                signature vocabulary.
               </p>
             </div>
 
             <div className="lg:col-span-7 flex flex-col gap-16 border-l border-black/5 pl-8 md:pl-12">
-              
               {/* Year 2018 */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -94,15 +101,21 @@ export default function AboutPage() {
                 className="flex flex-col gap-4 relative"
               >
                 <div className="absolute -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
-                <span className="font-mono text-lg font-semibold text-accent">2018</span>
-                <h3 className="font-serif text-xl uppercase tracking-wide">Inception of the Atelier</h3>
+                <span className="font-mono text-lg font-semibold text-accent">
+                  2018
+                </span>
+                <h3 className="font-serif text-xl uppercase tracking-wide">
+                  Inception of the Atelier
+                </h3>
                 <p className="text-xs text-text-secondary leading-relaxed font-light">
-                  Established in Dubai with a singular studio in Al Barari. The atelier began as a private partnership committed to custom architectural monographs.
+                  Established in Dubai with a singular studio in Al Barari. The
+                  atelier began as a private partnership committed to custom
+                  architectural monographs.
                 </p>
               </motion.div>
 
               {/* Year 2020 */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -110,15 +123,21 @@ export default function AboutPage() {
                 className="flex flex-col gap-4 relative"
               >
                 <div className="absolute -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
-                <span className="font-mono text-lg font-semibold text-accent">2020</span>
-                <h3 className="font-serif text-xl uppercase tracking-wide">The Obsidian Commission</h3>
+                <span className="font-mono text-lg font-semibold text-accent">
+                  2020
+                </span>
+                <h3 className="font-serif text-xl uppercase tracking-wide">
+                  The Obsidian Commission
+                </h3>
                 <p className="text-xs text-text-secondary leading-relaxed font-light">
-                  Commissioned to design the monolithic black marble villa on Palm Jumeirah. This project defined our use of physical density and material contrast.
+                  Commissioned to design the monolithic black marble villa on
+                  Palm Jumeirah. This project defined our use of physical
+                  density and material contrast.
                 </p>
               </motion.div>
 
               {/* Year 2023 */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -126,15 +145,21 @@ export default function AboutPage() {
                 className="flex flex-col gap-4 relative"
               >
                 <div className="absolute -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
-                <span className="font-mono text-lg font-semibold text-accent">2023</span>
-                <h3 className="font-serif text-xl uppercase tracking-wide">Sky Residences Expansion</h3>
+                <span className="font-mono text-lg font-semibold text-accent">
+                  2023
+                </span>
+                <h3 className="font-serif text-xl uppercase tracking-wide">
+                  Sky Residences Expansion
+                </h3>
                 <p className="text-xs text-text-secondary leading-relaxed font-light">
-                  Designed the double-height Aria Penthouse in Downtown Dubai, introducing custom geometric cantilevers and floating volumetric planes.
+                  Designed the double-height Aria Penthouse in Downtown Dubai,
+                  introducing custom geometric cantilevers and floating
+                  volumetric planes.
                 </p>
               </motion.div>
 
               {/* Year 2026 */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -142,13 +167,18 @@ export default function AboutPage() {
                 className="flex flex-col gap-4 relative"
               >
                 <div className="absolute -left-[41px] md:-left-[57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
-                <span className="font-mono text-lg font-semibold text-accent">2026</span>
-                <h3 className="font-serif text-xl uppercase tracking-wide">Signature Portfolio Launch</h3>
+                <span className="font-mono text-lg font-semibold text-accent">
+                  2026
+                </span>
+                <h3 className="font-serif text-xl uppercase tracking-wide">
+                  Signature Portfolio Launch
+                </h3>
                 <p className="text-xs text-text-secondary leading-relaxed font-light">
-                  Consolidated our custom commissions into a signature residential portfolio available to private collectors worldwide.
+                  Consolidated our custom commissions into a signature
+                  residential portfolio available to private collectors
+                  worldwide.
                 </p>
               </motion.div>
-
             </div>
           </div>
 
@@ -159,13 +189,16 @@ export default function AboutPage() {
                 Design Philosophy
               </span>
               <h2 className="font-serif text-4xl uppercase tracking-tight leading-[1.05] mt-4">
-                Three Rules of <span className="italic font-light text-accent">Atelier Craft</span>
+                Three Rules of{" "}
+                <span className="italic font-light text-accent">
+                  Atelier Craft
+                </span>
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Pillar 1 */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -175,47 +208,67 @@ export default function AboutPage() {
                 <div className="double-bezel-inner p-8 flex flex-col gap-4 min-h-[250px] justify-between">
                   <span className="font-mono text-xs text-accent">[01]</span>
                   <div className="flex flex-col gap-2">
-                    <h3 className="font-serif text-lg uppercase tracking-wider">Material Honesty</h3>
+                    <h3 className="font-serif text-lg uppercase tracking-wider">
+                      Material Honesty
+                    </h3>
                     <p className="text-xs text-text-secondary leading-relaxed font-light">
-                      We select raw, natural materials that age gracefully. Travertine, raw basalt, exposed aggregate concrete, and brushed bronze are our lexicon.
+                      We select raw, natural materials that age gracefully.
+                      Travertine, raw basalt, exposed aggregate concrete, and
+                      brushed bronze are our lexicon.
                     </p>
                   </div>
                 </div>
               </motion.div>
 
               {/* Pillar 2 */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.08, ease: [0.32, 0.72, 0, 1] }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.08,
+                  ease: [0.32, 0.72, 0, 1],
+                }}
                 className="double-bezel-outer"
               >
                 <div className="double-bezel-inner p-8 flex flex-col gap-4 min-h-[250px] justify-between">
                   <span className="font-mono text-xs text-accent">[02]</span>
                   <div className="flex flex-col gap-2">
-                    <h3 className="font-serif text-lg uppercase tracking-wider">Geometric Integrity</h3>
+                    <h3 className="font-serif text-lg uppercase tracking-wider">
+                      Geometric Integrity
+                    </h3>
                     <p className="text-xs text-text-secondary leading-relaxed font-light">
-                      Our structures are derived from strict geometric grids, balancing mass, cantilever projections, and negative void space to achieve visual silence.
+                      Our structures are derived from strict geometric grids,
+                      balancing mass, cantilever projections, and negative void
+                      space to achieve visual silence.
                     </p>
                   </div>
                 </div>
               </motion.div>
 
               {/* Pillar 3 */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.16, ease: [0.32, 0.72, 0, 1] }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.16,
+                  ease: [0.32, 0.72, 0, 1],
+                }}
                 className="double-bezel-outer"
               >
                 <div className="double-bezel-inner p-8 flex flex-col gap-4 min-h-[250px] justify-between">
                   <span className="font-mono text-xs text-accent">[03]</span>
                   <div className="flex flex-col gap-2">
-                    <h3 className="font-serif text-lg uppercase tracking-wider">Atmospheric Light</h3>
+                    <h3 className="font-serif text-lg uppercase tracking-wider">
+                      Atmospheric Light
+                    </h3>
                     <p className="text-xs text-text-secondary leading-relaxed font-light">
-                      We orchestrate the movement of solar paths throughout the day, constructing deep overhangs and skylights that carve volume with light and shadow.
+                      We orchestrate the movement of solar paths throughout the
+                      day, constructing deep overhangs and skylights that carve
+                      volume with light and shadow.
                     </p>
                   </div>
                 </div>
@@ -230,14 +283,14 @@ export default function AboutPage() {
                 Founders
               </span>
               <h2 className="font-serif text-4xl uppercase tracking-tight leading-[1.05] mt-4">
-                Atelier <span className="italic font-light text-accent">Partners</span>
+                Atelier{" "}
+                <span className="italic font-light text-accent">Partners</span>
               </h2>
             </div>
 
             <div className="flex flex-col gap-24">
-              
               {/* Partner 1: Alexander Mercer */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -255,19 +308,25 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-7 flex flex-col gap-4">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">{alexander.role}</span>
-                  <h3 className="font-serif text-3xl uppercase tracking-wide">{alexander.name}</h3>
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
+                    {alexander.role}
+                  </span>
+                  <h3 className="font-serif text-3xl uppercase tracking-wide">
+                    {alexander.name}
+                  </h3>
                   <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-light max-w-[55ch]">
                     {alexander.bio}
                   </p>
                   <blockquote className="border-l border-accent pl-4 italic text-xs text-text-secondary font-serif mt-2">
-                    &ldquo;Architecture is the art of drafting light and aggregate concrete so they become a single silent monument.&rdquo;
+                    &ldquo;Architecture is the art of drafting light and
+                    aggregate concrete so they become a single silent
+                    monument.&rdquo;
                   </blockquote>
                 </div>
               </motion.div>
 
               {/* Partner 2: Elena Rostova */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -285,19 +344,25 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-7 lg:order-1 flex flex-col gap-4">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">{elena.role}</span>
-                  <h3 className="font-serif text-3xl uppercase tracking-wide">{elena.name}</h3>
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
+                    {elena.role}
+                  </span>
+                  <h3 className="font-serif text-3xl uppercase tracking-wide">
+                    {elena.name}
+                  </h3>
                   <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-light max-w-[55ch]">
                     {elena.bio}
                   </p>
                   <blockquote className="border-l border-accent pl-4 italic text-xs text-text-secondary font-serif mt-2">
-                    &ldquo;Space is not an empty volume; it is a weightless texture waiting to be bounded by proportion and stone.&rdquo;
+                    &ldquo;Space is not an empty volume; it is a weightless
+                    texture waiting to be bounded by proportion and
+                    stone.&rdquo;
                   </blockquote>
                 </div>
               </motion.div>
 
               {/* Partner 3: Marcus Thorne */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -315,17 +380,21 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-7 flex flex-col gap-4">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">{marcus.role}</span>
-                  <h3 className="font-serif text-3xl uppercase tracking-wide">{marcus.name}</h3>
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
+                    {marcus.role}
+                  </span>
+                  <h3 className="font-serif text-3xl uppercase tracking-wide">
+                    {marcus.name}
+                  </h3>
                   <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-light max-w-[55ch]">
                     {marcus.bio}
                   </p>
                   <blockquote className="border-l border-accent pl-4 italic text-xs text-text-secondary font-serif mt-2">
-                    &ldquo;Luxury does not exist in ornament. It exists in the perfect convergence of void, aggregate, and time.&rdquo;
+                    &ldquo;Luxury does not exist in ornament. It exists in the
+                    perfect convergence of void, aggregate, and time.&rdquo;
                   </blockquote>
                 </div>
               </motion.div>
-
             </div>
           </div>
 
@@ -336,7 +405,10 @@ export default function AboutPage() {
                 Signature Work
               </span>
               <h2 className="font-serif text-4xl uppercase tracking-tight leading-[1.05]">
-                Selected <span className="italic font-light text-accent">Commissions</span>
+                Selected{" "}
+                <span className="italic font-light text-accent">
+                  Commissions
+                </span>
               </h2>
             </div>
 
@@ -347,9 +419,16 @@ export default function AboutPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.6, delay: index * 0.08, ease: [0.32, 0.72, 0, 1] }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.08,
+                    ease: [0.32, 0.72, 0, 1],
+                  }}
                 >
-                  <Link href={`/projects/${property.slug}`} className="group block">
+                  <Link
+                    href={`/projects/${property.slug}`}
+                    className="group block"
+                  >
                     <div className="double-bezel-outer transition-colors duration-400 group-hover:bg-accent/5 group-hover:border-accent/20">
                       <div className="double-bezel-inner relative aspect-[3/4] overflow-hidden">
                         <Image
@@ -384,7 +463,6 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-
         </div>
       </main>
 

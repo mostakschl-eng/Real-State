@@ -46,7 +46,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
       <main className="min-h-screen bg-canvas pt-32 pb-24 z-10 relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-20">
-
           {/* Back Navigation + status row */}
           <div className="flex items-center justify-between">
             <Link
@@ -84,7 +83,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </header>
 
           {/* Image gallery */}
-          <ImageGallery images={property.gallery} label={`${property.name} gallery`} />
+          <ImageGallery
+            images={property.gallery}
+            label={`${property.name} gallery`}
+          />
 
           {/* Intro narrative + quick specs */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
@@ -96,7 +98,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 <p
                   key={index}
                   className={`text-sm md:text-base leading-relaxed text-text-secondary font-light ${
-                    index === 0 ? "first-letter:font-serif first-letter:text-5xl first-letter:font-light first-letter:text-text-primary first-letter:mr-2 first-letter:float-left first-letter:leading-[0.85]" : ""
+                    index === 0
+                      ? "first-letter:font-serif first-letter:text-5xl first-letter:font-light first-letter:text-text-primary first-letter:mr-2 first-letter:float-left first-letter:leading-[0.85]"
+                      : ""
                   }`}
                 >
                   {paragraph}
@@ -112,7 +116,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   </h3>
                   <dl className="grid grid-cols-2 gap-px bg-black/5 border border-black/5 rounded-xl overflow-hidden">
                     {property.specs.map((spec) => (
-                      <div key={spec.label} className="bg-surface p-4 flex flex-col gap-1.5">
+                      <div
+                        key={spec.label}
+                        className="bg-surface p-4 flex flex-col gap-1.5"
+                      >
                         <dt className="text-[9px] uppercase tracking-[0.22em] text-text-secondary">
                           {spec.label}
                         </dt>
@@ -130,20 +137,36 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   </h3>
                   <dl className="flex flex-col gap-3 text-xs">
                     <div className="flex justify-between gap-4">
-                      <dt className="uppercase tracking-wider text-text-secondary/80">Typology</dt>
-                      <dd className="text-text-primary text-right">{property.architecturalDetails.type}</dd>
+                      <dt className="uppercase tracking-wider text-text-secondary/80">
+                        Typology
+                      </dt>
+                      <dd className="text-text-primary text-right">
+                        {property.architecturalDetails.type}
+                      </dd>
                     </div>
                     <div className="flex justify-between gap-4 border-t border-black/5 pt-3">
-                      <dt className="uppercase tracking-wider text-text-secondary/80">Design Atelier</dt>
-                      <dd className="text-text-primary text-right">{property.architecturalDetails.architect}</dd>
+                      <dt className="uppercase tracking-wider text-text-secondary/80">
+                        Design Atelier
+                      </dt>
+                      <dd className="text-text-primary text-right">
+                        {property.architecturalDetails.architect}
+                      </dd>
                     </div>
                     <div className="flex justify-between gap-4 border-t border-black/5 pt-3">
-                      <dt className="uppercase tracking-wider text-text-secondary/80">Orientation</dt>
-                      <dd className="text-text-primary text-right">{property.architecturalDetails.plotOrientation}</dd>
+                      <dt className="uppercase tracking-wider text-text-secondary/80">
+                        Orientation
+                      </dt>
+                      <dd className="text-text-primary text-right">
+                        {property.architecturalDetails.plotOrientation}
+                      </dd>
                     </div>
                     <div className="flex justify-between gap-4 border-t border-black/5 pt-3">
-                      <dt className="uppercase tracking-wider text-text-secondary/80">Year</dt>
-                      <dd className="font-mono text-text-primary text-right">{property.architecturalDetails.year}</dd>
+                      <dt className="uppercase tracking-wider text-text-secondary/80">
+                        Year
+                      </dt>
+                      <dd className="font-mono text-text-primary text-right">
+                        {property.architecturalDetails.year}
+                      </dd>
                     </div>
                   </dl>
                 </div>
@@ -158,13 +181,19 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 Defining Features
               </span>
               <h2 className="font-serif text-3xl md:text-4xl tracking-tight leading-[1.05] text-text-primary uppercase">
-                What makes this <span className="italic font-light text-accent">residence</span>
+                What makes this{" "}
+                <span className="italic font-light text-accent">residence</span>
               </h2>
             </div>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-black/5 border border-black/5 rounded-2xl overflow-hidden">
               {property.highlights.map((highlight) => (
-                <li key={highlight} className="bg-surface p-6 md:p-8 flex items-start gap-4">
-                  <span className="font-mono text-xs text-accent mt-1">[+]</span>
+                <li
+                  key={highlight}
+                  className="bg-surface p-6 md:p-8 flex items-start gap-4"
+                >
+                  <span className="font-mono text-xs text-accent mt-1">
+                    [+]
+                  </span>
                   <span className="text-sm md:text-base text-text-primary font-light leading-relaxed">
                     {highlight}
                   </span>
@@ -181,9 +210,16 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </h3>
               <ul className="flex flex-col gap-px bg-black/5 border border-black/5 rounded-2xl overflow-hidden">
                 {property.materials.map((material) => (
-                  <li key={material} className="bg-surface px-6 py-4 flex justify-between items-center">
-                    <span className="text-sm text-text-primary font-light">{material}</span>
-                    <span className="font-mono text-[10px] text-text-secondary uppercase tracking-wider">Specified</span>
+                  <li
+                    key={material}
+                    className="bg-surface px-6 py-4 flex justify-between items-center"
+                  >
+                    <span className="text-sm text-text-primary font-light">
+                      {material}
+                    </span>
+                    <span className="font-mono text-[10px] text-text-secondary uppercase tracking-wider">
+                      Specified
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -194,9 +230,16 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </h3>
               <ul className="flex flex-col gap-px bg-black/5 border border-black/5 rounded-2xl overflow-hidden">
                 {property.amenities.map((amenity) => (
-                  <li key={amenity} className="bg-surface px-6 py-4 flex justify-between items-center">
-                    <span className="text-sm text-text-primary font-light">{amenity}</span>
-                    <span className="font-mono text-[10px] text-text-secondary uppercase tracking-wider">Included</span>
+                  <li
+                    key={amenity}
+                    className="bg-surface px-6 py-4 flex justify-between items-center"
+                  >
+                    <span className="text-sm text-text-primary font-light">
+                      {amenity}
+                    </span>
+                    <span className="font-mono text-[10px] text-text-secondary uppercase tracking-wider">
+                      Included
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -221,7 +264,10 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 Location Context
               </span>
               <h2 className="font-serif text-3xl md:text-4xl tracking-tight leading-[1.05] text-text-primary uppercase max-w-[18ch]">
-                Situated in <span className="italic font-light text-accent">{property.region}</span>
+                Situated in{" "}
+                <span className="italic font-light text-accent">
+                  {property.region}
+                </span>
               </h2>
               <p className="text-sm md:text-base text-text-secondary leading-relaxed font-light max-w-[55ch]">
                 {property.locationInsight}
@@ -231,7 +277,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 className="inline-flex w-fit items-center gap-3 rounded-full bg-accent text-white px-7 py-3.5 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:bg-text-primary active:scale-[0.98]"
               >
                 Request a Private Viewing
-                <span aria-hidden className="text-sm">&rarr;</span>
+                <span aria-hidden className="text-sm">
+                  &rarr;
+                </span>
               </Link>
             </div>
           </section>
@@ -253,12 +301,19 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   />
                 </div>
                 <div className="flex flex-col gap-1 min-w-0">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-text-secondary">Previous</span>
+                  <span className="text-[9px] uppercase tracking-[0.25em] text-text-secondary">
+                    Previous
+                  </span>
                   <span className="font-serif text-base md:text-lg uppercase tracking-wide text-text-primary group-hover:text-accent transition-colors truncate">
                     {prevProperty.name}
                   </span>
                 </div>
-                <span aria-hidden className="ml-auto text-text-secondary text-lg group-hover:text-accent transition-colors">&larr;</span>
+                <span
+                  aria-hidden
+                  className="ml-auto text-text-secondary text-lg group-hover:text-accent transition-colors"
+                >
+                  &larr;
+                </span>
               </div>
             </Link>
 
@@ -267,7 +322,12 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               className="group double-bezel-outer transition-colors duration-400 hover:bg-accent/5 hover:border-accent/20"
             >
               <div className="double-bezel-inner p-6 md:p-8 flex items-center gap-5 bg-surface">
-                <span aria-hidden className="text-text-secondary text-lg group-hover:text-accent transition-colors">&rarr;</span>
+                <span
+                  aria-hidden
+                  className="text-text-secondary text-lg group-hover:text-accent transition-colors"
+                >
+                  &rarr;
+                </span>
                 <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0">
                   <Image
                     src={nextProperty.image}
@@ -278,7 +338,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   />
                 </div>
                 <div className="flex flex-col gap-1 min-w-0 md:items-end md:text-right">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-text-secondary">Up Next</span>
+                  <span className="text-[9px] uppercase tracking-[0.25em] text-text-secondary">
+                    Up Next
+                  </span>
                   <span className="font-serif text-base md:text-lg uppercase tracking-wide text-text-primary group-hover:text-accent transition-colors truncate">
                     {nextProperty.name}
                   </span>
@@ -286,7 +348,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
               </div>
             </Link>
           </nav>
-
         </div>
       </main>
 

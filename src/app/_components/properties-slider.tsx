@@ -28,12 +28,11 @@ export function PropertiesSlider() {
   }, []);
 
   return (
-    <section 
-      id="residences" 
+    <section
+      id="residences"
       className="relative w-full py-24 md:py-32 px-6 md:px-12 bg-canvas z-10 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-12">
-        
         {/* Section Header */}
         <div className="flex flex-col gap-4">
           <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
@@ -64,13 +63,12 @@ export function PropertiesSlider() {
             ))}
           </motion.div>
         </div>
-
       </div>
     </section>
   );
 }
 
-function PropertyCard({ property }: { property: typeof PROPERTIES[0] }) {
+function PropertyCard({ property }: { property: (typeof PROPERTIES)[0] }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -82,13 +80,15 @@ function PropertyCard({ property }: { property: typeof PROPERTIES[0] }) {
       {/* Double Bezel (Doppelrand) Enclosure - Dark Mode */}
       <div className="double-bezel-outer transition-colors duration-500 hover:bg-accent/5 hover:border-accent/20">
         <div className="double-bezel-inner relative">
-
           {/* Card Link to Detail Page */}
-          <Link href={`/projects/${property.slug}`} className="block relative aspect-4/3 overflow-hidden">
+          <Link
+            href={`/projects/${property.slug}`}
+            className="block relative aspect-4/3 overflow-hidden"
+          >
             {/* Image with slow-zoom hover effect */}
             <motion.div
               animate={{
-                scale: isHovered ? 1.05 : 1
+                scale: isHovered ? 1.05 : 1,
               }}
               transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
               className="w-full h-full relative"
@@ -111,7 +111,11 @@ function PropertyCard({ property }: { property: typeof PROPERTIES[0] }) {
             >
               <motion.div
                 animate={{ y: isHovered ? 0 : 15, opacity: isHovered ? 1 : 0 }}
-                transition={{ delay: 0.05, duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                transition={{
+                  delay: 0.05,
+                  duration: 0.5,
+                  ease: [0.32, 0.72, 0, 1],
+                }}
                 className="flex justify-between items-end"
               >
                 <div className="text-[10px] uppercase tracking-[0.2em] font-medium text-white">
@@ -163,9 +167,7 @@ function PropertyCard({ property }: { property: typeof PROPERTIES[0] }) {
                 {property.price}
               </span>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>

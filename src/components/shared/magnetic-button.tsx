@@ -1,7 +1,13 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useMotionValue, useSpring, useTransform, type HTMLMotionProps } from "motion/react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  type HTMLMotionProps,
+} from "motion/react";
 
 interface MagneticButtonProps extends HTMLMotionProps<"button"> {
   children: React.ReactNode;
@@ -29,7 +35,7 @@ export function MagneticButton({
     if (!ref.current) return;
     const { clientX, clientY } = event;
     const { left, top, width, height } = ref.current.getBoundingClientRect();
-    
+
     // Calculate cursor position relative to button center
     const x = clientX - (left + width / 2);
     const y = clientY - (top + height / 2);

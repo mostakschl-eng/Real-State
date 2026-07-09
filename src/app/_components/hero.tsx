@@ -19,11 +19,19 @@ export function Hero() {
     >
       {/* Background with Parallax + Ken Burns */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <motion.div style={{ y: yBg }} className="relative w-full h-[115%] top-[-7.5%]">
+        <motion.div
+          style={{ y: yBg }}
+          className="relative w-full h-[115%] top-[-7.5%]"
+        >
           <motion.div
             initial={{ scale: 1 }}
             animate={{ scale: 1.06 }}
-            transition={{ duration: 22, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+            transition={{
+              duration: 22,
+              ease: "linear",
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
             className="w-full h-full relative"
           >
             <Image
@@ -43,15 +51,17 @@ export function Hero() {
 
       {/* Vertical nav — desktop only */}
       <div className="hidden xl:flex flex-col gap-8 fixed left-10 top-1/2 -translate-y-1/2 z-20">
-        {["Residences", "Manifesto", "Services", "Team", "Contact"].map((item, i) => (
-          <Link
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            className="text-[9px] uppercase tracking-[0.28em] font-mono text-white/70 hover:text-accent transition-colors duration-300 flex items-center gap-2"
-          >
-            <span className="text-accent">[0{i + 1}]</span> {item}
-          </Link>
-        ))}
+        {["Residences", "Manifesto", "Services", "Team", "Contact"].map(
+          (item, i) => (
+            <Link
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-[9px] uppercase tracking-[0.28em] font-mono text-white/70 hover:text-accent transition-colors duration-300 flex items-center gap-2"
+            >
+              <span className="text-accent">[0{i + 1}]</span> {item}
+            </Link>
+          ),
+        )}
       </div>
 
       {/* Spacer */}
@@ -87,7 +97,8 @@ export function Hero() {
           transition={{ delay: 0.35, duration: 0.8 }}
           className="text-sm md:text-base leading-relaxed text-white/85 max-w-[42ch] mt-5 tracking-wide font-light"
         >
-          Bespoke residential estates crafted for those who view architecture as living art.
+          Bespoke residential estates crafted for those who view architecture as
+          living art.
         </motion.p>
 
         {/* CTAs */}
@@ -108,7 +119,10 @@ export function Hero() {
               </span>
             </MagneticButton>
           </Link>
-          <Link href="/about" className="text-[10px] uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors duration-300">
+          <Link
+            href="/about"
+            className="text-[10px] uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors duration-300"
+          >
             Our Manifesto
           </Link>
         </motion.div>
@@ -127,8 +141,12 @@ export function Hero() {
               key={stat.label}
               className={`flex flex-col gap-1 px-4 ${i > 0 ? "md:border-l md:border-white/20" : ""}`}
             >
-              <span className="font-mono text-lg md:text-xl text-white tracking-tight">{stat.value}</span>
-              <span className="text-[9px] uppercase tracking-[0.2em] text-white/75">{stat.label}</span>
+              <span className="font-mono text-lg md:text-xl text-white tracking-tight">
+                {stat.value}
+              </span>
+              <span className="text-[9px] uppercase tracking-[0.2em] text-white/75">
+                {stat.label}
+              </span>
             </div>
           ))}
         </div>
