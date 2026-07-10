@@ -34,7 +34,7 @@ export function PropertiesSlider() {
       id="residences"
       className="relative w-full h-[300vh] bg-canvas z-30"
     >
-      <div className="sticky top-0 h-[100dvh] flex flex-col justify-center px-6 md:px-12 py-24">
+      <div className="sticky top-0 h-dvh flex flex-col justify-center px-6 md:px-12 py-24">
         <div className="max-w-7xl mx-auto w-full flex flex-col gap-12">
           {/* Section Header */}
           <div className="flex flex-col gap-4">
@@ -227,7 +227,7 @@ function PropertyCard({
     >
       {/* Double Bezel (Doppelrand) Enclosure - Dark Mode style surface */}
       <div className="double-bezel-outer transition-colors duration-500 hover:bg-accent/5 hover:border-accent/20">
-        <div className={`double-bezel-inner relative bg-surface ${isFirst ? '!overflow-visible' : 'overflow-hidden'}`}>
+        <div className={`double-bezel-inner relative bg-surface ${isFirst ? 'overflow-visible!' : 'overflow-hidden'}`}>
           {/* Card Link to Detail Page */}
           <Link
             ref={linkRef}
@@ -239,7 +239,7 @@ function PropertyCard({
               style={isFirst ? styleObj : { x: imgX }}
               animate={!isFirst ? { scale: isHovered ? 1.05 : 1 } : {}}
               transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-              className={`w-full h-full absolute inset-0 origin-center ${isFirst ? 'z-50 overflow-hidden' : 'z-0 overflow-hidden rounded-t-[calc(2rem-0.375rem)]'}`}
+              className={`w-full h-full absolute inset-0 origin-center ${isFirst ? 'z-50 overflow-hidden' : 'z-0 overflow-hidden rounded-t-[1.625rem]'}`}
             >
               <motion.div
                 style={isFirst ? { scaleX: imgScaleX, y: imgYOffset, originX: 0.5, originY: 0.5 } : {}}
@@ -260,7 +260,7 @@ function PropertyCard({
               initial={{ opacity: 0 }}
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
-              className="absolute inset-0 bg-gradient-to-t from-text-primary/80 via-text-primary/20 to-transparent flex flex-col justify-end p-6 z-10"
+              className="absolute inset-0 bg-linear-to-t from-text-primary/80 via-text-primary/20 to-transparent flex flex-col justify-end p-6 z-10"
             >
               <motion.div
                 animate={{ y: isHovered ? 0 : 15, opacity: isHovered ? 1 : 0 }}

@@ -104,7 +104,7 @@ export default function ServicesPage() {
                 >
                   {/* Image side - Double Bezel */}
                   <div
-                    className={`lg:col-span-6 w-full aspect-[16/10] rounded-[2rem] overflow-hidden double-bezel-outer ${isEven ? "" : "lg:order-2"}`}
+                    className={`lg:col-span-6 w-full aspect-16/10 rounded-4xl overflow-hidden double-bezel-outer ${isEven ? "" : "lg:order-2"}`}
                   >
                     <div className="double-bezel-inner relative w-full h-full">
                       <Image

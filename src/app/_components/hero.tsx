@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-[100dvh] flex flex-col justify-between pt-24 pb-8 px-4 sm:px-6 md:px-12 overflow-hidden z-10"
+      className="relative w-full min-h-dvh flex flex-col justify-between pt-24 pb-8 px-4 sm:px-6 md:px-12 overflow-hidden z-10"
     >
       {/* Background with Parallax + Ken Burns */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -46,8 +46,8 @@ export function Hero() {
           </motion.div>
         </motion.div>
         {/* Layered scrims for guaranteed text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1C1B18]/85 via-[#1C1B18]/15 to-[#1C1B18]/45" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1C1B18]/55 via-[#1C1B18]/10 to-[#1C1B18]/35" />
+        <div className="absolute inset-0 bg-linear-to-t from-[#1C1B18]/85 via-[#1C1B18]/15 to-[#1C1B18]/45" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#1C1B18]/55 via-[#1C1B18]/10 to-[#1C1B18]/35" />
       </div>
 
       {/* Vertical nav — desktop only */}
@@ -115,7 +115,7 @@ export function Hero() {
               className="group rounded-full bg-accent text-white px-7 py-3.5 text-[11px] uppercase tracking-[0.18em] font-medium flex items-center gap-3 transition-all duration-500 hover:bg-white hover:text-text-primary active:scale-[0.97]"
             >
               Explore Residences
-              <span className="w-5 h-5 rounded-full bg-black/10 flex items-center justify-center text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-[1px] group-hover:scale-105">
+              <span className="w-5 h-5 rounded-full bg-black/10 flex items-center justify-center text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-px group-hover:scale-105">
                 &rarr;
               </span>
             </MagneticButton>

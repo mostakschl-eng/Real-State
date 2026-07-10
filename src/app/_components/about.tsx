@@ -27,7 +27,7 @@ function PillarImage({
   const imgY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? ["0%", "0%"] : PILLAR_PARALLAX_RANGE[index]);
 
   return (
-    <motion.div style={{ y: imgY }} className="absolute inset-0 w-full h-[130%] -top-[15%]">
+    <motion.div style={{ y: imgY }} className="absolute inset-0 w-full h-[130%] top-[-15%]">
       <Image
         src={image}
         alt={label}
@@ -176,7 +176,7 @@ export function About() {
                     label={pillar.label}
                   />
                 </div>
-                <div className="p-7 md:p-8 flex flex-col justify-between flex-grow bg-canvas">
+                <div className="p-7 md:p-8 flex flex-col justify-between grow bg-canvas">
                   <span className="font-mono text-[10px] text-accent">
                     [{pillar.num}]
                   </span>

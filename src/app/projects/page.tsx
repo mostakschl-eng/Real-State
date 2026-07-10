@@ -90,7 +90,7 @@ export default function ProjectsPage() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: isHovered ? 1 : 0 }}
                           transition={{ duration: 0.3 }}
-                          className="absolute inset-0 bg-gradient-to-t from-text-primary/85 via-text-primary/25 to-transparent flex flex-col justify-between p-6"
+                          className="absolute inset-0 bg-linear-to-t from-text-primary/85 via-text-primary/25 to-transparent flex flex-col justify-between p-6"
                         >
                           <span className="self-start text-[9px] uppercase tracking-[0.25em] font-medium text-white/90 bg-white/10 backdrop-blur-sm border border-white/20 px-3 py-1 rounded-full">
                             {property.architecturalDetails.status}

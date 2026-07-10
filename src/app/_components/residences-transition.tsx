@@ -33,20 +33,20 @@ export function ResidencesTransition() {
       ref={containerRef}
       className="relative w-full h-[300vh] bg-canvas z-20"
     >
-      <div className="sticky top-0 h-[100dvh] flex items-center justify-center overflow-hidden">
+      <div className="sticky top-0 h-dvh flex items-center justify-center overflow-hidden">
         <motion.div
           style={{ scale }}
-          className="relative h-[85vh] w-[90vw] md:w-[85vw] lg:w-[80vw] overflow-hidden rounded-[2rem] ring-1 ring-black/5 bg-black/[0.03] p-2"
+          className="relative h-[85vh] w-[90vw] md:w-[85vw] lg:w-[80vw] overflow-hidden rounded-4xl ring-1 ring-black/5 bg-black/3 p-2"
         >
           {/* Inner Core container with absolute cover */}
           <div 
             id="residences-transition-source"
-            className="w-full h-full relative overflow-hidden rounded-[calc(2rem-0.5rem)] bg-zinc-950"
+            className="w-full h-full relative overflow-hidden rounded-3xl bg-zinc-950"
           >
             {/* Parallax inner image with safe dimensions */}
             <motion.div 
               style={{ y: imgY }} 
-              className="absolute inset-0 w-full h-[130%] -top-[15%]"
+              className="absolute inset-0 w-full h-[130%] top-[-15%]"
             >
               <Image
                 src="/images/properties/prop_luminary.png"
