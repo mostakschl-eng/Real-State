@@ -1,4 +1,3 @@
-import React from "react";
 import { Preloader } from "@/components/shared/preloader";
 import { Navbar } from "@/components/shared/navbar";
 import { Hero } from "./_components/hero";
@@ -13,15 +12,11 @@ import { Footer } from "@/components/shared/footer";
 export default function Home() {
   return (
     <>
-      {/* Cinematic Loader Overlay */}
       <Preloader />
 
-      {/* Main Page Layout Wrapper */}
-      <div className="flex flex-col min-h-screen">
-        {/* Floating Pill Navigation */}
+      <div className="flex min-h-dvh flex-col">
         <Navbar />
 
-        {/* Sections */}
         <main className="grow">
           <Hero />
           <About />
@@ -32,7 +27,6 @@ export default function Home() {
           <ContactForm />
         </main>
 
-        {/* Corporate Footer */}
         <Footer />
       </div>
     </>

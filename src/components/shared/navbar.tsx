@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { MagneticButton } from "./magnetic-button";
-import { Menu, X } from "lucide-react";
 
 interface NavLink {
   label: string;
@@ -30,25 +29,24 @@ export function Navbar() {
   return (
     <>
       {/* Desktop Floating Pill Nav */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] max-w-5xl rounded-full px-6 py-3 bg-canvas/80 backdrop-blur-xl border border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.6)] flex items-center justify-between">
-        {/* Brand Logo */}
+      <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-40 flex w-[calc(100%-1.5rem)] max-w-5xl items-center justify-between rounded-full border border-text-primary/10 bg-canvas/92 px-4 py-3 shadow-[0_8px_32px_rgba(28,27,24,0.12),inset_0_1px_0_rgba(255,255,255,0.72)] backdrop-blur-xl md:px-6">
         <Link
           href="/"
-          className="font-serif text-lg tracking-[0.2em] uppercase text-text-primary hover:text-accent transition-colors duration-300"
+          className="font-serif text-base tracking-[0.18em] uppercase text-text-primary transition-colors duration-300 hover:text-accent md:text-lg md:tracking-[0.2em]"
         >
           J&S <span className="text-accent">Estate</span>
         </Link>
 
-        {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive =
+              pathname === link.href || (pathname === "/" && link.href === "/");
             return (
               <Link
                 key={link.label}
                 href={link.href}
-                className={`text-[11px] uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-accent ${
-                  isActive ? "text-accent" : "text-text-secondary"
+                className={`text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors duration-300 hover:text-accent ${
+                  isActive ? "text-accent" : "text-text-primary/78"
                 }`}
               >
                 {link.label}
@@ -57,7 +55,6 @@ export function Navbar() {
           })}
         </div>
 
-        {/* CTA Button / Hamburger */}
         <div className="flex items-center gap-4">
           <div className="hidden md:block">
             <Link href="/contact">
@@ -70,13 +67,22 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Hamburger Icon */}
           <button
             onClick={toggleMenu}
-            className="md:hidden flex items-center justify-center p-2 text-text-primary hover:text-accent transition-colors"
+            className="relative flex size-10 items-center justify-center rounded-full border border-text-primary/10 bg-text-primary/5 text-text-primary transition-colors hover:text-accent md:hidden"
             aria-label="Toggle navigation menu"
+            aria-expanded={isOpen}
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            <span
+              className={`absolute h-px w-4 bg-current transition-transform duration-300 ease-premium-in-out ${
+                isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5"
+              }`}
+            />
+            <span
+              className={`absolute h-px w-4 bg-current transition-transform duration-300 ease-premium-in-out ${
+                isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5"
+              }`}
+            />
           </button>
         </div>
       </nav>

@@ -78,6 +78,7 @@ export function Team() {
                     src={alexander.imageUrl}
                     alt={alexander.name}
                     fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-premium-in-out hover:scale-105"
                   />
                 </motion.div>
@@ -120,6 +121,7 @@ export function Team() {
                     src={elena.imageUrl}
                     alt={elena.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-premium-in-out hover:scale-105"
                   />
                 </motion.div>
@@ -179,6 +181,7 @@ export function Team() {
                     src={marcus.imageUrl}
                     alt={marcus.name}
                     fill
+                    sizes="(max-width: 640px) 100vw, 33vw"
                     className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-premium-in-out hover:scale-105"
                   />
                 </motion.div>

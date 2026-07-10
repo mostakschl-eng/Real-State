@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useRef } from "react";
+import { useRef, type MouseEvent, type ReactNode } from "react";
 import {
   motion,
   useMotionValue,
+  useReducedMotion,
   useSpring,
   type HTMLMotionProps,
 } from "motion/react";
 
 interface MagneticButtonProps extends HTMLMotionProps<"button"> {
-  children: React.ReactNode;
+  children: ReactNode;
   strength?: number;
 }
 
@@ -20,6 +21,7 @@ export function MagneticButton({
   ...props
 }: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   // Motion values for raw mouse coordinates relative to the button
   const mouseX = useMotionValue(0);
@@ -30,8 +32,13 @@ export function MagneticButton({
   const forceX = useSpring(mouseX, springConfig);
   const forceY = useSpring(mouseY, springConfig);
 
-  const handleMouseMove = (event: React.MouseEvent) => {
-    if (!ref.current) return;
+  const handleMouseMove = (event: MouseEvent<HTMLButtonElement>) => {
+    if (
+      !ref.current ||
+      prefersReducedMotion ||
+      window.matchMedia("(pointer: coarse)").matches
+    )
+      return;
     const { clientX, clientY } = event;
     const { left, top, width, height } = ref.current.getBoundingClientRect();
 

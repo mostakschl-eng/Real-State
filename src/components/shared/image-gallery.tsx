@@ -124,7 +124,7 @@ export function ImageGallery({ images, label }: ImageGalleryProps) {
                 onClick={() => goTo(index)}
                 aria-label={`View image ${index + 1}: ${image.alt}`}
                 aria-current={isActive ? "true" : undefined}
-                className={`relative aspect-[4/3] rounded-xl overflow-hidden border transition-all duration-400 ${
+                className={`relative aspect-4/3 rounded-xl overflow-hidden border transition-all duration-400 ${
                   isActive
                     ? "border-accent ring-1 ring-accent/40"
                     : "border-black/5 opacity-60 hover:opacity-100"

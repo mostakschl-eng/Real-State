@@ -248,7 +248,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
           {/* Location insight */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center border-t border-black/5 pt-16">
-            <div className="lg:col-span-5 double-bezel-outer aspect-[4/5] rounded-[2rem] overflow-hidden">
+            <div className="lg:col-span-5 double-bezel-outer aspect-4/5 rounded-4xl overflow-hidden">
               <div className="double-bezel-inner relative w-full h-full">
                 <Image
                   src={property.gallery[1]?.src ?? property.image}

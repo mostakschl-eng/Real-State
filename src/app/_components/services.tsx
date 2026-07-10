@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { SERVICES } from "@/lib/constants";
 
 const SERVICE_DELIVERABLES: string[][] = [
@@ -19,6 +19,7 @@ const SERVICE_DELIVERABLES: string[][] = [
 
 export function Services() {
   const [activeTab, setActiveTab] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section
@@ -32,9 +33,31 @@ export function Services() {
             Capabilities
           </span>
           <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05] text-text-primary uppercase max-w-[12ch]">
-            Bespoke Solutions <br />
-            <span className="italic font-light text-accent">
-              for Collectors
+            <span className="block overflow-hidden pb-1">
+              <motion.span
+                initial={prefersReducedMotion ? false : { y: "110%" }}
+                whileInView={prefersReducedMotion ? undefined : { y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+                className="block"
+              >
+                Bespoke Solutions
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden pb-1">
+              <motion.span
+                initial={prefersReducedMotion ? false : { y: "110%" }}
+                whileInView={prefersReducedMotion ? undefined : { y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{
+                  duration: 0.8,
+                  delay: 0.08,
+                  ease: [0.32, 0.72, 0, 1],
+                }}
+                className="block italic font-light text-accent leading-[1.1]"
+              >
+                for Collectors
+              </motion.span>
             </span>
           </h2>
           <p className="text-xs md:text-sm leading-relaxed text-text-secondary max-w-[32ch] font-light">
@@ -57,6 +80,7 @@ export function Services() {
                   src={SERVICES[activeTab].imageUrl}
                   alt={SERVICES[activeTab].title}
                   fill
+                  sizes="384px"
                   className="object-cover brightness-75"
                 />
               </motion.div>
@@ -74,6 +98,7 @@ export function Services() {
               <motion.div
                 key={service.id}
                 onMouseEnter={() => setActiveTab(index)}
+                onClick={() => setActiveTab(index)}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
@@ -114,6 +139,7 @@ export function Services() {
                     src={service.imageUrl}
                     alt={service.title}
                     fill
+                    sizes="100vw"
                     className="object-cover brightness-75"
                   />
                 </div>

@@ -17,16 +17,15 @@ import { PROPERTIES } from "@/lib/constants";
 export function PropertiesSlider() {
   const targetRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [xRange, setXRange] = useState(0);
+  const xRange = useMotionValue(0);
 
   useEffect(() => {
     function calculateRange() {
-      if (!sliderRef.current) return;
+      if (!sliderRef.current || !sliderRef.current.parentElement) return;
       const sliderWidth = sliderRef.current.scrollWidth;
-      const viewportWidth = window.innerWidth;
-      const padding = viewportWidth < 768 ? 48 : 128;
-      const range = Math.max(0, sliderWidth - viewportWidth + padding);
-      setXRange(range);
+      const containerWidth = sliderRef.current.parentElement.offsetWidth;
+      const range = Math.max(0, sliderWidth - containerWidth);
+      xRange.set(range);
     }
 
     calculateRange();
@@ -38,17 +37,20 @@ export function PropertiesSlider() {
       clearTimeout(timer);
     };
   }, []);
-  
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end end"],
   });
-  
+
   // Spring-smoothed scroll progress for buttery slider motion
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 400, damping: 40 });
-  
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 400,
+    damping: 40,
+  });
+
   // Translate the slider horizontally
-  const x = useTransform(smoothProgress, [0, 1], [0, -xRange]);
+  const x = useTransform(smoothProgress, (v) => v * -xRange.get());
 
   // Unified safe vertical parallax limits for all slider cards
   const CARD_PARALLAX_RANGE: [string, string][] = [
@@ -157,14 +159,16 @@ function PropertyCard({
       const source = document.getElementById("residences-transition-source");
       if (source) {
         const s = source.getBoundingClientRect();
-        entryDeltaX.set(
-          s.left + s.width / 2 - (targetRect.left + targetRect.width / 2),
-        );
-        entryDeltaY.set(
-          s.top + s.height / 2 - (targetRect.top + targetRect.height / 2),
-        );
-        entryScaleX.set(s.width / targetRect.width);
-        entryScaleY.set(s.height / targetRect.height);
+        if (s.width > 0 && s.height > 0) {
+          entryDeltaX.set(
+            s.left + s.width / 2 - (targetRect.left + targetRect.width / 2),
+          );
+          entryDeltaY.set(
+            s.top + s.height / 2 - (targetRect.top + targetRect.height / 2),
+          );
+          entryScaleX.set(s.width / targetRect.width);
+          entryScaleY.set(s.height / targetRect.height);
+        }
       }
     }
 
@@ -229,14 +233,20 @@ function PropertyCard({
     [0, 0, 1, 1],
   );
 
-  // Calculate border radius dynamically to keep all four corners visually rounded at 24px
+  // Calculate border radius dynamically to keep all four corners visually rounded at 24px.
+  // Returning a number lets Framer Motion handle unit compilation and cross-browser rendering safely.
   const cardRadius = useTransform(smoothEnterProgress, (v) => {
     const clamped = Math.max(0, Math.min(1.0, v));
     const p =
       clamped < startProgress
         ? 0
         : (clamped - startProgress) / (1 - startProgress);
-    const currentScale = p + (1 - p) * entryScaleX.get();
+    const scaleXVal = entryScaleX.get();
+    const scale =
+      isNaN(scaleXVal) || !isFinite(scaleXVal) || scaleXVal <= 0
+        ? 3.5
+        : scaleXVal;
+    const currentScale = p + (1 - p) * scale;
     const r = 24 / (currentScale || 1);
     return `${r}px`;
   });
@@ -285,7 +295,14 @@ function PropertyCard({
           >
             {/* Image with morph/parallax effect */}
             <motion.div
-              style={isFirst ? styleObj : { x: imgX }}
+              style={
+                isFirst
+                  ? {
+                      ...styleObj,
+                      WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+                    }
+                  : { x: imgX }
+              }
               animate={!isFirst ? { scale: isHovered ? 1.05 : 1 } : {}}
               transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
               className={`w-full h-full absolute inset-0 origin-center ${isFirst ? "z-50 overflow-hidden" : "z-0 overflow-hidden rounded-t-[1.625rem]"}`}

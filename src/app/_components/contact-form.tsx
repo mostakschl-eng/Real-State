@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { motion } from "motion/react";
 import { MagneticButton } from "@/components/shared/magnetic-button";
 import { Check } from "lucide-react";
@@ -32,14 +32,20 @@ export function ContactForm() {
   >("idle");
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
+    if (
+      name !== "fullName" &&
+      name !== "email" &&
+      name !== "residence" &&
+      name !== "message"
+    ) {
+      return;
+    }
+
     setFields((prev) => ({ ...prev, [name]: value }));
-    // Clear error on change
-    if (errors[name as keyof FormErrors]) {
+    if (name === "fullName" || name === "email" || name === "message") {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
@@ -58,7 +64,7 @@ export function ContactForm() {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
@@ -84,11 +90,9 @@ export function ContactForm() {
       id="contact"
       className="relative w-full min-h-[90dvh] flex flex-col justify-center py-24 md:py-32 px-6 md:px-12 bg-canvas z-10 overflow-hidden"
     >
-      {/* Decorative vertical grid line */}
       <div className="absolute right-[10%] top-0 bottom-0 w-px bg-black/5 pointer-events-none hidden lg:block" />
 
       <div className="max-w-4xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative z-10">
-        {/* Left Side: Call to Action Details (col-span-5) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -113,13 +117,12 @@ export function ContactForm() {
           </div>
         </motion.div>
 
-        {/* Right Side: Contact Form (col-span-7) */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.32, 0.72, 0, 1] }}
-          className="lg:col-span-7 w-full bg-surface border border-black/5 p-8 md:p-12 rounded-3xl shadow-2xl"
+          className="lg:col-span-7 w-full bg-surface border border-black/5 p-6 md:p-12 rounded-3xl shadow-[0_24px_80px_rgba(28,27,24,0.08)]"
         >
           {status === "success" ? (
             <motion.div
@@ -146,7 +149,6 @@ export function ContactForm() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-              {/* Full Name Block */}
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
                   Full Name
@@ -166,7 +168,6 @@ export function ContactForm() {
                 )}
               </div>
 
-              {/* Email Block */}
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
                   Email Address
@@ -186,7 +187,6 @@ export function ContactForm() {
                 )}
               </div>
 
-              {/* Inquired Residence Block */}
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
                   Residence of Interest
@@ -224,7 +224,6 @@ export function ContactForm() {
                 </select>
               </div>
 
-              {/* Message Block */}
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
                   Inquiry Message
@@ -244,7 +243,6 @@ export function ContactForm() {
                 )}
               </div>
 
-              {/* Submit CTA Button (1 primary, max 3 words, one line) */}
               <div className="mt-4">
                 <MagneticButton
                   strength={15}

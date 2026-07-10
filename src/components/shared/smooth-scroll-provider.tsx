@@ -1,17 +1,19 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 import Lenis from "@studio-freight/lenis";
 
 const SmoothScrollContext = createContext<Lenis | null>(null);
 
 export const useSmoothScroll = () => useContext(SmoothScrollContext);
 
-export function SmoothScrollProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useEffect(() => {
