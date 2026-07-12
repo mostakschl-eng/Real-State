@@ -32,7 +32,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-                className="font-serif text-5xl md:text-7xl tracking-tight leading-[0.95] uppercase"
+                className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[0.95] uppercase"
               >
                 Architecture is a <br />
                 <span className="italic font-light text-accent">

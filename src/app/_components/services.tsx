@@ -123,7 +123,7 @@ export function Services() {
                   <motion.div
                     animate={{ x: isActive ? 6 : 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="text-accent text-lg hidden md:block"
+                    className="text-accent text-lg"
                   >
                     &rarr;
                   </motion.div>
@@ -145,7 +145,7 @@ export function Services() {
                 </div>
 
                 {/* Description */}
-                <p className="text-xs md:text-sm text-text-secondary leading-relaxed max-w-[50ch] font-light pl-10">
+                <p className="text-xs md:text-sm text-text-secondary leading-relaxed max-w-[50ch] font-light pl-6 md:pl-10">
                   {service.description}
                 </p>
 
@@ -157,9 +157,9 @@ export function Services() {
                     height: isActive ? "auto" : 0,
                   }}
                   transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-                  className="overflow-hidden hidden lg:block"
+                  className="overflow-hidden"
                 >
-                  <div className="flex flex-wrap gap-2 pl-10 pt-2">
+                  <div className="flex flex-wrap gap-2 pl-6 md:pl-10 pt-2">
                     {SERVICE_DELIVERABLES[index].map((item) => (
                       <span
                         key={item}

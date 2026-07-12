@@ -86,17 +86,17 @@ export function Navbar() {
 
           <button
             onClick={toggleMenu}
-            className="relative flex size-10 items-center justify-center rounded-full border border-text-primary/10 bg-text-primary/5 text-text-primary transition-colors hover:text-accent md:hidden"
+            className="relative flex size-11 items-center justify-center rounded-full border border-text-primary/10 bg-text-primary/5 text-text-primary transition-colors hover:text-accent md:hidden"
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
           >
             <span
-              className={`absolute h-px w-4 bg-current transition-transform duration-300 ease-premium-in-out ${
+              className={`absolute h-0.5 w-4 rounded-full bg-current transition-transform duration-300 ease-premium-in-out ${
                 isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5"
               }`}
             />
             <span
-              className={`absolute h-px w-4 bg-current transition-transform duration-300 ease-premium-in-out ${
+              className={`absolute h-0.5 w-4 rounded-full bg-current transition-transform duration-300 ease-premium-in-out ${
                 isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5"
               }`}
             />
