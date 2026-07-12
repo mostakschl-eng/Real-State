@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
+import { Logo } from "./logo";
 
 const FOOTER_NAV = [
   { label: "Signature Residences", href: "/projects" },
@@ -35,12 +36,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           {/* Brand Column */}
           <div className="md:col-span-4 flex flex-col gap-6">
-            <h2 className="font-serif text-3xl uppercase tracking-[0.2em] text-text-primary">
-              J&S <span className="text-accent">Estate</span>
-            </h2>
+            <Logo />
             <p className="text-text-secondary text-xs uppercase tracking-[0.2em] max-w-[28ch] leading-relaxed font-light">
-              Sculpting architectural sanctuaries in Dubai since 2018. Every
-              commission is a private study in light, material, and silence.
+              Constructing signature landmarks in Dubai. Every
+              commission is a study in light, material, and precision.
             </p>
             {/* Social links */}
             <div className="flex gap-6 pt-2">
@@ -105,16 +104,16 @@ export function Footer() {
               Atelier
             </h3>
             <div className="flex flex-col gap-3 text-xs text-text-secondary tracking-wide font-light">
-              <p>J&S Estate Atelier</p>
+              <p>Avenue Construction Limited Atelier</p>
               <p>Al Barari, Studio 4A</p>
               <p>Dubai, United Arab Emirates</p>
             </div>
             <div className="flex flex-col gap-2 text-xs text-text-secondary tracking-wide font-light">
               <a
-                href="mailto:inquire@js-estate.com"
+                href="mailto:inquire@avenueconstruction.com"
                 className="hover:text-accent transition-colors"
               >
-                inquire@js-estate.com
+                inquire@avenueconstruction.com
               </a>
               <a
                 href="tel:+97145550199"
@@ -152,7 +151,7 @@ export function Footer() {
         {/* Bottom: copyright */}
         <div className="border-t border-black/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <span className="text-[10px] text-text-secondary tracking-widest uppercase">
-            &copy; {currentYear} J&S Estate. All rights reserved.
+            &copy; {currentYear} Avenue Construction Limited. All rights reserved.
           </span>
           <span className="text-[10px] text-text-secondary/50 tracking-widest uppercase font-light">
             Dubai, United Arab Emirates

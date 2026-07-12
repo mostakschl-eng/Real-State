@@ -48,7 +48,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.8, delay: 0.15 }}
                 className="text-xs md:text-sm leading-relaxed text-text-secondary max-w-[50ch] font-light"
               >
-                Founded in Dubai in 2018, J&S Estate was born from a desire to
+                Founded in Dubai in 2018, Avenue Construction Limited was born from a desire to
                 escape the generic patterns of commercial real estate. We do not
                 construct buildings; we orchestrate light, aggregate raw
                 materials, and draft silence.
@@ -65,7 +65,7 @@ export default function AboutPage() {
               <div className="double-bezel-inner w-full h-full relative">
                 <Image
                   src="/images/services/service_architecture.png"
-                  alt="Architectural detailing at J&S Atelier"
+                  alt="Architectural detailing at ACL Atelier"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover brightness-95"

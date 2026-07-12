@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { MagneticButton } from "./magnetic-button";
+import { Logo } from "./logo";
 
 interface NavLink {
   label: string;
@@ -12,10 +13,10 @@ interface NavLink {
 }
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Residences", href: "/#residences" },
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Projects", href: "/projects" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -30,33 +31,49 @@ export function Navbar() {
     <>
       {/* Desktop Floating Pill Nav */}
       <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-40 flex w-[calc(100%-1.5rem)] max-w-5xl items-center justify-between rounded-full border border-text-primary/10 bg-canvas/92 px-4 py-3 shadow-[0_8px_32px_rgba(28,27,24,0.12),inset_0_1px_0_rgba(255,255,255,0.72)] backdrop-blur-xl md:px-6">
-        <Link
-          href="/"
-          className="font-serif text-base tracking-[0.18em] uppercase text-text-primary transition-colors duration-300 hover:text-accent md:text-lg md:tracking-[0.2em]"
+        <motion.div
+          initial={{ opacity: 0, x: -12 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
         >
-          J&S <span className="text-accent">Estate</span>
-        </Link>
+          <Logo />
+        </motion.div>
 
         <div className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => {
+          {NAV_LINKS.map((link, index) => {
             const isActive =
               pathname === link.href || (pathname === "/" && link.href === "/");
             return (
-              <Link
+              <motion.div
                 key={link.label}
-                href={link.href}
-                className={`text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors duration-300 hover:text-accent ${
-                  isActive ? "text-accent" : "text-text-primary/78"
-                }`}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.1 + index * 0.05,
+                  ease: [0.32, 0.72, 0, 1],
+                }}
               >
-                {link.label}
-              </Link>
+                <Link
+                  href={link.href}
+                  className={`text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors duration-300 hover:text-accent ${
+                    isActive ? "text-accent" : "text-text-primary/78"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             );
           })}
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="hidden md:block">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.35, ease: [0.32, 0.72, 0, 1] }}
+            className="hidden md:block"
+          >
             <Link href="/contact">
               <MagneticButton
                 strength={20}
@@ -65,7 +82,7 @@ export function Navbar() {
                 Inquire
               </MagneticButton>
             </Link>
-          </div>
+          </motion.div>
 
           <button
             onClick={toggleMenu}

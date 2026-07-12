@@ -137,7 +137,7 @@ export function ContactForm() {
                 Inquiry Received
               </h3>
               <p className="text-xs text-text-secondary max-w-[30ch] leading-relaxed mt-3">
-                A private advisor from J&S Estate will contact you shortly to
+                A private advisor from Avenue Construction Limited will contact you shortly to
                 discuss your request.
               </p>
               <button

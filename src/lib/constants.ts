@@ -61,7 +61,7 @@ export const PROPERTIES: Property[] = [
     narrative: [
       "The Luminary Oasis was conceived as a quiet instrument for living among greenery. A single continuous travertine plinth folds upward to form the principal living volume, while floor-to-ceiling glazing dissolves the perimeter wall into the surrounding canopy.",
       "Solar orientation drives the entire plan. Deep cantilevered overhangs track the high summer sun, admitting low winter light into a triple-height central atrium. At dusk, concealed linear grazers trace the concrete ribs, turning the structure into a luminous lantern visible across the reserve.",
-      "Every interior surface was specified by the J&S Atelier material library: honed Italian travertine floors, brushed oak wall panels, and hand-troweled microcement ceilings that absorb and redistribute daylight without glare.",
+      "Every interior surface was specified by the Avenue Construction Limited material library: honed Italian travertine floors, brushed oak wall panels, and hand-troweled microcement ceilings that absorb and redistribute daylight without glare.",
     ],
     price: "$18,500,000",
     image: "/images/properties/prop_luminary.png",
@@ -118,7 +118,7 @@ export const PROPERTIES: Property[] = [
     architecturalDetails: {
       year: "2025",
       type: "Modern Residential Villa",
-      architect: "J&S Atelier",
+      architect: "ACL Atelier",
       status: "Completed",
       plotOrientation: "South-facing atrium",
     },
@@ -264,7 +264,7 @@ export const PROPERTIES: Property[] = [
     architecturalDetails: {
       year: "2025",
       type: "Sky Villa Duplex",
-      architect: "J&S Atelier",
+      architect: "ACL Atelier",
       status: "Completed",
       plotOrientation: "Three-aspect corner",
     },

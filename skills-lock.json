@@ -26,6 +26,11 @@
       "source": "local",
       "sourceType": "local",
       "skillPath": "skills/performance-optimization/SKILL.md"
+    },
+    "responsive-design-system": {
+      "source": "local",
+      "sourceType": "local",
+      "skillPath": "skills/responsive-design-system/SKILL.md"
     }
   }
 }

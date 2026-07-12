@@ -6,6 +6,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/shared/smooth-scroll-provider";
+import { FloatingContact } from "@/components/shared/floating-contact";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
@@ -27,9 +28,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "J&S Estate | Luxury Real Estate & Architectural Heritage",
+  title: "Avenue Construction Limited | Premium Architecture & Structural Design",
   description:
-    "Experience museum-grade architectural design and bespoke residential portfolios in Dubai. Crafted by J&S Atelier.",
+    "Experience museum-grade architectural design and bespoke residential portfolios in Dubai. Crafted by ACL Atelier.",
 };
 
 export default function RootLayout({
@@ -55,6 +56,7 @@ export default function RootLayout({
             {children}
           </div>
         </SmoothScrollProvider>
+        <FloatingContact />
       </body>
     </html>
   );

@@ -47,20 +47,20 @@ export function Preloader() {
         >
           {/* Top Brand Indicator */}
           <div className="flex justify-between items-center text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
-            <div>J&S Estate</div>
-            <div>Atelier Portfolio</div>
+            <div>ACL</div>
+            <div>Construction Portfolio</div>
           </div>
 
           {/* Center Cinematic Title */}
           <div className="flex flex-col items-center justify-center flex-1">
             <div className="overflow-hidden h-24 flex items-center justify-center">
               <motion.h1
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-                className="font-serif text-3xl md:text-5xl tracking-[0.3em] uppercase text-text-primary"
+                initial={{ y: "120%", rotateX: 20, opacity: 0 }}
+                animate={{ y: 0, rotateX: 0, opacity: 1 }}
+                transition={{ duration: 1.1, ease: [0.32, 0.72, 0, 1] }}
+                className="font-serif text-2xl md:text-4xl tracking-[0.18em] uppercase text-text-primary text-center leading-none"
               >
-                J&S Estate
+                Avenue <span className="text-accent italic font-light">Construction</span> Limited
               </motion.h1>
             </div>
             <motion.p
@@ -76,7 +76,7 @@ export function Preloader() {
           {/* Bottom Counter & Info */}
           <div className="flex justify-between items-end">
             <div className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary max-w-[20ch] hidden md:block">
-              Sculpting residential sanctuaries in Dubai
+              Constructing signature landmarks in Dubai
             </div>
 
             <div className="font-mono text-7xl md:text-9xl tracking-tighter leading-none font-light text-accent">
