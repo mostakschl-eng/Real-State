@@ -1,4 +1,3 @@
-import { Preloader } from "@/components/shared/preloader";
 import { Navbar } from "@/components/shared/navbar";
 import { Hero } from "./_components/hero";
 import { About } from "./_components/about";
@@ -11,8 +10,6 @@ import { Footer } from "@/components/shared/footer";
 export default function Home() {
   return (
     <>
-      <Preloader />
-
       <div className="flex min-h-dvh flex-col">
         <Navbar />
 

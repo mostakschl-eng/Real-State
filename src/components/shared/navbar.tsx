@@ -30,14 +30,13 @@ export function Navbar() {
   return (
     <>
       {/* Floating Nav Container */}
-      <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-40 flex w-[calc(100%-1.5rem)] max-w-5xl items-center justify-between md:rounded-full md:border md:border-text-primary/10 md:bg-canvas/92 md:px-6 md:py-3 md:shadow-[0_8px_32px_rgba(28,27,24,0.12),inset_0_1px_0_rgba(255,255,255,0.72)] md:backdrop-blur-xl pointer-events-none md:pointer-events-auto">
-        
+      <nav className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 z-40 flex w-[calc(100%-1.5rem)] max-w-5xl items-center justify-between rounded-full border border-text-primary/10 bg-canvas/70 px-2 py-2 md:px-6 md:py-3 shadow-[0_8px_32px_rgba(28,27,24,0.12)] backdrop-blur-xl">
         {/* Logo (Far left on both mobile and desktop) */}
         <motion.div
           initial={{ opacity: 0, x: -12 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-          className="pointer-events-auto flex h-11 items-center justify-center rounded-full border border-text-primary/10 bg-canvas/92 px-5 shadow-[0_8px_32px_rgba(28,27,24,0.12),inset_0_1px_0_rgba(255,255,255,0.72)] backdrop-blur-xl md:h-auto md:border-none md:bg-transparent md:px-0 md:shadow-none md:backdrop-blur-none"
+          className="flex h-10 items-center justify-center px-4 md:h-auto md:px-0"
         >
           <Logo />
         </motion.div>
@@ -98,18 +97,23 @@ export function Navbar() {
           {/* Mobile Hamburger Menu (Far right on mobile, hidden on desktop) */}
           <button
             onClick={toggleMenu}
-            className="relative flex size-11 shrink-0 items-center justify-center rounded-full border border-text-primary/10 bg-canvas/92 shadow-[0_8px_32px_rgba(28,27,24,0.12),inset_0_1px_0_rgba(255,255,255,0.72)] backdrop-blur-xl transition-colors hover:bg-accent/5 md:hidden"
+            className="relative flex size-10 shrink-0 flex-col items-end justify-center gap-[4.5px] rounded-full transition-colors hover:bg-black/5 md:hidden pr-[11px]"
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
           >
             <span
-              className={`absolute h-0.5 w-4 rounded-full bg-accent transition-transform duration-300 ease-premium-in-out ${
-                isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5"
+              className={`h-[1.5px] w-[18px] rounded-full bg-accent transition-transform duration-300 ease-premium-in-out origin-right ${
+                isOpen ? "-rotate-45 translate-x-[-2px] -translate-y-px" : ""
               }`}
             />
             <span
-              className={`absolute h-0.5 w-4 rounded-full bg-accent transition-transform duration-300 ease-premium-in-out ${
-                isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5"
+              className={`h-[1.5px] w-[12px] rounded-full bg-accent transition-opacity duration-300 ease-premium-in-out ${
+                isOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`h-[1.5px] w-[18px] rounded-full bg-accent transition-transform duration-300 ease-premium-in-out origin-right ${
+                isOpen ? "rotate-45 translate-x-[-2px] translate-y-px" : ""
               }`}
             />
           </button>

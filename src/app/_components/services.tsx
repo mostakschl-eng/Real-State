@@ -29,62 +29,57 @@ export function Services() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         {/* Left Column - Sticky Info (Editorial Split - col-span-5) */}
         <div className="lg:col-span-5 lg:sticky lg:top-32 flex flex-col gap-6">
-          <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
-            Capabilities
-          </span>
-          <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05] text-text-primary uppercase max-w-[12ch]">
-            <span className="block overflow-hidden pb-1">
-              <motion.span
-                initial={prefersReducedMotion ? false : { y: "110%" }}
-                whileInView={prefersReducedMotion ? undefined : { y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-                className="block"
-              >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+            className="flex flex-col gap-6"
+          >
+            <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
+              Capabilities
+            </span>
+            <h2 className="font-serif text-3xl md:text-5xl tracking-tight leading-[1.05] text-text-primary uppercase">
+              <span className="block overflow-hidden pb-1">
                 Bespoke Solutions
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden pb-1">
-              <motion.span
-                initial={prefersReducedMotion ? false : { y: "110%" }}
-                whileInView={prefersReducedMotion ? undefined : { y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.08,
-                  ease: [0.32, 0.72, 0, 1],
-                }}
-                className="block italic font-light text-accent leading-[1.1]"
-              >
+              </span>
+              <span className="block italic font-light text-accent leading-[1.1]">
                 for Collectors
-              </motion.span>
-            </span>
-          </h2>
-          <p className="text-xs md:text-sm leading-relaxed text-text-secondary max-w-[32ch] font-light">
-            We provide full-lifecycle craftsmanship, from the initial sketch to
-            portfolio advisory.
-          </p>
+              </span>
+            </h2>
+            <p className="text-xs md:text-sm leading-relaxed text-text-secondary max-w-[32ch] font-light">
+              We provide full-lifecycle craftsmanship, from the initial sketch
+              to portfolio advisory.
+            </p>
+          </motion.div>
 
           {/* Active Service Image Display */}
-          <div className="relative mt-8 aspect-4/3 rounded-2xl overflow-hidden border border-black/5 bg-black/5 w-full max-w-sm hidden lg:block">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
-                className="w-full h-full relative"
-              >
-                <Image
-                  src={SERVICES[activeTab].imageUrl}
-                  alt={SERVICES[activeTab].title}
-                  fill
-                  sizes="384px"
-                  className="object-cover brightness-75"
-                />
-              </motion.div>
-            </AnimatePresence>
+          <div className="relative mt-8 aspect-4/3 rounded-2xl overflow-hidden border border-black/5 w-full max-w-sm hidden lg:block bg-surface">
+            {SERVICES.map((service, index) => {
+              const isActive = activeTab === index;
+              return (
+                <motion.div
+                  key={service.id}
+                  initial={false}
+                  animate={{
+                    opacity: isActive ? 1 : 0,
+                    scale: isActive ? 1 : 1.05,
+                  }}
+                  transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+                  className="w-full h-full absolute inset-0 origin-center pointer-events-none"
+                  style={{ zIndex: isActive ? 10 : 0 }}
+                >
+                  <Image
+                    src={service.imageUrl}
+                    alt={service.title}
+                    fill
+                    sizes="384px"
+                    className="object-cover brightness-75"
+                    priority
+                  />
+                </motion.div>
+              );
+            })}
             {/* Corner Bezel Ring Effect */}
             <div className="absolute inset-0 ring-1 ring-black/5 rounded-2xl pointer-events-none" />
           </div>

@@ -88,7 +88,7 @@ export function About() {
     <section
       ref={containerRef}
       id="about"
-      className="relative w-full py-28 md:py-40 px-4 sm:px-6 md:px-12 bg-canvas z-10 overflow-hidden"
+      className="relative w-full pt-28 md:pt-40 pb-4 md:pb-6 px-4 sm:px-6 md:px-12 bg-canvas z-10 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header — asymmetric left alignment */}
@@ -222,7 +222,7 @@ export function About() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 1.4, ease: [0.32, 0.72, 0, 1] }}
-          className="w-16 h-px bg-accent/30 mt-20 origin-left"
+          className="w-16 h-px bg-accent/30 mt-8 origin-left"
         />
       </div>
     </section>

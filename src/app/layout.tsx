@@ -49,9 +49,6 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-canvas text-text-primary"
         suppressHydrationWarning
       >
-        {/* Procedural Film Grain Overlay */}
-        <div className="noise-overlay fixed inset-0 pointer-events-none z-50 opacity-[0.025]" />
-
         <SmoothScrollProvider>
           <div className="flex flex-col flex-1 relative min-h-dvh">
             {children}

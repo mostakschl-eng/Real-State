@@ -19,6 +19,9 @@ pnpm dev
 
 bun dev
 
+next. remove -
+Remove-Item -Recurse -Force .next
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

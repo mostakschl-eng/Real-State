@@ -21,20 +21,18 @@ export function Hero() {
   );
 
   return (
-    <section className="relative z-10 flex min-h-dvh w-full flex-col justify-between overflow-hidden px-4 pb-8 pt-24 sm:px-6 md:px-12">
+    <section className="relative z-10 flex min-h-dvh w-full flex-col justify-between overflow-hidden bg-text-primary px-4 pb-8 pt-24 sm:px-6 md:px-12">
       <div className="absolute inset-0 z-0 overflow-hidden">
         <motion.div
           style={{ y: backgroundY }}
           className="relative top-[-3.5%] h-[122%] w-full"
         >
           <motion.div
-            initial={{ scale: 1 }}
-            animate={prefersReducedMotion ? undefined : { scale: 1.06 }}
+            initial={{ scale: 1.05, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{
-              duration: 22,
+              duration: 1.8,
               ease: [0.32, 0.72, 0, 1],
-              repeat: Infinity,
-              repeatType: "reverse",
             }}
             className="relative h-full w-full"
           >

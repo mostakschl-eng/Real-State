@@ -110,7 +110,7 @@ export function FloatingContact() {
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.94 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="flex size-14 md:size-16 shrink-0 items-center justify-center rounded-full bg-accent text-canvas shadow-[0_10px_30px_rgba(202,138,4,0.35)]"
+              className="flex size-14 md:size-16 shrink-0 items-center justify-center rounded-full bg-accent text-canvas shadow-xl shadow-black/10"
               aria-label={item.label}
             >
               {item.icon}

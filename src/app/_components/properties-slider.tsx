@@ -16,14 +16,35 @@ export function PropertiesSlider() {
   const targetRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   const xRange = useMotionValue(0);
+  const [containerHeight, setContainerHeight] = useState("200vh");
 
   useEffect(() => {
     function calculateRange() {
       if (!sliderRef.current || !sliderRef.current.parentElement) return;
-      const sliderWidth = sliderRef.current.scrollWidth;
+
       const containerWidth = sliderRef.current.parentElement.offsetWidth;
-      const range = Math.max(0, sliderWidth - containerWidth);
+      const lastChild = sliderRef.current.lastElementChild as HTMLElement;
+
+      if (!lastChild) return;
+
+      let range = 0;
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile) {
+        // Mobile: Center the last card on the screen
+        const centerOfLastCard =
+          lastChild.offsetLeft + lastChild.offsetWidth / 2;
+        const centerOfContainer = containerWidth / 2;
+        range = Math.max(0, centerOfLastCard - centerOfContainer);
+      } else {
+        // Desktop: Align the right edge of the last card with the right edge of the container
+        const rightEdgeOfLastCard =
+          lastChild.offsetLeft + lastChild.offsetWidth;
+        range = Math.max(0, rightEdgeOfLastCard - containerWidth);
+      }
+
       xRange.set(range);
+      setContainerHeight(`calc(100vh + ${range}px)`);
     }
 
     calculateRange();
@@ -54,12 +75,19 @@ export function PropertiesSlider() {
     <section
       ref={targetRef}
       id="residences"
-      className="relative w-full h-[200vh] bg-canvas z-30"
+      className="relative w-full bg-canvas z-30"
+      style={{ height: containerHeight }}
     >
-      <div className="sticky top-0 h-dvh flex flex-col justify-center px-6 md:px-12 py-24">
+      <div className="sticky top-0 h-dvh w-full overflow-x-clip flex flex-col pt-16 md:pt-20 pb-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto w-full flex flex-col gap-12">
           {/* Section Header */}
-          <div className="flex flex-col gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
+            className="flex flex-col gap-4"
+          >
             <span className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent">
               Selected Estates
             </span>
@@ -74,10 +102,16 @@ export function PropertiesSlider() {
                 Scroll to explore portfolio
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Scroll-Linked Slider Container */}
-          <div className="overflow-visible">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.32, 0.72, 0, 1] }}
+            className="overflow-visible"
+          >
             <motion.div
               ref={sliderRef}
               style={{ x }}
@@ -91,7 +125,7 @@ export function PropertiesSlider() {
                 />
               ))}
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -110,18 +144,11 @@ function PropertyCard({
 
   const showOverlay = isHovered || isFocused;
 
-  // Horizontal parallax for standard cards
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-  const imgX = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
-
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="w-[300px] md:w-[440px] select-none shrink-0"
+      className="w-[300px] md:w-[440px] select-none shrink-0 group"
     >
       {/* Double Bezel (Doppelrand) Enclosure - Dark Mode style surface */}
       <div
@@ -136,23 +163,18 @@ function PropertyCard({
             onBlur={() => setIsFocused(false)}
             className="block relative aspect-4/3 overflow-hidden"
           >
-            {/* Image with parallax effect */}
-            <motion.div
-              style={{ x: imgX }}
-              animate={{ scale: showOverlay ? 1.05 : 1 }}
-              transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-              className="w-full h-full absolute inset-0 origin-center z-0 overflow-hidden rounded-t-[1.625rem]"
-            >
+            {/* Image container */}
+            <div className="w-full h-full absolute inset-0 origin-center z-0 overflow-hidden rounded-t-[1.625rem]">
               <div className="w-full h-full relative">
                 <Image
                   src={property.image}
                   alt={property.name}
                   fill
                   sizes="(max-width: 768px) 300px, 440px"
-                  className="object-cover brightness-95 saturate-[0.8]"
+                  className="object-cover brightness-95 saturate-[0.8] transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-            </motion.div>
+            </div>
 
             {/* Hover overlay (Reveal Curtain card) */}
             <motion.div
