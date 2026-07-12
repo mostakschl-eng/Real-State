@@ -23,8 +23,8 @@ export function FloatingContact() {
       label: "WhatsApp Chat",
       delay: 0.2,
       icon: (
-        <svg viewBox="0 0 24 24" className="size-5 md:size-[30px]" fill="currentColor">
-          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.967C16.528 2.012 14.07 1.01 11.999 1.01 6.562 1.01 2.138 5.38 2.134 10.81c-.001 1.761.464 3.478 1.349 5.025l-.946 3.454 3.538-.925zm11.758-6.848c-.322-.161-1.897-.937-2.19-1.041-.294-.104-.508-.156-.72.156-.213.313-.826 1.04-1.012 1.253-.187.213-.373.24-.692.08-.32-.16-1.347-.497-2.565-1.583-.949-.846-1.589-1.89-1.775-2.21-.187-.32-.02-.493.14-.653.144-.144.32-.373.48-.56.16-.187.213-.32.32-.533.107-.213.053-.4-.027-.56-.08-.16-.72-1.733-.987-2.373-.26-.626-.523-.54-.72-.55-.186-.01-.4-.01-.613-.01-.213 0-.56.08-.853.4-.293.32-1.12 1.093-1.12 2.666 0 1.574 1.146 3.094 1.306 3.307.16.213 2.253 3.44 5.453 4.826.762.329 1.356.526 1.82.673.765.243 1.462.209 2.012.127.613-.092 1.897-.774 2.164-1.522.267-.747.267-1.387.187-1.52-.08-.133-.293-.213-.613-.373z" />
+        <svg viewBox="0 0 448 512" className="size-6 md:size-9" fill="currentColor">
+          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 438.1c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.1 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.5-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.5-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
         </svg>
       ),
     },
@@ -34,12 +34,20 @@ export function FloatingContact() {
       external: false,
       label: "Call Atelier",
       delay: 0.3,
-      icon: <Phone className="size-5 md:size-7" strokeWidth={1.6} />,
+      icon: <Phone className="size-7 md:size-9" strokeWidth={1.6} />,
     },
   ];
 
   return (
-    <div className="fixed z-9999 flex flex-col items-end gap-2 bottom-6 right-4 md:bottom-8 md:right-6">
+    <div
+      className="flex flex-col items-end gap-2"
+      style={{
+        position: "fixed",
+        zIndex: 9999,
+        bottom: "1.5rem",
+        right: "1rem",
+      }}
+    >
       {items.map((item) => {
         const isHovered = hoveredButton === item.key;
         return (
@@ -67,14 +75,14 @@ export function FloatingContact() {
                   animate={{ opacity: 1, scale: 1, marginRight: 12 }}
                   exit={{ opacity: 0, scale: 0.9, marginRight: 0 }}
                   transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex h-11 items-center whitespace-nowrap rounded-full px-5"
+                  className="flex h-11 md:h-12 items-center whitespace-nowrap rounded-full px-5 md:px-6"
                   style={{
                     border: "1px solid rgba(194, 159, 120, 0.35)",
                     backgroundColor: "#f8f7f5",
                     boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
                   }}
                 >
-                  <span className="text-[11px] font-sans font-medium uppercase tracking-[0.12em] text-accent">
+                  <span className="text-[11px] md:text-[12px] font-sans font-medium uppercase tracking-[0.12em] text-accent">
                     {item.label}
                   </span>
                 </motion.a>
@@ -89,7 +97,7 @@ export function FloatingContact() {
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.94 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="flex size-14 md:size-20 shrink-0 items-center justify-center rounded-full bg-accent text-canvas shadow-[0_10px_30px_rgba(202,138,4,0.35)]"
+              className="flex size-16 md:size-24 shrink-0 items-center justify-center rounded-full bg-accent text-canvas shadow-[0_10px_30px_rgba(202,138,4,0.35)]"
               aria-label={item.label}
             >
               {item.icon}
