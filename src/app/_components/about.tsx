@@ -155,10 +155,10 @@ export function About() {
             className="lg:col-span-5 flex flex-col gap-4"
           >
             <p className="text-sm md:text-base leading-relaxed text-text-secondary font-light">
-              Founded in Dubai in 2018, Avenue Construction Limited was born from a desire to
-              escape the patterns of commercial real estate. We do not construct
-              buildings; we orchestrate light, aggregate raw materials, and
-              draft silence into form.
+              Founded in Dubai in 2018, Avenue Construction Limited was born
+              from a desire to escape the patterns of commercial real estate. We
+              do not construct buildings; we orchestrate light, aggregate raw
+              materials, and draft silence into form.
             </p>
             <p className="text-xs leading-relaxed text-text-secondary/70 font-light">
               Every commission begins with a site analysis and solar orientation

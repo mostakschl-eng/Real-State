@@ -60,7 +60,9 @@ export default function ProjectsPage() {
                   }`}
                 >
                   {/* Double Bezel Enclosure */}
-                  <div className={`double-bezel-outer transition-colors duration-500 ${isActive ? "bg-accent/5 border-accent/20" : ""}`}>
+                  <div
+                    className={`double-bezel-outer transition-colors duration-500 ${isActive ? "bg-accent/5 border-accent/20" : ""}`}
+                  >
                     <div className="double-bezel-inner relative">
                       {/* Image Frame */}
                       <Link

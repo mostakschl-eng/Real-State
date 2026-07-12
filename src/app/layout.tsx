@@ -28,7 +28,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Avenue Construction Limited | Premium Architecture & Structural Design",
+  title:
+    "Avenue Construction Limited | Premium Architecture & Structural Design",
   description:
     "Experience museum-grade architectural design and bespoke residential portfolios in Dubai. Crafted by ACL Atelier.",
 };

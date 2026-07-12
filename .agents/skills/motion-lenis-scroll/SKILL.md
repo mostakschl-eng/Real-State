@@ -42,14 +42,18 @@ This is the pattern documented directly in Lenis' own `packages/react/README.md`
 
 ```tsx
 // app/providers/SmoothScrollProvider.tsx
-'use client';
+"use client";
 
-import { ReactLenis } from 'lenis/react';
-import type { LenisRef } from 'lenis/react';
-import { cancelFrame, frame } from 'framer-motion'; // or 'motion/react'
-import { useEffect, useRef } from 'react';
+import { ReactLenis } from "lenis/react";
+import type { LenisRef } from "lenis/react";
+import { cancelFrame, frame } from "framer-motion"; // or 'motion/react'
+import { useEffect, useRef } from "react";
 
-export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
+export function SmoothScrollProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const lenisRef = useRef<LenisRef>(null);
 
   useEffect(() => {
@@ -61,7 +65,11 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
   }, []);
 
   return (
-    <ReactLenis root options={{ autoRaf: false, lerp: 0.1, syncTouch: false }} ref={lenisRef}>
+    <ReactLenis
+      root
+      options={{ autoRaf: false, lerp: 0.1, syncTouch: false }}
+      ref={lenisRef}
+    >
       {children}
     </ReactLenis>
   );
@@ -78,6 +86,7 @@ Mount once in the root layout, wrapping everything:
 ```
 
 **Why this exact shape:**
+
 - `autoRaf: false` — you must set this whenever Lenis shares a page with Motion or GSAP; otherwise Lenis runs its own independent rAF loop in parallel with Motion's, causing drift.
 - `frame.update(update, true)` — hooks Lenis into Motion's internal frame scheduler instead of a raw `requestAnimationFrame` call, so every `useScroll`-driven animation and Lenis' own smoothing share one timestamp source (`data.timestamp`).
 - `root` prop — makes the Lenis instance accessible anywhere via the `useLenis` hook, and uses the native `<html>` scroll container so `position: sticky`, anchor links, and accessibility keep working (Lenis wraps native scroll, it doesn't hijack it).
@@ -86,6 +95,7 @@ Mount once in the root layout, wrapping everything:
 ## 2. Choosing the Right Animation Pattern
 
 ### Pattern A — `whileInView`: one-shot entrance reveals
+
 Cheapest option. Use for text blocks, cards, section headers — anything that should animate once when it enters view, not track scroll continuously.
 
 ```tsx
@@ -102,26 +112,31 @@ Cheapest option. Use for text blocks, cards, section headers — anything that s
 `viewport={{ once: true }}` is the default recommendation — re-triggering on scroll-up costs more and rarely reads as intentional design.
 
 ### Pattern B — `useScroll` + `useTransform`: continuous scroll-scrubbed motion
+
 Use for parallax, pinned transitions, scale-on-scroll — anything that should track scroll position 1:1 rather than fire once.
 
 ```tsx
-'use client';
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+"use client";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 function ParallaxImage() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start end', 'end start'], // element bottom-enters -> top-exits
+    offset: ["start end", "end start"], // element bottom-enters -> top-exits
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['-15%', '15%']);
+  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.08, 1]);
 
   return (
     <div ref={ref} className="relative h-[70vh] overflow-hidden">
-      <motion.img src="/property.jpg" style={{ y, scale }} className="h-[130%] w-full object-cover" />
+      <motion.img
+        src="/property.jpg"
+        style={{ y, scale }}
+        className="h-[130%] w-full object-cover"
+      />
     </div>
   );
 }
@@ -136,11 +151,14 @@ The pattern behind most awwwards-style real-estate/portfolio scroll transitions 
 ```tsx
 function PinnedTransition() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
-  const y = useTransform(scrollYProgress, [0, 1], ['100%', '0%']);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end end"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
 
   return (
-    <section ref={ref} className="relative" style={{ height: '200vh' }}>
+    <section ref={ref} className="relative" style={{ height: "200vh" }}>
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Section 1 — stays pinned */}
       </div>
@@ -166,17 +184,17 @@ Key rule: the outer wrapper's `height` (200vh for two stacked screens) creates t
 ## 5. Accessibility
 
 ```tsx
-import { MotionConfig } from 'motion/react';
+import { MotionConfig } from "motion/react";
 
 <MotionConfig reducedMotion="user">
   <App />
-</MotionConfig>
+</MotionConfig>;
 ```
 
 `reducedMotion="user"` respects the OS-level `prefers-reduced-motion` setting automatically for every Motion animation in the tree — this is the current recommended approach over manually branching each animation's initial/animate values, though manual branching still works for one-off cases:
 
 ```tsx
-import { useReducedMotion } from 'motion/react';
+import { useReducedMotion } from "motion/react";
 
 function Card() {
   const reduced = useReducedMotion();
@@ -193,18 +211,18 @@ Note: Lenis smoothing itself should also be skipped under reduced motion — pas
 
 ## 6. Known Issues & Fixes
 
-| Symptom | Cause | Fix |
-|---|---|---|
-| Scroll feels janky, animations lag behind actual position | Lenis and Motion running separate rAF loops | Use `autoRaf: false` + `frame.update` sync pattern in §1 (official Lenis React pattern) |
-| Smooth scroll works on one page, breaks on others / feels erratic after navigation | Multiple `ReactLenis` instances mounted (e.g. per-page instead of root layout) | Mount exactly once, at the root layout, with `root` prop |
-| Parallax value lags behind scroll | Using `window.scrollY` + `useEffect` state instead of Motion's scroll hooks | Always use `useScroll`/`useTransform` — already synced to Lenis via the shared frame loop, no manual listeners needed |
-| Reveal fires on mount or too early/late | Missing or misconfigured `viewport`/`offset` | Set explicit `viewport={{ amount: 0.2 }}` (whileInView) or tune `offset` array (useScroll) |
-| Animation stutters despite correct Motion code | Tailwind `transition-*` class left on the same element | Remove all CSS `transition-*` utilities from Motion-animated elements |
-| `motion is not defined` / SSR error in Next.js | Missing `"use client"` on the component using Motion | Add `"use client"` directive at top of file |
-| AnimatePresence exit animation doesn't play | `AnimatePresence` wrapped *inside* the conditional instead of wrapping it | `<AnimatePresence>{cond && <motion.div key="x" exit={{...}} />}</AnimatePresence>` — never the reverse |
-| Touch scroll feels sluggish on mobile | `syncTouch: true` smoothing native touch momentum | Set `syncTouch: false` (recommended default for mobile-first sites) |
-| Build fails on Cloudflare Workers when using `motion` package | Known Wrangler incompatibility (motiondivision/motion GitHub issue #2918) | Install `framer-motion@12.23.24` instead — identical API, works with Workers |
-| Nested scroll containers (e.g. modal, carousel) don't scroll independently | Lenis takes over all scroll by default | Add `data-lenis-prevent` to the nested container, or set `allowNestedScroll: true` on the Lenis instance (costs a DOM check per scroll event — prefer `data-lenis-prevent` if perf-sensitive) |
+| Symptom                                                                            | Cause                                                                          | Fix                                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scroll feels janky, animations lag behind actual position                          | Lenis and Motion running separate rAF loops                                    | Use `autoRaf: false` + `frame.update` sync pattern in §1 (official Lenis React pattern)                                                                                                       |
+| Smooth scroll works on one page, breaks on others / feels erratic after navigation | Multiple `ReactLenis` instances mounted (e.g. per-page instead of root layout) | Mount exactly once, at the root layout, with `root` prop                                                                                                                                      |
+| Parallax value lags behind scroll                                                  | Using `window.scrollY` + `useEffect` state instead of Motion's scroll hooks    | Always use `useScroll`/`useTransform` — already synced to Lenis via the shared frame loop, no manual listeners needed                                                                         |
+| Reveal fires on mount or too early/late                                            | Missing or misconfigured `viewport`/`offset`                                   | Set explicit `viewport={{ amount: 0.2 }}` (whileInView) or tune `offset` array (useScroll)                                                                                                    |
+| Animation stutters despite correct Motion code                                     | Tailwind `transition-*` class left on the same element                         | Remove all CSS `transition-*` utilities from Motion-animated elements                                                                                                                         |
+| `motion is not defined` / SSR error in Next.js                                     | Missing `"use client"` on the component using Motion                           | Add `"use client"` directive at top of file                                                                                                                                                   |
+| AnimatePresence exit animation doesn't play                                        | `AnimatePresence` wrapped _inside_ the conditional instead of wrapping it      | `<AnimatePresence>{cond && <motion.div key="x" exit={{...}} />}</AnimatePresence>` — never the reverse                                                                                        |
+| Touch scroll feels sluggish on mobile                                              | `syncTouch: true` smoothing native touch momentum                              | Set `syncTouch: false` (recommended default for mobile-first sites)                                                                                                                           |
+| Build fails on Cloudflare Workers when using `motion` package                      | Known Wrangler incompatibility (motiondivision/motion GitHub issue #2918)      | Install `framer-motion@12.23.24` instead — identical API, works with Workers                                                                                                                  |
+| Nested scroll containers (e.g. modal, carousel) don't scroll independently         | Lenis takes over all scroll by default                                         | Add `data-lenis-prevent` to the nested container, or set `allowNestedScroll: true` on the Lenis instance (costs a DOM check per scroll event — prefer `data-lenis-prevent` if perf-sensitive) |
 
 ## 7. Reference Stack
 

@@ -11,10 +11,10 @@ license_source: https://github.com/stareezy-1/frontend-architecture-skill/blob/m
 ---
 
 # Frontend SEO (portable, builder-based)
+
 ## When to Use
 
 Use this skill when you need a portable, framework-agnostic SEO system for any React or React Native-for-web frontend. Centralizes site metadata in one constants module, derives canonical URLs from a single base, builds per-route metadata (title, description, canonical, Open Graph, Twitter/X cards), generates...
-
 
 > Portable skill — readable by Claude Code, OpenCode, Codex, Cursor, Windsurf, and others.
 > This skill describes an **SEO system** — a set of pure builder functions plus a thin
@@ -134,13 +134,7 @@ export interface SitemapEntry {
   url: string; // absolute
   lastModified?: string;
   changeFrequency?:
-    | "always"
-    | "hourly"
-    | "daily"
-    | "weekly"
-    | "monthly"
-    | "yearly"
-    | "never";
+    "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
   priority?: number;
 }
 
@@ -509,9 +503,7 @@ export function personJsonLd(): JsonLd {
     name: AUTHOR_NAME,
     url: SITE_URL,
     description: SITE_DESCRIPTION,
-    sameAs: [
-      /* social profile URLs */
-    ],
+    sameAs: [/* social profile URLs */],
   });
 }
 

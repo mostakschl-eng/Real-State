@@ -38,8 +38,8 @@ export function Footer() {
           <div className="md:col-span-4 flex flex-col gap-6">
             <Logo />
             <p className="text-text-secondary text-xs uppercase tracking-[0.2em] max-w-[28ch] leading-relaxed font-light">
-              Constructing signature landmarks in Dubai. Every
-              commission is a study in light, material, and precision.
+              Constructing signature landmarks in Dubai. Every commission is a
+              study in light, material, and precision.
             </p>
             {/* Social links */}
             <div className="flex gap-6 pt-2">
@@ -69,6 +69,7 @@ export function Footer() {
               {FOOTER_NAV.map((link) => (
                 <li key={link.label}>
                   <Link
+                    suppressHydrationWarning
                     href={link.href}
                     className="text-xs text-text-secondary hover:text-accent transition-colors tracking-wide"
                   >
@@ -88,6 +89,7 @@ export function Footer() {
               {FOOTER_SERVICES.map((link) => (
                 <li key={link.label}>
                   <Link
+                    suppressHydrationWarning
                     href={link.href}
                     className="text-xs text-text-secondary hover:text-accent transition-colors tracking-wide"
                   >
@@ -110,12 +112,14 @@ export function Footer() {
             </div>
             <div className="flex flex-col gap-2 text-xs text-text-secondary tracking-wide font-light">
               <a
+                suppressHydrationWarning
                 href="mailto:inquire@avenueconstruction.com"
                 className="hover:text-accent transition-colors"
               >
                 inquire@avenueconstruction.com
               </a>
               <a
+                suppressHydrationWarning
                 href="tel:+97145550199"
                 className="hover:text-accent transition-colors"
               >
@@ -151,7 +155,8 @@ export function Footer() {
         {/* Bottom: copyright */}
         <div className="border-t border-black/5 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <span className="text-[10px] text-text-secondary tracking-widest uppercase">
-            &copy; {currentYear} Avenue Construction Limited. All rights reserved.
+            &copy; {currentYear} Avenue Construction Limited. All rights
+            reserved.
           </span>
           <span className="text-[10px] text-text-secondary/50 tracking-widest uppercase font-light">
             Dubai, United Arab Emirates

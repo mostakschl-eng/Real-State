@@ -55,6 +55,7 @@ export function Navbar() {
                 }}
               >
                 <Link
+                  suppressHydrationWarning
                   href={link.href}
                   className={`text-[11px] font-semibold uppercase tracking-[0.15em] transition-colors duration-300 hover:text-accent ${
                     isActive ? "text-accent" : "text-text-primary/78"
@@ -71,10 +72,14 @@ export function Navbar() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.35, ease: [0.32, 0.72, 0, 1] }}
+            transition={{
+              duration: 0.5,
+              delay: 0.35,
+              ease: [0.32, 0.72, 0, 1],
+            }}
             className="hidden md:block"
           >
-            <Link href="/contact">
+            <Link suppressHydrationWarning href="/contact">
               <MagneticButton
                 strength={20}
                 className="rounded-full px-5 py-2 text-[10px] uppercase tracking-[0.2em] font-medium border border-black/10 text-text-primary bg-black/5 hover:bg-accent hover:text-canvas hover:border-accent transition-all duration-300 active:scale-[0.98]"
@@ -86,18 +91,13 @@ export function Navbar() {
 
           <button
             onClick={toggleMenu}
-            className="relative flex size-11 items-center justify-center rounded-full border border-text-primary/10 bg-text-primary/5 text-text-primary transition-colors hover:text-accent md:hidden"
+            className="relative flex h-8 w-8 items-center justify-end text-text-primary transition-colors hover:text-accent md:hidden pr-1"
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
           >
             <span
-              className={`absolute h-0.5 w-4 rounded-full bg-current transition-transform duration-300 ease-premium-in-out ${
-                isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5"
-              }`}
-            />
-            <span
-              className={`absolute h-0.5 w-4 rounded-full bg-current transition-transform duration-300 ease-premium-in-out ${
-                isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5"
+              className={`block size-1.5 rounded-full bg-current transition-transform duration-300 ease-premium-in-out ${
+                isOpen ? "scale-150 bg-accent" : "scale-100"
               }`}
             />
           </button>
@@ -130,6 +130,7 @@ export function Navbar() {
                   }}
                 >
                   <Link
+                    suppressHydrationWarning
                     href={link.href}
                     onClick={closeMenu}
                     className="font-serif text-3xl tracking-widest uppercase text-text-primary hover:text-accent transition-colors duration-300"
@@ -148,7 +149,11 @@ export function Navbar() {
                 }}
                 className="mt-8"
               >
-                <Link href="/contact" onClick={closeMenu}>
+                <Link
+                  suppressHydrationWarning
+                  href="/contact"
+                  onClick={closeMenu}
+                >
                   <button className="rounded-full px-8 py-3 text-xs uppercase tracking-[0.2em] font-medium border border-accent text-accent bg-accent/5 hover:bg-accent hover:text-canvas transition-all duration-300">
                     Inquire Now
                   </button>

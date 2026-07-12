@@ -15,7 +15,7 @@ export function Logo() {
       className="font-serif text-sm tracking-[0.15em] uppercase text-text-primary transition-colors duration-300 hover:text-accent md:text-base md:tracking-[0.18em] flex items-center focus:outline-hidden"
     >
       {/* Mobile view: simple static ACL logo */}
-      <span className="md:hidden">
+      <span className="md:hidden tracking-[0.3em] ml-[0.15em]">
         A<span className="text-accent">C</span>L
       </span>
 
@@ -28,7 +28,7 @@ export function Logo() {
         >
           Avenue <span className="text-accent">Construction</span> Limited
         </motion.span>
-        
+
         {/* Hover duplicate that slides up from bottom */}
         <motion.span
           initial={{ y: "100%" }}

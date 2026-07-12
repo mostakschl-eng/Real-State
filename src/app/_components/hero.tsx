@@ -92,7 +92,7 @@ export function Hero() {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="mt-8 flex flex-col items-center gap-4 sm:flex-row"
         >
-          <Link href="#residences">
+          <Link suppressHydrationWarning href="#residences">
             <MagneticButton
               strength={22}
               className="group flex items-center gap-3 rounded-full bg-accent px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.18em] text-canvas transition-all duration-500 hover:bg-canvas hover:text-text-primary active:scale-[0.97]"
@@ -104,6 +104,7 @@ export function Hero() {
             </MagneticButton>
           </Link>
           <Link
+            suppressHydrationWarning
             href="/about"
             className="text-[10px] uppercase tracking-[0.2em] text-canvas/86 transition-colors duration-300 hover:text-canvas"
           >

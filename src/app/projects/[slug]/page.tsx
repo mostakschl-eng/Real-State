@@ -20,7 +20,8 @@ export async function generateMetadata({
 }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
   const property = PROPERTIES.find((p) => p.slug === slug);
-  if (!property) return { title: "Project not found | Avenue Construction Limited" };
+  if (!property)
+    return { title: "Project not found | Avenue Construction Limited" };
   return {
     title: `${property.name} | Avenue Construction Limited`,
     description: property.description,

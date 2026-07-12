@@ -124,10 +124,13 @@ function PropertyCard({
       className="w-[300px] md:w-[440px] select-none shrink-0"
     >
       {/* Double Bezel (Doppelrand) Enclosure - Dark Mode style surface */}
-      <div className={`double-bezel-outer transition-colors duration-500 ${showOverlay ? "bg-accent/5 border-accent/20" : ""}`}>
+      <div
+        className={`double-bezel-outer transition-colors duration-500 ${showOverlay ? "bg-accent/5 border-accent/20" : ""}`}
+      >
         <div className="double-bezel-inner relative bg-surface overflow-hidden">
           {/* Card Link to Detail Page */}
           <Link
+            suppressHydrationWarning
             href={`/projects/${property.slug}`}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
@@ -159,7 +162,10 @@ function PropertyCard({
               className="absolute inset-0 bg-linear-to-t from-text-primary/80 via-text-primary/20 to-transparent flex flex-col justify-end p-6 z-10"
             >
               <motion.div
-                animate={{ y: showOverlay ? 0 : 15, opacity: showOverlay ? 1 : 0 }}
+                animate={{
+                  y: showOverlay ? 0 : 15,
+                  opacity: showOverlay ? 1 : 0,
+                }}
                 transition={{
                   delay: 0.05,
                   duration: 0.5,

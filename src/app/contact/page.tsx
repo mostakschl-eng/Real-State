@@ -32,7 +32,9 @@ export default function ContactPage() {
               className="font-serif text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] text-text-primary uppercase"
             >
               Connect with <br />
-              <span className="italic font-light text-accent">Avenue Construction</span>
+              <span className="italic font-light text-accent">
+                Avenue Construction
+              </span>
             </motion.h1>
 
             <motion.p

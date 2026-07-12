@@ -137,8 +137,8 @@ export function ContactForm() {
                 Inquiry Received
               </h3>
               <p className="text-xs text-text-secondary max-w-[30ch] leading-relaxed mt-3">
-                A private advisor from Avenue Construction Limited will contact you shortly to
-                discuss your request.
+                A private advisor from Avenue Construction Limited will contact
+                you shortly to discuss your request.
               </p>
               <button
                 onClick={() => setStatus("idle")}
@@ -150,7 +150,10 @@ export function ContactForm() {
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-8">
               <div className="flex flex-col gap-2">
-                <label htmlFor="fullName" className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
+                <label
+                  htmlFor="fullName"
+                  className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary"
+                >
                   Full Name
                 </label>
                 <input
@@ -170,7 +173,10 @@ export function ContactForm() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
+                <label
+                  htmlFor="email"
+                  className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary"
+                >
                   Email Address
                 </label>
                 <input
@@ -190,7 +196,10 @@ export function ContactForm() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="residence" className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
+                <label
+                  htmlFor="residence"
+                  className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary"
+                >
                   Residence of Interest
                 </label>
                 <select
@@ -228,7 +237,10 @@ export function ContactForm() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary">
+                <label
+                  htmlFor="message"
+                  className="text-[10px] uppercase tracking-[0.2em] font-medium text-text-secondary"
+                >
                   Inquiry Message
                 </label>
                 <textarea

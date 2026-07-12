@@ -60,7 +60,11 @@ export function Preloader() {
                 transition={{ duration: 1.1, ease: [0.32, 0.72, 0, 1] }}
                 className="font-serif text-2xl md:text-4xl tracking-[0.18em] uppercase text-text-primary text-center leading-none"
               >
-                Avenue <span className="text-accent italic font-light">Construction</span> Limited
+                Avenue{" "}
+                <span className="text-accent italic font-light">
+                  Construction
+                </span>{" "}
+                Limited
               </motion.h1>
             </div>
             <motion.p
