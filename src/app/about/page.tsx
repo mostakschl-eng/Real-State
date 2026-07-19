@@ -96,7 +96,7 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-7 flex flex-col gap-16 border-l border-black/5 pl-8 md:pl-12">
-              {/* Year 2018 */}
+              {/* Year 2016 */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -106,15 +106,13 @@ export default function AboutPage() {
               >
                 <div className="absolute left-[-41px] md:left-[-57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
                 <span className="font-mono text-lg font-semibold text-accent">
-                  2018
+                  2016
                 </span>
                 <h3 className="font-serif text-xl uppercase tracking-wide">
-                  Inception of the Atelier
+                  Early Foundations & Land Acquisition
                 </h3>
                 <p className="text-xs text-text-secondary leading-relaxed font-light">
-                  Established in Dubai with a singular studio in Al Barari. The
-                  atelier began as a private partnership committed to custom
-                  architectural monographs.
+                  Acquired the initial land holdings in Dhaka, establishing key private partnerships committed to bespoke and resilient residential developments.
                 </p>
               </motion.div>
 
@@ -131,16 +129,14 @@ export default function AboutPage() {
                   2020
                 </span>
                 <h3 className="font-serif text-xl uppercase tracking-wide">
-                  The Obsidian Commission
+                  Emerging Urban Footprint
                 </h3>
                 <p className="text-xs text-text-secondary leading-relaxed font-light">
-                  Commissioned to design the monolithic black marble villa on
-                  Palm Jumeirah. This project defined our use of physical
-                  density and material contrast.
+                  Designed Avenue Dream in Rampura and Avenue Castle in Uttar Badda, bringing our signature spatial geometry and cross-ventilation principles to Dhaka&apos;s dense urban locations.
                 </p>
               </motion.div>
 
-              {/* Year 2023 */}
+              {/* Year 2024 */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -150,15 +146,13 @@ export default function AboutPage() {
               >
                 <div className="absolute left-[-41px] md:left-[-57px] w-4 h-4 rounded-full bg-accent border-4 border-canvas top-1" />
                 <span className="font-mono text-lg font-semibold text-accent">
-                  2023
+                  2024
                 </span>
                 <h3 className="font-serif text-xl uppercase tracking-wide">
-                  Sky Residences Expansion
+                  Official Corporate Incorporation
                 </h3>
                 <p className="text-xs text-text-secondary leading-relaxed font-light">
-                  Designed the double-height Aria Penthouse in Downtown Dubai,
-                  introducing custom geometric cantilevers and floating
-                  volumetric planes.
+                  Formally incorporated as Avenue Constructions Limited under the Companies Act 1994, with our registered headquarters at Resourceful Paltan City, Dhaka.
                 </p>
               </motion.div>
 
@@ -175,12 +169,10 @@ export default function AboutPage() {
                   2026
                 </span>
                 <h3 className="font-serif text-xl uppercase tracking-wide">
-                  Signature Portfolio Launch
+                  Bashundhara Landmark & RAJUK Approvals
                 </h3>
                 <p className="text-xs text-text-secondary leading-relaxed font-light">
-                  Consolidated our custom commissions into a signature
-                  residential portfolio available to private collectors
-                  worldwide.
+                  Secured construction approvals (Permit No: D-0006453-10-25) for Avenue Ahsan Palace, our flagship G+7 single-unit luxury development in Block E, Bashundhara R/A.
                 </p>
               </motion.div>
             </div>
@@ -256,7 +248,7 @@ export default function AboutPage() {
               <div className="w-full double-bezel-outer rounded-[2.5rem] overflow-hidden">
                 <div className="double-bezel-inner relative aspect-4/3 lg:aspect-square w-full h-full group">
                   <Image
-                    src="/images/properties/prop_aria.png"
+                    src="/images/properties/project_image_5.jpeg"
                     alt="Atelier Design Philosophy"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -277,7 +269,7 @@ export default function AboutPage() {
               <div className="w-full double-bezel-outer rounded-[2.5rem] overflow-hidden order-2 lg:order-1">
                 <div className="double-bezel-inner relative aspect-4/3 lg:aspect-square w-full h-full group">
                   <Image
-                    src="/images/properties/prop_luminary.png"
+                    src="/images/properties/project_image_1.jpeg"
                     alt="Why Choose The Atelier"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -359,6 +351,7 @@ export default function AboutPage() {
                       src={alexander.imageUrl}
                       alt={alexander.name}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-premium-in-out hover:scale-105"
                     />
                   </div>
@@ -395,6 +388,7 @@ export default function AboutPage() {
                       src={elena.imageUrl}
                       alt={elena.name}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-premium-in-out hover:scale-105"
                     />
                   </div>
@@ -431,6 +425,7 @@ export default function AboutPage() {
                       src={marcus.imageUrl}
                       alt={marcus.name}
                       fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
                       className="object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-premium-in-out hover:scale-105"
                     />
                   </div>
@@ -451,6 +446,70 @@ export default function AboutPage() {
                   </blockquote>
                 </div>
               </motion.div>
+            </div>
+          </div>
+
+          {/* Conglomerate Group Synergy Section */}
+          <div className="border-t border-black/5 pt-20 flex flex-col gap-16">
+            <div className="max-w-xl flex flex-col gap-4">
+              <span className="text-[10px] uppercase tracking-[0.25em] font-mono text-accent">
+                Group Synergy
+              </span>
+              <h2 className="font-serif text-4xl uppercase tracking-tight leading-[1.05]">
+                Corporate <br />
+                <span className="italic font-light text-accent">Conglomerate Capabilities</span>
+              </h2>
+              <p className="text-xs text-text-secondary leading-relaxed font-light">
+                Avenue Constructions Limited is supported by a robust conglomerate ecosystem that manages every phase of structural design, premium material sourcing, and long-term asset care.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  title: "Avenue Structural Crafts",
+                  role: "Seismic Engineering & Build",
+                  desc: "Specializes in high-tolerance structural builds, executing concrete pours and masonry works that satisfy strict national safety codes."
+                },
+                {
+                  title: "Avenue Design Atelier",
+                  role: "Architectural & Solar Drafting",
+                  desc: "Choreographs building geometry to optimize natural cross-ventilation, microclimates, and daylight ingress paths."
+                },
+                {
+                  title: "Avenue Materials & Ceramics",
+                  role: "Premium Supply Chain",
+                  desc: "Sources local high-grade homogeneous tiles, RAK sanitary fittings, and premium structural steel directly from trusted manufacturers."
+                },
+                {
+                  title: "Avenue Property Management",
+                  role: "Asset Care & Tenancy",
+                  desc: "Secures long-term appreciation for delivered assets through custom maintenance operations, structural restorations, and corporate rentals."
+                }
+              ].map((concern, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: idx * 0.12, ease: [0.32, 0.72, 0, 1] }}
+                  className="double-bezel-outer h-full"
+                >
+                  <div className="double-bezel-inner p-6 flex flex-col justify-between h-full bg-surface/30 min-h-[220px]">
+                    <div className="flex flex-col gap-4">
+                      <h3 className="font-serif text-lg uppercase tracking-wide text-text-primary">
+                        {concern.title}
+                      </h3>
+                      <span className="text-[9px] uppercase tracking-widest font-mono text-accent font-semibold">
+                        {concern.role}
+                      </span>
+                      <p className="text-xs text-text-secondary leading-relaxed font-light">
+                        {concern.desc}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
 

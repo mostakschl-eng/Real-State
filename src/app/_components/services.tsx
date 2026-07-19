@@ -14,7 +14,7 @@ const SERVICE_DELIVERABLES: string[][] = [
     "Asset Trusts",
     "Confidentiality",
   ],
-  ["Valuations", "Tenancy Strategy", "Restoration", "JV Capital"],
+  ["Valuations", "Tenancy Strategy", "Restoration", "Joint Ventures"],
 ];
 
 export function Services() {

@@ -27,24 +27,27 @@ export function Hero() {
           style={{ y: backgroundY }}
           className="relative top-[-3.5%] h-[122%] w-full"
         >
-          <motion.div
-            initial={{ scale: 1.05, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{
-              duration: 1.8,
-              ease: [0.32, 0.72, 0, 1],
-            }}
-            className="relative h-full w-full"
-          >
-            <Image
-              src="/hero_villa.png"
-              alt="Luxury modern villa rendering at dusk"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover brightness-[0.62] saturate-[0.78]"
-            />
-          </motion.div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover brightness-[0.52] saturate-[0.82]"
+              poster="/hero_villa.png"
+            >
+              <source
+                src="https://assets.mixkit.co/videos/preview/mixkit-modern-apartment-building-exterior-44165-large.mp4"
+                type="video/mp4"
+              />
+              <Image
+                src="/hero_villa.png"
+                alt="Luxury modern residential tower in Dhaka"
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+              />
+            </video>
         </motion.div>
         <div className="absolute inset-0 bg-linear-to-t from-[#1C1B18]/90 via-[#1C1B18]/20 to-[#1C1B18]/50" />
         <div className="absolute inset-0 bg-linear-to-r from-[#1C1B18]/62 via-[#1C1B18]/12 to-[#1C1B18]/40" />
@@ -68,9 +71,9 @@ export function Hero() {
           transition={{ delay: 0.15, duration: 1.1, ease: [0.32, 0.72, 0, 1] }}
           className="font-serif text-[clamp(2.7rem,8vw,6rem)] uppercase tracking-tight leading-[0.95] text-canvas"
         >
-          Sculpting Light <br />
+          Setting Standards <br />
           <span className="italic font-light leading-[1.1] text-accent">
-            and Space
+            in Luxury Living
           </span>
         </motion.h1>
 

@@ -45,8 +45,8 @@ export default function ContactPage() {
               className="text-xs md:text-sm leading-relaxed text-text-secondary max-w-[48ch] font-light"
             >
               To coordinate a viewing of our signature residences or schedule a
-              private consultation at our Dubai studio, please submit an inquiry
-              below or contact our atelier directly.
+              private consultation at our Dhaka office, please submit an inquiry
+              below or contact our office directly.
             </motion.p>
           </div>
 
@@ -62,26 +62,26 @@ export default function ContactPage() {
             >
               <div>
                 <h4 className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent mb-3">
-                  Atelier Flagship
+                  Corporate Headquarters
                 </h4>
-                <p>Avenue Construction Limited Atelier</p>
-                <p>Al Barari, Studio 4A</p>
-                <p>Dubai, United Arab Emirates</p>
+                <p>Avenue Constructions Limited</p>
+                <p>Resourceful Paltan City</p>
+                <p>51, 51/A (7th Floor), Purana Paltan, Dhaka-1000</p>
               </div>
 
               <div>
                 <h4 className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent mb-3">
-                  Atelier Communications
+                  Corporate Communications
                 </h4>
-                <p>General inquiries: inquire@js-estate.com</p>
-                <p>Direct Advisory Line: +971 4 555 0199</p>
+                <p>General inquiries: avenue902@gmail.com</p>
+                <p>Direct Hotline: +880 1714 767 246, +880 1581 742 235</p>
               </div>
 
               <div>
                 <h4 className="text-[10px] uppercase tracking-[0.2em] font-mono text-accent mb-3">
                   Consultation Hours
                 </h4>
-                <p>Monday &ndash; Friday: 09:00 &ndash; 18:00 GST</p>
+                <p>Saturday &ndash; Thursday: 09:00 &ndash; 18:00 (GMT+6)</p>
                 <p>Private viewings by advanced reservation only.</p>
               </div>
             </motion.div>

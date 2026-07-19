@@ -121,7 +121,6 @@ export function PropertiesSlider() {
                 <PropertyCard
                   key={property.slug}
                   property={property}
-                  containerRef={targetRef}
                 />
               ))}
             </motion.div>
@@ -134,10 +133,8 @@ export function PropertiesSlider() {
 
 function PropertyCard({
   property,
-  containerRef,
 }: {
   property: (typeof PROPERTIES)[0];
-  containerRef: React.RefObject<HTMLDivElement | null>;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -235,13 +232,13 @@ function PropertyCard({
               ))}
             </div>
 
-            {/* Price tag */}
+            {/* Status tag */}
             <div className="flex justify-between items-center pt-1">
               <span className="text-[9px] uppercase tracking-[0.25em] text-text-secondary">
-                Acquisition Value
+                Project Status
               </span>
-              <span className="font-mono text-sm font-medium text-accent">
-                {property.price}
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent">
+                {property.architecturalDetails.status}
               </span>
             </div>
           </div>

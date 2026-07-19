@@ -30,9 +30,9 @@ export default function ProjectsPage() {
               </span>
             </h1>
             <p className="text-xs md:text-sm leading-relaxed text-text-secondary mt-2 font-light">
-              Explore our collection of private residential landmarks in Dubai.
-              Each structure is an individual study in light, space, and
-              materials.
+              Explore our collection of signature residential landmarks in Dhaka,
+              Bangladesh. Each structure is an individual study in light, space,
+              and materials.
             </p>
           </div>
 
@@ -148,10 +148,10 @@ export default function ProjectsPage() {
                         {/* Footing */}
                         <div className="flex justify-between items-center pt-1">
                           <span className="text-[10px] uppercase tracking-[0.2em] text-text-secondary font-mono">
-                            Acquisition Value
+                            Project Status
                           </span>
-                          <span className="font-mono text-base font-semibold text-accent">
-                            {property.price}
+                          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent">
+                            {property.architecturalDetails.status}
                           </span>
                         </div>
                       </div>

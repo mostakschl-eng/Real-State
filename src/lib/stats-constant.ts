@@ -4,15 +4,15 @@ export interface FirmStat {
 }
 
 export const FIRM_STATS: FirmStat[] = [
-  { value: "18+", label: "Completed Estates" },
-  { value: "AED 2.4B", label: "Portfolio Value" },
-  { value: "2018", label: "Founded" },
-  { value: "100%", label: "Client Retention" },
+  { value: "12+", label: "Completed Projects" },
+  { value: "3.5M+", label: "Developed Sft" },
+  { value: "2016", label: "Founded" },
+  { value: "100%", label: "Client Satisfaction" },
 ];
 
 export const HERO_STATS: FirmStat[] = [
-  { value: "18+", label: "Completed Estates" },
-  { value: "AED 2.4B", label: "Portfolio Value" },
-  { value: "2018", label: "Founded" },
-  { value: "100%", label: "Client Retention" },
+  { value: "12+", label: "Completed Projects" },
+  { value: "3.5M+", label: "Developed Sft" },
+  { value: "2016", label: "Founded" },
+  { value: "100%", label: "Client Satisfaction" },
 ];

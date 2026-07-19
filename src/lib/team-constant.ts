@@ -7,21 +7,21 @@ export interface TeamMember {
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: "Alexander Mercer",
-    role: "Founding Partner & Lead Architect",
+    name: "Engr. Maruf Ahmed",
+    role: "Team Leader & Principal Structural Engineer",
     imageUrl: "/images/team/alexander.png",
-    bio: "Formally trained at the AA School of Architecture, Alexander has spent two decades pioneering structural minimalism in Europe and the Middle East.",
+    bio: "Registered Structural Engineer (IEB Fellow) with over two decades of experience designing high-rise residential projects and premium landmarks across Dhaka.",
   },
   {
-    name: "Elena Rostova",
-    role: "Managing Director & Advisory Lead",
+    name: "Sharmin Afroz Shumi",
+    role: "Principal Architect",
     imageUrl: "/images/team/elena.png",
-    bio: "Elena oversees signature acquisitions and portfolio growth, orchestrating private asset transactions for institutional collectors and family offices.",
+    bio: "Formally trained in architecture and a member of IAB, Sharmin leads the design language of Avenue projects, focusing on spatial geometry and natural ventilation.",
   },
   {
-    name: "Marcus Thorne",
-    role: "Director of Construction Crafts",
+    name: "Engr. Md. Matiur Rahman",
+    role: "Director of Structural Engineering & Compliance",
     imageUrl: "/images/team/marcus.png",
-    bio: "Marcus commands our onsite execution teams, ensuring structural concrete pours, stonemasonry details, and interior finishes match museum-grade standards.",
+    bio: "Specializes in earthquake-resistant structural designs and RAJUK regulatory compliance, ensuring every construction satisfies local building codes.",
   },
 ];

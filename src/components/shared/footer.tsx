@@ -7,7 +7,7 @@ import { Logo } from "./logo";
 const FOOTER_NAV = [
   { label: "Signature Residences", href: "/projects" },
   { label: "Our Manifesto", href: "/about" },
-  { label: "Bespoke Services", href: "/services" },
+  { label: "Landowner Portal", href: "/landowner" },
   { label: "Private Consultation", href: "/contact" },
 ];
 
@@ -19,11 +19,13 @@ const FOOTER_SERVICES = [
 ];
 
 const FOOTER_REGIONS = [
-  "Dubai Marina",
-  "Palm Jumeirah",
-  "Downtown Dubai",
-  "Al Barari",
-  "Jumeirah Golf Estates",
+  "Gulshan",
+  "Banani",
+  "Baridhara",
+  "Bashundhara R/A",
+  "Dhanmondi",
+  "Aftabnagar R/A",
+  "Rampura",
 ];
 
 export function Footer() {
@@ -38,7 +40,7 @@ export function Footer() {
           <div className="md:col-span-4 flex flex-col gap-6">
             <Logo />
             <p className="text-text-secondary text-xs uppercase tracking-[0.2em] max-w-[28ch] leading-relaxed font-light">
-              Constructing signature landmarks in Dubai. Every commission is a
+              Constructing signature landmarks in Dhaka. Every commission is a
               study in light, material, and precision.
             </p>
             {/* Social links */}
@@ -103,27 +105,27 @@ export function Footer() {
           {/* Contact */}
           <div className="md:col-span-3 flex flex-col gap-6">
             <h3 className="text-text-primary text-[10px] uppercase tracking-[0.2em] font-medium mb-0">
-              Atelier
+              Headquarters
             </h3>
             <div className="flex flex-col gap-3 text-xs text-text-secondary tracking-wide font-light">
-              <p>Avenue Construction Limited Atelier</p>
-              <p>Al Barari, Studio 4A</p>
-              <p>Dubai, United Arab Emirates</p>
+              <p>Avenue Constructions Limited</p>
+              <p>Resourceful Paltan City</p>
+              <p>51, 51/A (7th Floor), Purana Paltan, Dhaka</p>
             </div>
             <div className="flex flex-col gap-2 text-xs text-text-secondary tracking-wide font-light">
               <a
                 suppressHydrationWarning
-                href="mailto:inquire@avenueconstruction.com"
+                href="mailto:avenue902@gmail.com"
                 className="hover:text-accent transition-colors"
               >
-                inquire@avenueconstruction.com
+                avenue902@gmail.com
               </a>
               <a
                 suppressHydrationWarning
-                href="tel:+97145550199"
+                href="tel:+8801714767246"
                 className="hover:text-accent transition-colors"
               >
-                +971 4 555 0199
+                +880 1714 767 246
               </a>
             </div>
           </div>
@@ -159,7 +161,7 @@ export function Footer() {
             reserved.
           </span>
           <span className="text-[10px] text-text-secondary/50 tracking-widest uppercase font-light">
-            Dubai, United Arab Emirates
+            Dhaka, Bangladesh
           </span>
         </div>
       </div>

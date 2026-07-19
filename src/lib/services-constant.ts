@@ -20,7 +20,7 @@ export const SERVICES: Service[] = [
     number: "02",
     title: "Luxury Development",
     description:
-      "Executing premium builds with master-craftsman precision, utilizing rare materials like basalt, travertine, and architectural concrete.",
+      "Executing premium builds with master-craftsman precision, utilizing premium materials like structural fair-faced concrete, teak wood paneling, and imported marble.",
     imageUrl: "/images/services/service_development.png",
   },
   {

@@ -9,6 +9,12 @@ export interface GalleryImage {
   caption: string;
 }
 
+export interface FloorPlan {
+  title: string;
+  image: string;
+  details: string[];
+}
+
 export interface Property {
   slug: string;
   name: string;
@@ -17,9 +23,9 @@ export interface Property {
   region: string;
   description: string;
   narrative: string[];
-  price: string;
   image: string;
   gallery: GalleryImage[];
+  floorPlans: FloorPlan[];
   specs: PropertySpec[];
   highlights: string[];
   materials: string[];
@@ -36,295 +42,359 @@ export interface Property {
 
 export const PROPERTIES: Property[] = [
   {
-    slug: "the-luminary-oasis",
-    name: "The Luminary Oasis",
-    tagline: "Botanical modernism in dialogue with light",
-    location: "Al Barari, Dubai",
-    region: "Inland Botanical Reserve",
+    slug: "avenue-ahsan-palace",
+    name: "Avenue Ahsan Palace",
+    tagline: "Eight-storied sanctuary of refined living in Bashundhara",
+    location: "Bashundhara R/A, Dhaka",
+    region: "Block E, Road 05",
     description:
-      "A minimalist modernist mansion designed to blur the boundary between structural architecture and botanical landscape.",
+      "A premium G+7 single-unit residential development designed to capture maximum light and ventilation.",
     narrative: [
-      "The Luminary Oasis was conceived as a quiet instrument for living among greenery. A single continuous travertine plinth folds upward to form the principal living volume, while floor-to-ceiling glazing dissolves the perimeter wall into the surrounding canopy.",
-      "Solar orientation drives the entire plan. Deep cantilevered overhangs track the high summer sun, admitting low winter light into a triple-height central atrium. At dusk, concealed linear grazers trace the concrete ribs, turning the structure into a luminous lantern visible across the reserve.",
-      "Every interior surface was specified by the Avenue Construction Limited material library: honed Italian travertine floors, brushed oak wall panels, and hand-troweled microcement ceilings that absorb and redistribute daylight without glare.",
+      "Avenue Ahsan Palace was conceived as an architectural response to the urban landscape of Bashundhara. Structured as a G+7 residential villa, it offers single-unit privacy with an abundance of natural light and cross-ventilation, situated very close to Evercare Hospital.",
+      "The building's orientation leverages southern wind paths and daylight, filtering them through deep terraces. Inside, every floor is finished with high-quality 24x24 mirror-polished homogeneous tiles and premium local sanitary fittings, reflecting the standard of durability and luxury.",
+      "Constructed using premium materials such as Crown/Holcim cement, AKS/BSRM steel, and a high-speed passenger elevator, this project represents museum-grade residential engineering."
     ],
-    price: "$18,500,000",
-    image: "/images/properties/prop_luminary.png",
+    image: "/images/properties/project_image_1.jpeg",
     gallery: [
       {
-        src: "/images/properties/prop_luminary.png",
-        alt: "The Luminary Oasis principal elevation at dusk",
-        caption: "Principal elevation at dusk",
+        src: "/images/properties/project_image_1.jpeg",
+        alt: "Avenue Ahsan Palace Perspective View",
+        caption: "Perspective View",
       },
       {
-        src: "/images/services/service_architecture.png",
-        alt: "Travertine atrium and floating staircase",
-        caption: "Travertine atrium and floating stair",
+        src: "/images/properties/project_image_2.jpeg",
+        alt: "Front facade architectural detailing",
+        caption: "Facade detailing",
       },
       {
-        src: "/images/services/service_development.png",
-        alt: "Raw concrete detail and shadow plane",
-        caption: "Raw concrete and shadow plane",
+        src: "/images/properties/project_image_3.jpeg",
+        alt: "Ground floor parking layout",
+        caption: "Car parking & driveway",
       },
       {
-        src: "/images/services/service_advisory.png",
-        alt: "Garden terrace overlooking the canopy",
-        caption: "Garden terrace over the canopy",
+        src: "/images/properties/project_image_4.jpeg",
+        alt: "Interior open floor plan",
+        caption: "Spacious interior layout",
       },
+    ],
+    floorPlans: [
+      {
+        title: "Typical Floor Plan (1st to 7th Floor)",
+        image: "/images/properties/project_image_6.jpeg",
+        details: [
+          "Unit Area: 1532 Sft single unit per floor",
+          "Accommodates: 3 Bedrooms & 3 Bathrooms",
+          "Includes: 3 Private Verandas & 1 Family Living",
+          "Layout: 1 Drawing Room & 1 Dining Room",
+          "Features: 1 Kitchen & 1 Maid's Toilet"
+        ]
+      },
+      {
+        title: "Ground Floor Plan & Driveway",
+        image: "/images/properties/project_image_3.jpeg",
+        details: [
+          "Car Parking: 7 Spaces with secure driveway",
+          "Lobby: Reception Desk & Guest Waiting Area",
+          "Staff Area: Guard quarters & driver toilets",
+          "Utilities: Standby generator & water pump station",
+          "Access: European high-speed passenger lift"
+        ]
+      }
     ],
     specs: [
-      { label: "Bedrooms", value: "6" },
-      { label: "Bathrooms", value: "8" },
-      { label: "Built Area", value: "14,500 sq ft" },
-      { label: "Plot Size", value: "22,000 sq ft" },
-      { label: "Ceiling Height", value: "6.8 m" },
-      { label: "Completion", value: "Q2 2025" },
+      { label: "Bedrooms", value: "3" },
+      { label: "Bathrooms", value: "3" },
+      { label: "Verandas", value: "3" },
+      { label: "Unit Size", value: "1,532 Sft" },
+      { label: "Land Area", value: "3 Katha" },
+      { label: "Handover", value: "May 2028" },
     ],
     highlights: [
-      "Triple-height atrium with solar-tracking skylight",
-      "Disappearing glass walls opening to botanical gardens",
-      "Private wellness pavilion with cold plunge and sauna",
-      "Underground gallery for a 40-vehicle collection",
+      "Single-unit layout per floor for ultimate privacy",
+      "Located in a prime block close to Evercare Hospital",
+      "Stunning rooftop garden with community facilities",
+      "European standard passenger lift (8-person capacity)",
+      "Full-load standby generator for continuous power",
     ],
     materials: [
-      "Honed Italian travertine",
-      "Hand-troweled microcement",
-      "Brushed white oak",
-      "Blackened steel joinery",
+      "Mirror polish homogeneous tiles (24\"x24\")",
+      "RAK Karla/Equivalent sanitary ware",
+      "Sattar/Haibali premium CP fittings",
+      "BSRM/AKS 60-grade structural steel",
+      "Crown/Holcim high-strength cement",
     ],
     amenities: [
-      "Infinity edge reflection pool",
-      "Private home cinema",
-      "Wine cellar with climate control",
-      "Staff wing with separate access",
+      "Rooftop community garden",
+      "Intercom connection to guard post",
+      "Drivers' waiting room and toilet",
+      "Firefighting hydrant system",
+      "Double water pump system",
     ],
     locationInsight:
-      "Set within Al Barari's protected botanical reserve, the estate enjoys mature landscaped privacy ten minutes from Sheikh Mohammed Bin Zayed Road, with direct access to landscaped wadi trails.",
+      "Situated at Plot 51, Block E, Road 05, Bashundhara R/A, this project resides in Dhaka's most prestigious gated residential zone. It offers walking proximity to hospital services, top academic institutions, and retail enclaves.",
     architecturalDetails: {
-      year: "2025",
-      type: "Modern Residential Villa",
-      architect: "ACL Atelier",
-      status: "Completed",
-      plotOrientation: "South-facing atrium",
-    },
-  },
-  {
-    slug: "the-obsidian-crest",
-    name: "The Obsidian Crest",
-    tagline: "Monolithic basalt holding the tide line",
-    location: "Palm Jumeirah, Dubai",
-    region: "Beachfront Frond",
-    description:
-      "A monolithic sea-front villa crafted from volcanic basalt stone and dark textured metals, capturing the raw power of ocean tides.",
-    narrative: [
-      "The Obsidian Crest rises from the frond as a single carved volume of volcanic basalt, its facets angled to refract the Gulf light across the day. The massing reads as a defensive breakwater from the beach and as a transparent lantern from the sea.",
-      "A submerged arrival court draws visitors beneath the crest into a double-height salon framed in frameless glass. Here the horizon becomes the only ornament: the structure deliberately recedes so that the ocean occupies the full visual field.",
-      "The lower level is dedicated to water. A 25-metre lap pool, a therapy spa, and a private beach lounge connect through a continuous wet-floor system finished in honed basalt and teak, designed to age gracefully against salt and spray.",
-    ],
-    price: "$24,200,000",
-    image: "/images/properties/prop_obsidian.png",
-    gallery: [
-      {
-        src: "/images/properties/prop_obsidian.png",
-        alt: "The Obsidian Crest from the beachfront",
-        caption: "The crest from the beachfront",
-      },
-      {
-        src: "/images/services/service_development.png",
-        alt: "Basalt salon opening to the sea",
-        caption: "Basalt salon opening to the sea",
-      },
-      {
-        src: "/images/services/service_investment.png",
-        alt: "Submerged arrival court detail",
-        caption: "Submerged arrival court",
-      },
-      {
-        src: "/images/services/service_architecture.png",
-        alt: "Lower level spa and lap pool",
-        caption: "Lower level spa and lap pool",
-      },
-    ],
-    specs: [
-      { label: "Bedrooms", value: "5" },
-      { label: "Bathrooms", value: "7" },
-      { label: "Built Area", value: "12,200 sq ft" },
-      { label: "Beach Frontage", value: "120 ft" },
-      { label: "Pool", value: "25 m lap" },
-      { label: "Completion", value: "Q4 2026" },
-    ],
-    highlights: [
-      "120 ft of private beach frontage on the frond",
-      "Submerged double-height ocean salon",
-      "Basalt and teak wet-floor wellness level",
-      "Private mooring and sunset terrace",
-    ],
-    materials: [
-      "Volcanic basalt cladding",
-      "Dark textured bronze metal",
-      "Marine-grade teak",
-      "Frameless structural glazing",
-    ],
-    amenities: [
-      "Private beach lounge",
-      "Therapy spa and hammam",
-      "Sunset rooftop terrace",
-      "Mooring and boat storage",
-    ],
-    locationInsight:
-      "Positioned on a prime Palm Jumeirah frond, the estate holds uninterrupted west-facing sunset views over the Gulf, twelve minutes from DIFC and moments from the Atlantis district.",
-    architecturalDetails: {
-      year: "2026",
-      type: "Luxury Beachfront Estate",
-      architect: "Zaha Hadid Associates (Lead Partnership)",
+      year: "2026-2028",
+      type: "Premium G+7 Apartment Complex",
+      architect: "Sharmin Afroz Shumi (IAB)",
       status: "Under Construction",
-      plotOrientation: "West-facing beachfront",
+      plotOrientation: "South-facing wind paths",
     },
   },
   {
-    slug: "the-aria-penthouse",
-    name: "The Aria Penthouse",
-    tagline: "A vertical instrument above the skyline",
-    location: "Downtown Dubai",
-    region: "Sky District",
+    slug: "avenue-md-heights",
+    name: "Avenue MD. Heights",
+    tagline: "Modernist volumetric blocks overlooking the park",
+    location: "Aftabnagar R/A, Dhaka",
+    region: "Block H, Road 18",
     description:
-      "A glass sky-mansion featuring double-height spaces, floating spiral stairs, and infinite views of the Burj Khalifa skyline.",
+      "A cascading G+8 residential project engineered with monolithic concrete frames and open terrace structures.",
     narrative: [
-      "The Aria Penthouse occupies the crown of a Downtown tower, a duplex sky-villa engineered as a single continuous promenade. A floating blackened-steel spiral stair threads the two levels, its treads cantilevered from a central column so that the route reads as a suspended ribbon.",
-      "The principal salon is double-height and fully glazed on three exposures. Automated louvres track the sun through the day, modulating glare over the Burj Khalifa while preserving the uninterrupted skyline composition that is the residence's defining asset.",
-      "Material restraint defines the interior. Microcement floors, smoked oak millwork, and brushed bronze accents were chosen to disappear at dusk, leaving only the city and the changing Gulf light to define each room.",
+      "Avenue MD. Heights rises from Aftabnagar as a landmark of modern architectural geometry. Combining deep terrace setbacks with a structural framework that optimizes natural thermal barriers, it stands as a testament to local design innovation.",
+      "The project features spacious 1,850 Sft apartments overlooking the community parklands. Every detail, from the textured exterior plaster to the polished lobby stonemasonry, has been curated to set a new benchmark for Aftabnagar.",
+      "Engineered for high structural resilience, the building incorporates 500W TMT steel and advanced seismic structural joints, ensuring lasting safety and premium design longevity."
     ],
-    price: "$15,800,000",
-    image: "/images/properties/prop_aria.png",
+    image: "/images/properties/project_image_5.jpeg",
     gallery: [
       {
-        src: "/images/properties/prop_aria.png",
-        alt: "The Aria Penthouse salon and skyline",
-        caption: "Salon over the skyline",
+        src: "/images/properties/project_image_5.jpeg",
+        alt: "Avenue MD. Heights elevation view",
+        caption: "Elevation View",
       },
       {
-        src: "/images/services/service_advisory.png",
-        alt: "Floating spiral staircase detail",
-        caption: "Floating spiral stair",
+        src: "/images/properties/project_image_6.jpeg",
+        alt: "Entrance lobby rendering",
+        caption: "Entrance Lobby",
       },
       {
-        src: "/images/services/service_architecture.png",
-        alt: "Double-height glazed corner",
-        caption: "Double-height glazed corner",
+        src: "/images/properties/project_image_7.jpeg",
+        alt: "Rooftop terrace design",
+        caption: "Rooftop Terrace",
+      },
+    ],
+    floorPlans: [
+      {
+        title: "Typical Floor Plan",
+        image: "/images/properties/project_image_6.jpeg",
+        details: [
+          "Unit Area: 1850 Sft",
+          "Accommodates: 3 Bedrooms & 4 Bathrooms",
+          "Includes: 3 Private balconies & spacious family lounge",
+          "Layout: Monolithic open-plan kitchen & dining",
+          "Features: High-performance structural glazing"
+        ]
       },
       {
-        src: "/images/services/service_development.png",
-        alt: "Sky terrace at twilight",
-        caption: "Sky terrace at twilight",
-      },
+        title: "Ground Floor Plan",
+        image: "/images/properties/project_image_7.jpeg",
+        details: [
+          "Car Parking: 8 Slots with automated security access",
+          "Lobby: Double-height grand entrance lobby",
+          "Staff Area: Guard room & driver waiting lounge",
+          "Utilities: Substation & generator rooms"
+        ]
+      }
     ],
     specs: [
-      { label: "Bedrooms", value: "4" },
-      { label: "Bathrooms", value: "5" },
-      { label: "Built Area", value: "8,900 sq ft" },
-      { label: "Sky Terrace", value: "1,500 sq ft" },
-      { label: "Levels", value: "Duplex" },
-      { label: "Completion", value: "Q1 2025" },
+      { label: "Bedrooms", value: "3" },
+      { label: "Bathrooms", value: "4" },
+      { label: "Verandas", value: "3" },
+      { label: "Unit Size", value: "1,850 Sft" },
+      { label: "Land Area", value: "4 Katha" },
+      { label: "Handover", value: "Dec 2028" },
     ],
     highlights: [
-      "Triple-glazed corner salon facing Burj Khalifa",
-      "Floating blackened-steel spiral stair",
-      "1,500 sq ft private sky terrace",
-      "Private lift lobby and secure access",
+      "Park-facing elevation with deep landscaped balconies",
+      "Double-height entrance lobby with granite finishes",
+      "Rooftop BBQ terrace and family lounge",
+      "Two-car parking allocation per apartment",
+      "VRF air conditioning provisions",
     ],
     materials: [
-      "Hand-troweled microcement",
-      "Smoked oak millwork",
-      "Brushed bronze accents",
-      "Triple-glazed structural glass",
+      "Imported granite lobby tiles",
+      "Premium local sanitary fittings",
+      "High-performance structural glass",
+      "Holcim/Shah premium cement",
+      "BSRM 60-grade steel reinforcement",
     ],
     amenities: [
-      "Private sky terrace with plunge pool",
-      "Climate-controlled library",
-      "Integrated smart-home system",
-      "Dedicated concierge and lift",
+      "Fully equipped rooftop gym",
+      "CCTV surveillance and 24/7 security guard post",
+      "Submerged arrival court with guard room",
+      "Automated firefighting alarm system",
+      "Water purification system",
     ],
     locationInsight:
-      "Crowning a landmark Downtown tower, the penthouse commands unobstructed views of Burj Khalifa and the Gulf, steps from the Opera District and the Boulevard.",
+      "Located at Plot 30, Road 18, Block H, Aftabnagar R/A, the property offers direct views of Aftabnagar's central park, with immediate access to Hatirjheel Expressway for quick commutes.",
+    architecturalDetails: {
+      year: "2026-2028",
+      type: "Luxury G+8 Residential",
+      architect: "Avenue Design Partners",
+      status: "Pre-Selling",
+      plotOrientation: "West-facing parkview",
+    },
+  },
+  {
+    slug: "avenue-dream",
+    name: "Avenue Dream",
+    tagline: "Choreographed urban light and functional luxury",
+    location: "Rampura, Dhaka",
+    region: "Ulon Road",
+    description:
+      "A finished residential tower built to maximize urban space efficiency and cross-ventilation.",
+    narrative: [
+      "Avenue Dream represents our commitment to developing accessible luxury within Dhaka's key transit networks. Situated on Ulon Road in Rampura, this project has been fully completed and delivered, welcoming families into a vibrant urban community.",
+      "The building features cross-ventilated units that maintain comfortable temperatures even during peak summer. Generous ceiling heights and open-plan kitchen-living layouts make each unit feel exceptionally spacious.",
+      "Using our signature material selections—including robust sanitary ware, high-grade security doors, and low-maintenance tiled facades—Avenue Dream stands as an icon of urban durability."
+    ],
+    image: "/images/properties/project_image_8.jpeg",
+    gallery: [
+      {
+        src: "/images/properties/project_image_8.jpeg",
+        alt: "Avenue Dream Completed Facade",
+        caption: "Completed Facade",
+      },
+      {
+        src: "/images/properties/project_image_9.jpeg",
+        alt: "Completed community hall",
+        caption: "Community Hall",
+      },
+    ],
+    floorPlans: [
+      {
+        title: "Typical Floor Plan",
+        image: "/images/properties/project_image_8.jpeg",
+        details: [
+          "Unit Area: 1350 Sft",
+          "Accommodates: 3 Bedrooms & 3 Bathrooms",
+          "Includes: 2 Verandas & spacious living hall",
+          "Layout: Closed kitchen design & dining room"
+        ]
+      }
+    ],
+    specs: [
+      { label: "Bedrooms", value: "3" },
+      { label: "Bathrooms", value: "3" },
+      { label: "Verandas", value: "2" },
+      { label: "Unit Size", value: "1,350 Sft" },
+      { label: "Completed", value: "Q4 2025" },
+      { label: "Status", value: "Delivered" },
+    ],
+    highlights: [
+      "Fully completed and handed over on schedule",
+      "Excellent connectivity near Hatirjheel and Rampura Bridge",
+      "Spacious multi-purpose community hall for residents",
+      "Secure entry gate with smart access controls",
+      "Modern structural layout with natural breeze path",
+    ],
+    materials: [
+      "Local homogeneous floor tiles",
+      "RAK sanitary ware and chrome fittings",
+      "Solid teak wood entrance door frame",
+      "Berger weathercoat exterior paint",
+      "Safety glass windows",
+    ],
+    amenities: [
+      "Community gathering room",
+      "Rooftop seating area",
+      "Intercom system to guard room",
+      "Standby generator for common areas",
+      "Overhead and underground water reserve tanks",
+    ],
+    locationInsight:
+      "Positioned on Ulon Road, Rampura, the project offers excellent transport routes, connecting directly with Hatirjheel to the west and Badda-Gulshan routes to the north.",
     architecturalDetails: {
       year: "2025",
-      type: "Sky Villa Duplex",
-      architect: "ACL Atelier",
-      status: "Completed",
-      plotOrientation: "Three-aspect corner",
+      type: "Completed Residential Complex",
+      architect: "Avenue Design Atelier",
+      status: "Delivered",
+      plotOrientation: "South-east facing layout",
     },
   },
   {
-    slug: "the-terraces-at-serene",
-    name: "The Terraces at Serene",
-    tagline: "Rammed earth cascading over the fairway",
-    location: "Jumeirah Golf Estates, Dubai",
-    region: "Golf Course Frontline",
+    slug: "avenue-castle",
+    name: "Avenue Castle",
+    tagline: "Monolithic geometry holding the neighborhood skyline",
+    location: "Uttar Badda, Dhaka",
+    region: "Shadhinota Shoroni",
     description:
-      "A cascading residential retreat featuring raw rammed-earth finishes and extensive wellness terraces overlooking golf fairways.",
+      "A luxury G+8 residential tower showcasing architectural symmetry and bold structural framing.",
     narrative: [
-      "The Terraces at Serene steps down the natural contour of the site in four linked platforms, each one a separate living realm opening onto its own landscaped terrace. The rammed-earth walls, hand-poured on site, carry the imprint of the local soil and bind the residence to its ground.",
-      "The principal living level sits at canopy height, framing the fairway through a 14-metre span of sliding glass. Below, a wellness terrace holds a 25-metre pool, a sunken fire lounge, and an outdoor kitchen sheltered by a cantilevered concrete blade.",
-      "The residence was developed in close consultation with Kengo Kuma Associates, whose vocabulary of layered natural materials and fine linear detail informs the screen walls, the pool pavilion, and the garden follies.",
+      "Avenue Castle stands tall on Shadhinota Shoroni as a landmark of residential grandeur. Its bold concrete structure features dramatic cantilevered overhangs and recessed windows that shield the interior from direct afternoon solar radiation.",
+      "The building holds G+8 floors, providing premium units designed for modern families. The entrance lobby is fully air-conditioned and finished with polished marble, offering a hotel-grade welcome for residents and guests.",
+      "Built using top-grade local reinforcement and high-performance concrete mixes, this project ensures premium structural safety alongside its striking visual presence."
     ],
-    price: "$11,400,000",
-    image: "/images/properties/prop_terraces.png",
+    image: "/images/properties/project_image_10.jpeg",
     gallery: [
       {
-        src: "/images/properties/prop_terraces.png",
-        alt: "The Terraces at Serene cascading down the contour",
-        caption: "Cascading terraces over the fairway",
+        src: "/images/properties/project_image_10.jpeg",
+        alt: "Avenue Castle perspective rendering",
+        caption: "Perspective View",
       },
       {
-        src: "/images/services/service_development.png",
-        alt: "Rammed-earth wall and timber screen",
-        caption: "Rammed earth and timber screen",
+        src: "/images/properties/project_image_11.jpeg",
+        alt: "Living lounge layout",
+        caption: "Premium Living Lounge",
+      },
+    ],
+    floorPlans: [
+      {
+        title: "Typical Floor Plan",
+        image: "/images/properties/project_image_10.jpeg",
+        details: [
+          "Unit Area: 1450 Sft",
+          "Accommodates: 3 Bedrooms & 3 Bathrooms",
+          "Includes: 3 Verandas & air-conditioned lounge",
+          "Layout: L-shaped living-dining configuration"
+        ]
       },
       {
-        src: "/images/services/service_architecture.png",
-        alt: "Wellness terrace and 25 m pool",
-        caption: "Wellness terrace and pool",
-      },
-      {
-        src: "/images/services/service_investment.png",
-        alt: "Sunken fire lounge at dusk",
-        caption: "Sunken fire lounge at dusk",
-      },
+        title: "Ground Floor Plan",
+        image: "/images/properties/project_image_11.jpeg",
+        details: [
+          "Car Parking: 6 Parking slots",
+          "Lobby: Marble-clad reception area",
+          "Staff Area: Guard lounge & drivers' restroom",
+          "Utilities: Substation & high-capacity generator"
+        ]
+      }
     ],
     specs: [
-      { label: "Bedrooms", value: "5" },
-      { label: "Bathrooms", value: "6" },
-      { label: "Built Area", value: "9,600 sq ft" },
-      { label: "Pool Length", value: "25 m" },
-      { label: "Terraces", value: "4 levels" },
-      { label: "Completion", value: "Q3 2026" },
+      { label: "Bedrooms", value: "3" },
+      { label: "Bathrooms", value: "3" },
+      { label: "Verandas", value: "3" },
+      { label: "Unit Size", value: "1,450 Sft" },
+      { label: "Building", value: "G+8 floors" },
+      { label: "Handover", value: "Q3 2029" },
     ],
     highlights: [
-      "Four cascading terraces following the natural contour",
-      "Hand-poured rammed-earth walls on site",
-      "14-metre sliding glass opening to the fairway",
-      "Sunken fire lounge and outdoor kitchen",
+      "Striking geometric exterior with concrete planters",
+      "Air-conditioned marble-finished reception lobby",
+      "High-speed elevator with automatic rescue device (ARD)",
+      "Lush rooftop garden with seating alcoves",
+      "Rainwater harvesting system implemented",
     ],
     materials: [
-      "Hand-poured rammed earth",
-      "Thermally-modified timber",
-      "Exposed architectural concrete",
-      "Natural stone paving",
+      "Polished Sylhet granite and marble",
+      "RAK/Sheltech premium homogeneous tiles",
+      "Sattar sanitary fittings and accessories",
+      "BSRM Extreme structural steel bars",
+      "Holcim/Crown high-strength cements",
     ],
     amenities: [
-      "25-metre wellness pool",
-      "Sunken fire lounge",
-      "Outdoor kitchen and dining",
-      "Garden folly and putting green",
+      "Rooftop landscape deck",
+      "Central reception desk and intercom PABX",
+      "Guard quarters with separate toilet facilities",
+      "24/7 power backup through generator",
+      "State-of-the-art fire extinguishers and detection",
     ],
     locationInsight:
-      "Fronting the Earth course at Jumeirah Golf Estates, the residence combines tournament-grade fairway frontage with the privacy of a gated golf community, twenty minutes from Marina.",
+      "Located on Shadhinota Shoroni, Uttar Badda, the property enjoys prime urban connectivity, sitting just minutes away from the diplomatic zone of Baridhara and the Gulshan-1 commercial hub.",
     architecturalDetails: {
-      year: "2026",
-      type: "Cascading Villa",
-      architect: "Kengo Kuma Associates (Consulting)",
-      status: "Pre-Selling",
-      plotOrientation: "Fairway-facing slope",
+      year: "2026-2029",
+      type: "Premium G+8 Residential Tower",
+      architect: "Avenue Design Associates",
+      status: "Under Construction",
+      plotOrientation: "North-east facing facade",
     },
   },
 ];

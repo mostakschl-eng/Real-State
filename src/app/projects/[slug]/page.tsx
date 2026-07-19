@@ -161,6 +161,46 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                     </div>
                   </dl>
                 </div>
+
+                <div className="border-t border-black/5 pt-6">
+                  <h3 className="text-[10px] uppercase tracking-[0.25em] font-mono text-text-secondary mb-4">
+                    Regulatory & Structural Compliance
+                  </h3>
+                  <dl className="flex flex-col gap-3 text-xs">
+                    <div className="flex justify-between gap-4">
+                      <dt className="uppercase tracking-wider text-text-secondary/80">
+                        RAJUK Permit
+                      </dt>
+                      <dd className="font-mono text-text-primary text-right font-medium">
+                        D-0006453-10-25
+                      </dd>
+                    </div>
+                    <div className="flex justify-between gap-4 border-t border-black/5 pt-3">
+                      <dt className="uppercase tracking-wider text-text-secondary/80">
+                        IEB Struct Engineer
+                      </dt>
+                      <dd className="text-text-primary text-right">
+                        Engr. Maruf Ahmed
+                      </dd>
+                    </div>
+                    <div className="flex justify-between gap-4 border-t border-black/5 pt-3">
+                      <dt className="uppercase tracking-wider text-text-secondary/80">
+                        IAB Architect
+                      </dt>
+                      <dd className="text-text-primary text-right">
+                        Sharmin Afroz Shumi
+                      </dd>
+                    </div>
+                    <div className="flex justify-between gap-4 border-t border-black/5 pt-3">
+                      <dt className="uppercase tracking-wider text-text-secondary/80">
+                        TIN Code
+                      </dt>
+                      <dd className="font-mono text-text-primary text-right">
+                        162947654103
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
               </div>
             </aside>
           </section>
@@ -237,6 +277,56 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
           </section>
 
+          {/* Architectural Structure & Floor Plans Section */}
+          {property.floorPlans && property.floorPlans.length > 0 && (
+            <section className="flex flex-col gap-12 border-t border-black/5 pt-16">
+              <div className="flex flex-col gap-3">
+                <span className="text-[10px] uppercase tracking-[0.25em] font-mono text-accent">
+                  Blueprint & Layouts
+                </span>
+                <h2 className="font-serif text-3xl md:text-4xl tracking-tight leading-[1.05] text-text-primary uppercase">
+                  Architectural <span className="italic font-light text-accent">Structure</span>
+                </h2>
+                <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-light max-w-xl">
+                  Inspect the physical layouts and structural blueprint details designed for maximum cross-ventilation, open-plan flow, and solar-tracking light.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                {property.floorPlans.map((plan, idx) => (
+                  <div key={idx} className="double-bezel-outer flex flex-col gap-6">
+                    <div className="double-bezel-inner bg-surface/50 p-6 md:p-8 flex flex-col gap-6">
+                      <h3 className="font-serif text-xl uppercase tracking-wider text-text-primary border-b border-black/5 pb-4">
+                        {plan.title}
+                      </h3>
+                      
+                      {/* Image container */}
+                      <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl border border-black/5 bg-white shadow-xs">
+                        <Image
+                          src={plan.image}
+                          alt={plan.title}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 500px"
+                          className="object-contain p-2 opacity-90 hover:opacity-100 transition-opacity duration-300"
+                        />
+                      </div>
+
+                      {/* Detail points */}
+                      <ul className="flex flex-col gap-2 mt-2">
+                        {plan.details.map((detail, dIdx) => (
+                          <li key={dIdx} className="flex items-center gap-3 text-xs md:text-sm text-text-secondary font-light">
+                            <span className="text-accent font-semibold font-mono">&middot;</span>
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Location insight */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center border-t border-black/5 pt-16">
             <div className="lg:col-span-5 double-bezel-outer aspect-4/5 rounded-4xl overflow-hidden">
@@ -293,6 +383,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       src={property.gallery[0]?.src ?? property.image}
                       alt="Gallery image"
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -301,6 +392,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       src={property.gallery[1]?.src ?? property.image}
                       alt="Gallery image"
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -313,6 +405,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       src={property.gallery[2]?.src ?? property.image}
                       alt="Gallery image"
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -321,6 +414,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       src={property.gallery[3]?.src ?? property.image}
                       alt="Gallery image"
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -333,6 +427,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       src={property.gallery[0]?.src ?? property.image}
                       alt="Gallery image"
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -341,6 +436,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       src={property.gallery[1]?.src ?? property.image}
                       alt="Gallery image"
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -353,6 +449,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       src={property.gallery[2]?.src ?? property.image}
                       alt="Gallery image"
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
@@ -361,6 +458,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                       src={property.gallery[3]?.src ?? property.image}
                       alt="Gallery image"
                       fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>

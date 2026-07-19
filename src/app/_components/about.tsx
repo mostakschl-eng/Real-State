@@ -57,22 +57,22 @@ const PILLARS = [
     num: "01",
     label: "Material Honesty",
     detail:
-      "Raw travertine, exposed basalt, and aggregate concrete age into monuments.",
-    image: "/images/properties/prop_luminary.png",
+      "Fair-faced concrete, teak wood louvers, and structural glazing age into monuments.",
+    image: "/images/properties/project_image_1.jpeg",
   },
   {
     num: "02",
     label: "Geometric Silence",
     detail:
       "Strict structural grids balance mass, cantilever, and negative void.",
-    image: "/images/properties/prop_obsidian.png",
+    image: "/images/properties/project_image_5.jpeg",
   },
   {
     num: "03",
     label: "Atmospheric Light",
     detail:
       "Solar paths sculpted into deep overhangs, skylights, and shadow planes.",
-    image: "/images/properties/prop_aria.png",
+    image: "/images/properties/project_image_8.jpeg",
   },
 ];
 
@@ -155,7 +155,7 @@ export function About() {
             className="lg:col-span-5 flex flex-col gap-4"
           >
             <p className="text-sm md:text-base leading-relaxed text-text-secondary font-light">
-              Founded in Dubai in 2018, Avenue Construction Limited was born
+              Founded in Dhaka, Bangladesh, Avenue Construction Limited was born
               from a desire to escape the patterns of commercial real estate. We
               do not construct buildings; we orchestrate light, aggregate raw
               materials, and draft silence into form.

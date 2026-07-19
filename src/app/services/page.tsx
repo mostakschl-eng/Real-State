@@ -9,9 +9,9 @@ import { SERVICES } from "@/lib/services-constant";
 const PROCESS_STEPS = [
   {
     step: "01",
-    title: "Atelier Alignment",
+    title: "Corporate Alignment",
     description:
-      "We host an introductory consultation at our Dubai flagship to align on the buyer's acquisition timeline, architectural preferences, and programmatic needs.",
+      "We host an introductory consultation at our Dhaka office in Purana Paltan to align on the client's project timeline, architectural preferences, and programmatic needs.",
   },
   {
     step: "02",
@@ -23,7 +23,7 @@ const PROCESS_STEPS = [
     step: "03",
     title: "Material Sourcing",
     description:
-      "We travel directly to regional quarries in Italy and Greece to hand-select travertine blocks and basalt slabs for the structural aggregate.",
+      "We hand-select premium imported marble, seasoned teak wood, and certified high-grade reinforcement steel directly from leading suppliers to guarantee structural durability.",
   },
   {
     step: "04",
@@ -37,7 +37,7 @@ const SERVICE_SCOPE: Record<string, string> = {
   architecture: "Massing models, custom casework design, site alignment",
   development: "General contracting, exposed concrete joints, tolerances",
   advisory: "Off-market acquisitions, viewing coordination, asset trust",
-  investment: "Fractional placements, asset appreciation, JV capital",
+  investment: "Asset preservation, tenancy strategies, Joint Ventures",
 };
 
 const SERVICE_LEAD: Record<string, string> = {

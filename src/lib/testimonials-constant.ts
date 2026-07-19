@@ -21,13 +21,13 @@ export const TESTIMONIALS: Testimonial[] = [
     subtitle: "Celestial Heights & West Gate",
   },
   {
-    text: '"The level of architectural detail is unmatched. The raw materials used in our estate blend perfectly with the environment..."',
-    name: "Sarah Jenkins",
-    subtitle: "The Luminary Oasis",
+    text: '"We chose Avenue Constructions to build our family home in Bashundhara, and we were deeply impressed by their transparency, regulatory compliance, and architectural precision..."',
+    name: "Mst. Ayesha Siddiqua",
+    subtitle: "Avenue Ahsan Palace",
   },
   {
-    text: '"A truly seamless development experience. The team translated our vision into a monolithic masterpiece by the sea..."',
-    name: "James Sterling",
-    subtitle: "The Obsidian Crest",
+    text: '"Avenue Constructions brought modern structural engineering and premium finishing to our project in Uttar Badda. Their execution is absolutely flawless..."',
+    name: "Engr. Md. Abdul Momen",
+    subtitle: "Avenue Castle",
   },
 ];

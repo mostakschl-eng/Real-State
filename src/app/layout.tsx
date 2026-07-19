@@ -29,9 +29,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title:
-    "Avenue Construction Limited | Premium Architecture & Structural Design",
+    "Avenue Constructions | Luxury Apartments & Real Estate Developer in Dhaka",
   description:
-    "Experience museum-grade architectural design and bespoke residential portfolios in Dhaka, Bangladesh. Crafted by Avenue Construction Limited.",
+    "Avenue Constructions Limited is a premier real estate developer in Bangladesh. Explore luxury residential apartments and joint ventures in Gulshan, Banani, Baridhara, and Bashundhara R/A, Dhaka.",
 };
 
 export default function RootLayout({
