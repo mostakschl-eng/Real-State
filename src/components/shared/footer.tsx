@@ -32,7 +32,10 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-surface border-t border-black/5 py-16 md:py-24 px-6 md:px-12 z-10">
+    <footer
+      suppressHydrationWarning
+      className="w-full bg-surface border-t border-black/5 py-16 md:py-24 px-6 md:px-12 z-10"
+    >
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         {/* Top: brand + columns */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">

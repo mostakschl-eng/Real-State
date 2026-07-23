@@ -15,7 +15,10 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-canvas z-10 relative">
+      <main
+        className="min-h-screen bg-canvas z-10 relative"
+        suppressHydrationWarning
+      >
         <Hero />
         <About />
         <PropertiesSlider />

@@ -41,6 +41,7 @@ export function Team() {
     <section
       ref={containerRef}
       id="team"
+      suppressHydrationWarning
       className="relative w-full py-24 md:py-32 px-6 md:px-12 bg-surface z-10 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto flex flex-col gap-12">

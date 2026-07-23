@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 96" fill="none">
+  <!-- Exact Original Logo Image Layout — Recolored to Site Theme & Expanded ViewBox -->
+  
+  <!-- 3D 'A' Emblem -->
+  <!-- Main Left Outer Facet (Deep Charcoal) -->
+  <path d="M 50 4 L 8 72 L 27 65 L 50 33 Z" fill="#1C1B18"/>
+  
+  <!-- Main Right Outer Facet (Champagne Gold Accent) -->
+  <path d="M 50 4 L 84 58 H 65 L 50 33 Z" fill="#C29F78"/>
+  
+  <!-- 3D Inner Step Bar (Gold Accent with Bevel) -->
+  <path d="M 27 65 L 49 54 V 58 L 27 69 Z" fill="#C29F78"/>
+  <path d="M 27 69 L 49 58 V 60.5 L 27 71 Z" fill="#9E7E56"/>
+  
+  <!-- Inner Apex Triangle Left Facet (Deep Charcoal) -->
+  <path d="M 50 40 L 43 49 H 50 Z" fill="#1C1B18"/>
+  
+  <!-- Inner Apex Triangle Right Facet (Champagne Gold) -->
+  <path d="M 50 40 L 57 49 H 50 Z" fill="#C29F78"/>
+
+  <!-- Logo Text from Original Image -->
+  <!-- Line 1: AVENUE (Champagne Gold) -->
+  <text 
+    x="38" 
+    y="74" 
+    fill="#C29F78" 
+    font-family="system-ui, -apple-system, sans-serif" 
+    font-size="20" 
+    font-weight="800" 
+    letter-spacing="1.5"
+  >AVENUE</text>
+
+  <!-- Line 2: CONSTRUCTIONS LIMITED (Deep Charcoal) -->
+  <text 
+    x="4" 
+    y="90" 
+    fill="#1C1B18" 
+    font-family="system-ui, -apple-system, sans-serif" 
+    font-size="9" 
+    font-weight="700" 
+    letter-spacing="0.6"
+  >CONSTRUCTIONS LIMITED</text>
+</svg>

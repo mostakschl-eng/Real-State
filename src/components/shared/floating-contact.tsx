@@ -21,7 +21,7 @@ export function FloatingContact() {
   const items = [
     {
       key: "whatsapp" as const,
-      href: "https://wa.me/97145550199",
+      href: "https://wa.me/8801714767246",
       external: true,
       label: "WhatsApp Chat",
       delay: 0.2,
@@ -37,9 +37,9 @@ export function FloatingContact() {
     },
     {
       key: "phone" as const,
-      href: "tel:+97145550199",
+      href: "tel:+8801714767246",
       external: false,
-      label: "Call Atelier",
+      label: "Call Us",
       delay: 0.3,
       icon: <Phone className="size-6 md:size-7" strokeWidth={1.6} />,
     },

@@ -55,8 +55,23 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             >
               &larr; Back to Portfolio
             </Link>
-            <span className="text-[10px] uppercase tracking-[0.25em] font-mono text-accent">
-              {property.architecturalDetails.status}
+            <span
+              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-mono text-[9px] font-bold uppercase tracking-[0.2em] shadow-xs backdrop-blur-md border ${
+                property.statusTag === "Completed"
+                  ? "bg-text-primary text-white border-white/20"
+                  : "bg-accent text-text-primary border-black/10"
+              }`}
+            >
+              <span
+                className={`size-1.5 rounded-full ${
+                  property.statusTag === "Completed"
+                    ? "bg-emerald-400 animate-pulse"
+                    : "bg-text-primary animate-ping"
+                }`}
+              />
+              {property.statusTag === "Completed"
+                ? "Completed"
+                : "Upcoming Landmark"}
             </span>
           </div>
 
@@ -365,107 +380,46 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             </div>
           </section>
 
-          {/* Photo Grid Section */}
-          <section className="flex flex-col gap-12 border-t border-black/5 pt-16">
-            <div className="flex flex-col items-center justify-center text-center">
-              <h2 className="font-serif text-4xl md:text-5xl tracking-tight leading-[1.05] text-text-primary">
-                Visual Theater
-              </h2>
-            </div>
+          {/* Photo Grid Section — Unique Images Only */}
+          {property.gallery && property.gallery.length > 0 && (
+            <section className="flex flex-col gap-12 border-t border-black/5 pt-16">
+              <div className="flex flex-col items-center justify-center text-center">
+                <span className="text-[10px] uppercase tracking-[0.25em] font-mono text-accent">
+                  Visual Portfolio
+                </span>
+                <h2 className="font-serif text-4xl md:text-5xl tracking-tight leading-[1.05] text-text-primary uppercase mt-2">
+                  Visual <span className="italic font-light text-accent">Theater</span>
+                </h2>
+              </div>
 
-            {/* 8-Image Staggered Grid - Exact Grid Style */}
-            <div className="flex justify-center max-w-6xl mx-auto pb-24 w-full px-4">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 items-start w-full">
-                {/* Column 1 */}
-                <div className="flex flex-col gap-3 md:gap-5 md:mt-24">
-                  <div className="relative w-full aspect-3/4 overflow-hidden group">
-                    <Image
-                      src={property.gallery[0]?.src ?? property.image}
-                      alt="Gallery image"
-                      fill
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                  <div className="relative w-full aspect-4/5 overflow-hidden group">
-                    <Image
-                      src={property.gallery[1]?.src ?? property.image}
-                      alt="Gallery image"
-                      fill
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                </div>
-
-                {/* Column 2 */}
-                <div className="flex flex-col gap-3 md:gap-5">
-                  <div className="relative w-full aspect-4/5 overflow-hidden group">
-                    <Image
-                      src={property.gallery[2]?.src ?? property.image}
-                      alt="Gallery image"
-                      fill
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                  <div className="relative w-full aspect-3/4 overflow-hidden group">
-                    <Image
-                      src={property.gallery[3]?.src ?? property.image}
-                      alt="Gallery image"
-                      fill
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                </div>
-
-                {/* Column 3 */}
-                <div className="flex flex-col gap-3 md:gap-5 md:mt-16">
-                  <div className="relative w-full aspect-4/5 overflow-hidden group">
-                    <Image
-                      src={property.gallery[0]?.src ?? property.image}
-                      alt="Gallery image"
-                      fill
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                  <div className="relative w-full aspect-3/4 overflow-hidden group">
-                    <Image
-                      src={property.gallery[1]?.src ?? property.image}
-                      alt="Gallery image"
-                      fill
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                </div>
-
-                {/* Column 4 */}
-                <div className="flex flex-col gap-3 md:gap-5 md:mt-32">
-                  <div className="relative w-full aspect-3/4 overflow-hidden group">
-                    <Image
-                      src={property.gallery[2]?.src ?? property.image}
-                      alt="Gallery image"
-                      fill
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                  <div className="relative w-full aspect-4/5 overflow-hidden group">
-                    <Image
-                      src={property.gallery[3]?.src ?? property.image}
-                      alt="Gallery image"
-                      fill
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
+              {/* Unique Image Grid */}
+              <div className="flex justify-center max-w-6xl mx-auto pb-16 w-full px-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+                  {property.gallery.map((img, idx) => (
+                    <div
+                      key={idx}
+                      className="double-bezel-outer aspect-4/3 rounded-2xl overflow-hidden group"
+                    >
+                      <div className="double-bezel-inner relative w-full h-full">
+                        <Image
+                          src={img.src}
+                          alt={img.alt || property.name}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out brightness-95 group-hover:brightness-100"
+                        />
+                        <div className="absolute bottom-0 inset-x-0 p-4 bg-linear-to-t from-black/70 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="text-[10px] uppercase tracking-[0.2em] font-mono">
+                            {img.caption || property.name}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
 
           {/* Prev / Next navigation */}
           <nav className="grid grid-cols-1 md:grid-cols-2 gap-6 border-t border-black/5 pt-16">

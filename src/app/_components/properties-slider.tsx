@@ -145,7 +145,7 @@ function PropertyCard({
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="w-[300px] md:w-[440px] select-none shrink-0 group"
+      className="w-75 md:w-110 select-none shrink-0 group"
     >
       {/* Double Bezel (Doppelrand) Enclosure - Dark Mode style surface */}
       <div
@@ -170,6 +170,28 @@ function PropertyCard({
                   sizes="(max-width: 768px) 300px, 440px"
                   className="object-cover brightness-95 saturate-[0.8] transition-transform duration-700 group-hover:scale-105"
                 />
+              </div>
+
+              {/* Prominent Status Badge */}
+              <div className="absolute top-4 right-4 z-20">
+                <span
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-mono text-[9px] font-bold uppercase tracking-[0.2em] shadow-md backdrop-blur-md border ${
+                    property.statusTag === "Completed"
+                      ? "bg-text-primary/90 text-white border-white/20"
+                      : "bg-accent/90 text-text-primary border-black/10"
+                  }`}
+                >
+                  <span
+                    className={`size-1.5 rounded-full ${
+                      property.statusTag === "Completed"
+                        ? "bg-emerald-400 animate-pulse"
+                        : "bg-text-primary animate-ping"
+                    }`}
+                  />
+                  {property.statusTag === "Completed"
+                    ? "Completed"
+                    : "Upcoming Landmark"}
+                </span>
               </div>
             </div>
 

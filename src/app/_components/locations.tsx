@@ -43,7 +43,10 @@ const LOCATIONS = [
 
 export function Locations() {
   return (
-    <section className="relative z-10 px-6 py-24 md:px-12 md:py-32 bg-surface/30 border-t border-b border-black/5">
+    <section
+      suppressHydrationWarning
+      className="relative z-10 px-6 py-24 md:px-12 md:py-32 bg-surface/30 border-t border-b border-black/5"
+    >
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         {/* Title Block */}
         <div className="max-w-2xl flex flex-col gap-4">
@@ -55,7 +58,7 @@ export function Locations() {
             <span className="italic font-light text-accent">Footprint</span>
           </h2>
           <p className="text-xs md:text-sm leading-relaxed text-text-secondary font-light">
-            We focus exclusively on Dhaka's most prestigious and secure residential areas, 
+            We focus exclusively on Dhaka&apos;s most prestigious and secure residential areas, 
             carefully selecting plots that offer natural cross-ventilation, scenic views, and structural durability.
           </p>
         </div>

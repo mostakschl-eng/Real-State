@@ -25,7 +25,10 @@ const JV_POINTS = [
 
 export function JointVenture() {
   return (
-    <section className="relative z-10 px-6 py-24 md:px-12 md:py-32 bg-text-primary text-canvas">
+    <section
+      suppressHydrationWarning
+      className="relative z-10 px-6 py-24 md:px-12 md:py-32 bg-text-primary text-canvas"
+    >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         {/* Left Column: Call to Action */}
         <div className="lg:col-span-5 flex flex-col gap-8">

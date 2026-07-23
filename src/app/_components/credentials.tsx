@@ -55,7 +55,10 @@ const CREDENTIALS = [
 
 export function Credentials() {
   return (
-    <section className="relative z-10 px-6 py-24 md:px-12 md:py-32 bg-canvas">
+    <section
+      suppressHydrationWarning
+      className="relative z-10 px-6 py-24 md:px-12 md:py-32 bg-canvas"
+    >
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         {/* Title Block */}
         <div className="max-w-2xl flex flex-col gap-4">
@@ -87,7 +90,7 @@ export function Credentials() {
               }}
               className="double-bezel-outer h-full"
             >
-              <div className="double-bezel-inner p-6 md:p-8 flex flex-col justify-between h-full bg-surface/30 min-h-[340px]">
+              <div className="double-bezel-inner p-6 md:p-8 flex flex-col justify-between h-full bg-surface/30 min-h-85">
                 <div className="flex flex-col gap-5">
                   <span className="text-[9px] uppercase tracking-[0.22em] font-mono text-accent">
                     {item.category}

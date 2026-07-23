@@ -90,6 +90,28 @@ export default function ProjectsPage() {
                           />
                         </motion.div>
 
+                        {/* Prominent Status Badge */}
+                        <div className="absolute top-4 right-4 z-20">
+                          <span
+                            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-mono text-[9px] font-bold uppercase tracking-[0.2em] shadow-md backdrop-blur-md border ${
+                              property.statusTag === "Completed"
+                                ? "bg-text-primary/90 text-white border-white/20"
+                                : "bg-accent/90 text-text-primary border-black/10"
+                            }`}
+                          >
+                            <span
+                              className={`size-1.5 rounded-full ${
+                                property.statusTag === "Completed"
+                                  ? "bg-emerald-400 animate-pulse"
+                                  : "bg-text-primary animate-ping"
+                              }`}
+                            />
+                            {property.statusTag === "Completed"
+                              ? "Completed"
+                              : "Upcoming Landmark"}
+                          </span>
+                        </div>
+
                         {/* Reveal Curtain Card */}
                         <motion.div
                           initial={{ opacity: 0 }}

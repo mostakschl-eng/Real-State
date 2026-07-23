@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { SERVICES } from "@/lib/services-constant";
 
 const SERVICE_DELIVERABLES: string[][] = [
@@ -19,11 +19,11 @@ const SERVICE_DELIVERABLES: string[][] = [
 
 export function Services() {
   const [activeTab, setActiveTab] = useState(0);
-  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section
       id="services"
+      suppressHydrationWarning
       className="relative w-full py-24 md:py-32 px-6 md:px-12 bg-surface z-10 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

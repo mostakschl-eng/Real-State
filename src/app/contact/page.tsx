@@ -88,7 +88,7 @@ export default function ContactPage() {
 
             {/* Embedded Form Column (col-span-8) */}
             <div className="lg:col-span-8 w-full">
-              <ContactForm />
+              <ContactForm embedded />
             </div>
           </div>
 
@@ -114,18 +114,18 @@ export default function ContactPage() {
             <div className="flex flex-col gap-4 md:items-end">
               <div className="flex flex-col gap-1 md:items-end">
                 <span className="text-[9px] uppercase tracking-[0.22em] text-canvas/50">
-                  Direct Advisory
+                  Direct Hotline
                 </span>
                 <span className="font-mono text-xl text-canvas">
-                  +971 4 555 0199
+                  +880 1714 767 246
                 </span>
               </div>
               <div className="flex flex-col gap-1 md:items-end">
                 <span className="text-[9px] uppercase tracking-[0.22em] text-canvas/50">
-                  Atelier Email
+                  Corporate Email
                 </span>
                 <span className="font-mono text-sm text-canvas/90">
-                  inquire@js-estate.com
+                  avenue902@gmail.com
                 </span>
               </div>
             </div>
